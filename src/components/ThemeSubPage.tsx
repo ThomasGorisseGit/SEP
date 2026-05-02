@@ -10,11 +10,18 @@ type ThemeSubPageProps = {
   subTendancy: SubTendancy[]
 }
 
-const glassCard = {
-  background: "rgba(255,255,255,0.05)",
-  borderColor: "rgba(255,255,255,0.10)",
-  backdropFilter: "blur(12px)",
+const whiteCard = {
+  background: "#ffffff",
+  borderColor: "#ffffff",
 }
+
+const purpleCard = {
+  background: "#AA96F8",
+  borderColor: "#AA96F8",
+}
+
+const darkText = "rgba(21,21,21,0.55)"
+const darkTextStrong = "#151515"
 
 export default function ThemeSubPage({ accent, background, subTendancy }: ThemeSubPageProps) {
   return (
@@ -34,126 +41,113 @@ export default function ThemeSubPage({ accent, background, subTendancy }: ThemeS
       </div>
       <Tendancy index={subTendancy[0].index} title={subTendancy[0].title} description={subTendancy[0].description} accent={accent} />
 
-      <div className="relative mx-auto grid min-h-screen max-w-[90%] items-stretch gap-5 px-6 py-12 md:grid-cols-[5fr_7fr] md:px-12 lg:px-20">
+      <div className="relative mx-auto grid min-h-screen max-w-[90%] items-stretch gap-5 px-6 py-12 md:grid-cols-[5fr_4fr] md:px-12 lg:px-20">
         {/* Colonne gauche : 2 petits + 1 moyen */}
         <div className="flex flex-col gap-5">
-          <div className="grid grid-cols-2 gap-5">
-            {/* Petit bloc 1 */}
+          <div className="grid grid-cols-2 gap-6">
+            {/* Petit bloc 1 — blanc */}
             <div
-              className="flex flex-col justify-between rounded-3xl border p-6"
-              style={glassCard}
+              className="aspect-square flex flex-col justify-between rounded-3xl border p-7"
+              style={whiteCard}
             >
-              <span
-                className="text-xs font-semibold uppercase tracking-[0.3em]"
-                style={{ color: accent }}
-              >
-                Sous-tendance 01
+              <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: darkText }}>
+                Chiffre clé
               </span>
-              <div>
-                <h3 className="big-text mt-4 text-xl leading-snug text-white">
-                  Phishing sans faute
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-white/55">
-                  L'IA rédige mieux qu'un humain&nbsp;: orthographe parfaite, ton calibré, contexte personnel intégré.
+              <div className="flex flex-col items-center text-center">
+                <span className="big-text text-7xl leading-none" style={{ color: darkTextStrong }}>
+                  54%
+                </span>
+                <p className="mt-4 text-base leading-6" style={{ color: darkText }}>
+                  taux de clic avec du phishing IA
+                </p>
+                <p className="mt-3 text-sm font-semibold uppercase tracking-widest" style={{ color: darkText }}>
+                  versus 12% sans IA
                 </p>
               </div>
+              <div />
             </div>
 
-            {/* Petit bloc 2 */}
+            {/* Petit bloc 2 — violet */}
             <div
-              className="flex flex-col justify-between rounded-3xl border p-6"
-              style={glassCard}
+              className="aspect-square flex flex-col justify-between rounded-3xl border p-7"
+              style={purpleCard}
             >
-              <span
-                className="text-xs font-semibold uppercase tracking-[0.3em]"
-                style={{ color: accent }}
-              >
-                Sous-tendance 02
+              <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: darkText }}>
+                Chiffre clé
               </span>
-              <div>
-                <h3 className="big-text mt-4 text-xl leading-snug text-white">
-                  Clone vocal & deepfake
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-white/55">
-                  Imiter la voix d'un DG en 30 secondes. Le vishing entre dans une nouvelle ère.
+              <div className="flex flex-col items-center text-center">
+                <span className="big-text text-7xl leading-none" style={{ color: darkTextStrong }}>
+                  ×4.5
+                </span>
+                <p className="mt-4 text-base leading-6" style={{ color: darkText }}>
+                  la multiplication de l'efficacité des phishing grâce à l'IA
                 </p>
               </div>
+              <div />
             </div>
           </div>
 
-          {/* Bloc moyen */}
-          <div
-            className="flex flex-1 flex-col justify-between rounded-3xl border p-8"
-            style={glassCard}
-          >
-            <span
-              className="text-xs font-semibold uppercase tracking-[0.3em]"
-              style={{ color: accent }}
+          {/* 2 petits blocs supplémentaires */}
+          <div className="grid grid-cols-2 gap-6">
+            {/* Petit bloc 3 — violet */}
+            <div
+              className="aspect-square flex flex-col justify-between rounded-3xl border p-7"
+              style={purpleCard}
             >
-              Sous-tendance 03
-            </span>
-            <div className="flex flex-col gap-4">
-              <h3 className="big-text text-2xl leading-snug text-white">
-                Attaques multi-canal
-              </h3>
-              <p className="text-base leading-7 text-white/60">
-                Email, SMS, WhatsApp, appel vocal — coordonnés en quelques minutes par des agents IA. L'attaque arrive de partout à la fois, saturant la vigilance de la cible avant qu'elle puisse réagir.
+              <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: darkText }}>
+                Chiffre clé
+              </span>
+              <div className="flex flex-col items-center text-center">
+                <span className="big-text text-7xl leading-none" style={{ color: darkTextStrong }}>
+                  80%
+                </span>
+                <p className="mt-4 text-base leading-6" style={{ color: darkText }}>
+                  des campagnes de phishing utilisent déjà l'IA
+                </p>
+              </div>
+              <p className="text-sm uppercase tracking-widest text-center" style={{ color: darkText }}>
+                ENISA, 2025
               </p>
-              <div className="h-px w-16" style={{ backgroundColor: accent, opacity: 0.6 }} />
             </div>
-            <p className="text-xs font-medium uppercase tracking-widest text-white/30">
-              Convergence des vecteurs d'attaque
-            </p>
+
+            {/* Petit bloc 4 — blanc */}
+            <div
+              className="aspect-square flex flex-col justify-between rounded-3xl border p-7"
+              style={whiteCard}
+            >
+              <div />
+              <blockquote className="text-xl leading-8 italic font-bold text-center" style={{ color: darkTextStrong }}>
+                "AI is not just accelerating cyberattacks, it's upgrading them"
+              </blockquote>
+              <p className="text-sm text-center" style={{ color: darkText }}>
+                Microsoft Security Blog, avril 2026
+              </p>
+            </div>
           </div>
+
         </div>
 
-        {/* Gros bloc droite */}
         <div
-          className="flex flex-col justify-between rounded-3xl border p-10"
-          style={{
-            background: `linear-gradient(145deg, ${accent}18 0%, rgba(255,255,255,0.03) 60%)`,
-            borderColor: `${accent}44`,
-            backdropFilter: "blur(16px)",
-          }}
+          className="relative flex flex-col justify-center gap-16 overflow-hidden rounded-3xl border p-10 "
         >
-          <div>
-            <span
-              className="text-xs font-semibold uppercase tracking-[0.3em]"
-              style={{ color: accent }}
-            >
-              Tendance 01 — Signal fort
-            </span>
-            <h2 className="big-text mt-6 text-4xl leading-tight text-white md:text-5xl">
-              Ce que ça change vraiment
-            </h2>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            <p className="text-xl leading-9 text-white/70">
-              Les signaux d'alerte classiques — fautes d'orthographe, formulations étranges, adresses suspectes — ont disparu. Le phishing d'aujourd'hui est irréprochable. On ne peut plus former les collaborateurs à <em>repérer</em>, on doit les former à <em>douter</em>.
+          <div
+            className="pointer-events-none absolute -bottom-16 -right-16 h-80 w-80 z-0 rounded-full blur-[100px]"
+            style={{ backgroundColor: "#AA96F8", opacity: 1 }}
+          />
+          <div
+            className="pointer-events-none absolute -top-40 -left-20 h-80 w-80 rounded-full blur-[100px]"
+            style={{ backgroundColor: "#AA96F8", opacity: 1 }}
+          />
+          <h2 className="big-text text-4xl leading-tight md:text-5xl " style={{ color: 'white' }}>
+            Ce que l'on comprend
+          </h2>
+          <div className="flex flex-col gap-4">
+            <p className="text-xl leading-9" style={{ color: 'white' }}>
+              L'IA réduit la préparation d'une attaque de plusieurs jours à quelques minutes (ESET).
             </p>
-
-            <div
-              className="rounded-2xl border p-6"
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                borderColor: `${accent}30`,
-              }}
-            >
-              <p className="text-sm font-semibold uppercase tracking-widest text-white/35">
-                Implication clé
-              </p>
-              <p className="mt-3 text-lg leading-8 text-white/80">
-                La formation ne peut plus reposer sur la reconnaissance de patterns visuels. Elle doit ancrer une posture réflexive : vérifier avant d'agir, quel que soit le niveau de confiance apparent.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-end justify-between">
-            <div className="h-px flex-1 opacity-20" style={{ backgroundColor: accent }} />
-            <span className="ml-6 text-xs font-semibold uppercase tracking-[0.3em] text-white/30">
-              L'ère du phishing invisible
-            </span>
+            <p className="text-xl leading-9" style={{ color: 'white' }}>
+              Les modèles LLM commerciaux et des modèles détournés (WormGPT, FraudGPT) automatisent l'ingénierie sociale (ENISA).
+            </p>
           </div>
         </div>
       </div>

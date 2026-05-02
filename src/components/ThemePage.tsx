@@ -16,24 +16,8 @@ export default function ThemePage({
   illustrationSide = "right",
 }: ThemePageProps) {
   const illustration = (
-    <div
-      className="flex min-h-[320px] w-full items-center justify-center rounded-[32px] border p-6 shadow-2xl md:min-h-[520px]"
-      style={{
-        background: "rgba(255,255,255,0.08)",
-        borderColor: "rgba(255,255,255,0.14)",
-        backdropFilter: "blur(12px)",
-      }}
-    >
-      <div className="text-center">
-        <div
-          className="mx-auto mb-4 h-16 w-16 rounded-2xl border"
-          style={{ borderColor: accent, backgroundColor: "rgba(255,255,255,0.04)" }}
-        />
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/45">
-          Illustration à insérer
-        </p>
-      </div>
-    </div>
+
+    <img src="src/assets/characters/1.svg" alt="" />
   )
 
   const content = (
