@@ -24,7 +24,7 @@ export default function ThemeSubPage({ accent, background, subTendancy }: ThemeS
     >
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute -top-16 right-0 h-[500px] w-[500px] rounded-full blur-[140px]"
+          className="absolute -top-16 right-0 h-[200px] w-[200px] rounded-full blur-[140px]"
           style={{ backgroundColor: accent, opacity: 0.09 }}
         />
         <div

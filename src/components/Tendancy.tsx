@@ -1,4 +1,3 @@
-import { color } from "motion"
 
 type SousTendance = {
   index: string
