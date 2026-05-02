@@ -37,8 +37,8 @@ const overviewCards = [
   },
   {
     index: "04",
-    title: "La réglementation",
-    subtitle:"Le moteur de transformation des programmes",
+    title: "Quand la réglementation",
+    subtitle:"Devient le moteur de transformation des programmes",
     desc: "NIS2, AI Act, CRA : pour la première fois, la sensibilisation est une obligation légale avec responsabilité personnelle des dirigeants. Un levier d'émancipation inédit.",
     count: "4 sous-tendances",
     accent: "#ffa7dcff",
@@ -111,7 +111,7 @@ export default function Landing() {
             <AnimatedLogo />
             <div>
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-white/45">Léa jiner</p>
-              <h1 className="text-5xl font-extrabold leading-tight text-white md:text-7xl">
+              <h1 className="text-5xl leading-tight text-white md:text-7xl big-text">
                 Cahier de tendances
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-white/65 md:text-2xl">
@@ -136,15 +136,15 @@ export default function Landing() {
                 </div>
                 <div className="flex flex-col gap-10 h-[80%]">
 
-                <div className="text-3xl font-bold leading-snug">
+                <div className="text-2xl font-light leading-snug big-text">
                 {card.title}
                 </div>
-                <div className="text-xl  font leading-snug">
+                <div className="text-base font leading-snug">
                   {card.subtitle}
                 </div>
-                <div className="mt-3 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: "rgba(21,21,21,0.78)" }}>
-                  <span>Découvrir les {card.count}</span>
                 </div>
+                <div className="mt-3 flex items-center w-full justify-center text-sm font-semibold uppercase tracking-normal" style={{ color: "rgba(21,21,21,0.78)" }}>
+                  Découvrir {card.count}
                 </div>
               </div>
             ))}

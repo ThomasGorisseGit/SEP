@@ -41,7 +41,7 @@ export default function ThemePage({
       <div className="text-xs font-semibold uppercase tracking-[0.35em]" style={{ color: accent }}>
         {index}
       </div>
-      <h2 className="text-4xl font-extrabold leading-tight text-white md:text-6xl">
+      <h2 className="text-4xl big-text leading-tight text-white md:text-5xl">
         {title}
       </h2>
       <p className="text-lg leading-8 text-white/70 md:text-2xl">
