@@ -1,7 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.adobe.com/fonts/early-sans-variable');
-@import url('https://fonts.adobe.com/fonts/climate-crisis-variable');
-
 @theme {
     --primary:#151515;  
     --color-graphite: #2B2B2B;
@@ -11,10 +9,11 @@
     --color-mauve: #DDB7F0;
     --color-lemon: #E2F163;
 }
-body, * {
-  font-family: "climate-crisis-variable", cursive;
-    font-weight: 400;
-  font-style: normal;
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
 }
 .animated-logo {
 	position: relative;
@@ -107,3 +106,7 @@ body, * {
 	100% { transform: translate(0, 0) scale(1); opacity: 1; }
 }
 
+.big-text{
+  font-family: "Dela Gothic One", sans-serif;
+
+}

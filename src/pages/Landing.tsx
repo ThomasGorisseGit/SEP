@@ -13,35 +13,40 @@ type PageItem = {
 const overviewCards = [
   {
     index: "01",
-    title: 'L\'ère du phishing "invisible" : quand l\'IA efface les signaux d\'alerte',
+    title: 'L\'ère du phishing "invisible" ',
+    subtitle:"Quand l'IA efface les signaux d'alerte",
     desc: "L'IA a supprimé tous les indices classiques de détection. Le phishing est désormais parfait, personnalisé, multicanal. On ne forme plus à repérer — on forme à douter.",
     count: "3 sous-tendances",
     accent: "#7774FF",
   },
   {
     index: "02",
-    title: "De la conformité à la culture cyber : vers une sensibilisation qui change vraiment les comportements",
+    title: "De la conformité à la culture cyber",
+    subtitle:"Vers une sensibilisation qui change vraiment les comportements",
     desc: "La case à cocher est morte. L'enjeu n'est plus de former pour être conforme — c'est de construire une culture qui ancre des réflexes durables, par la psychologie positive, la gamification et le micro-learning.",
     count: "4 sous-tendances",
     accent: "#aa96f8ff",
   },
   {
     index: "03",
-    title: "AI for Cyber, Cyber for AI : l'IA, menace et accélérateur pour toutes les équipes cyber",
+    title: "AI for Cyber, Cyber for AI ",
+    subtitle:"L'IA, menace et accélérateur pour toutes les équipes cyber",
     desc: "L'IA est à la fois l'arme la plus puissante des attaquants et le multiplicateur de force le plus décisif pour les défenseurs. Les deux faces sont indissociables — Mythos en est l'illustration la plus récente et la plus saisissante.",
     count: "3 sous-tendances",
     accent: "#ddb7f0ff",
   },
   {
     index: "04",
-    title: "La réglementation devient le moteur de transformation des programmes",
+    title: "La réglementation",
+    subtitle:"Le moteur de transformation des programmes",
     desc: "NIS2, AI Act, CRA : pour la première fois, la sensibilisation est une obligation légale avec responsabilité personnelle des dirigeants. Un levier d'émancipation inédit.",
     count: "4 sous-tendances",
     accent: "#ffa7dcff",
   },
   {
     index: "05",
-    title: "La cyber sort de l'entreprise : l'individu comme nouvelle surface d'attaque",
+    title: "La cyber sort de l'entreprise",
+    subtitle:"L'individu comme nouvelle surface d'attaque",
     desc: "Les frontières pro/perso ont disparu. Désinformation, manipulation algorithmique, canaux privés : la cyber devient une compétence de vie, pas seulement professionnelle.",
     count: "3 sous-tendances",
     accent: "#e2f163ff",
@@ -101,25 +106,25 @@ export default function Landing() {
           <div className="absolute bottom-10 left-1/3 h-64 w-64 rounded-full bg-[#E2F163] opacity-10 blur-[110px]" />
         </div>
 
-        <div className="relative mx-auto flex min-h-screen max-w-9xl flex-col justify-center gap-10 px-6 py-20 md:px-12 lg:px-20">
+        <div className="relative mx-auto flex min-h-screen max-w-[90%] flex-col justify-center gap-24 px-6 py-20 md:px-12 lg:px-20">
           <div className="flex items-start gap-8 max-w-3xl">
             <AnimatedLogo />
             <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-white/45">Cahier de tendances</p>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-white/45">Léa jiner</p>
               <h1 className="text-5xl font-extrabold leading-tight text-white md:text-7xl">
-                Une page par thématique
+                Cahier de tendances
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-white/65 md:text-2xl">
-                Chaque section reprend un thème, un grand titre, un sous-titre plus petit, une couleur dédiée et un espace réservé pour l'illustration.
+              Ce cahier tire des tendances d'une synthèse de veille comprenant environ 70 articles/site web et 5 rapports sectoriels
               </p>
             </div>
           </div>
 
-          <div className="grid gap-4 text-sm text-white/45 md:grid-cols-5">
+          <div className="grid gap-4 text-sm text-white/45 md:grid-cols-5 ">
             {overviewCards.map((card) => (
               <div
                 key={card.index}
-                className="rounded-2xl border px-4 py-4 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5"
+                className="rounded-2xl h-96 border px-4 py-4 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5 flex flex-col justify-between "
                 style={{
                   backgroundColor: card.accent,
                   borderColor: card.accent,
@@ -127,15 +132,19 @@ export default function Landing() {
                 }}
               >
                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: "rgba(21,21,21,0.7)" }}>
-                  {card.index}
+                {card.index}
                 </div>
-                <div className="text-base font-semibold leading-snug">
-                  {card.title}
+                <div className="flex flex-col gap-10 h-[80%]">
+
+                <div className="text-3xl font-bold leading-snug">
+                {card.title}
                 </div>
-                <p className="mt-2 text-sm leading-6" style={{ color: "rgba(21,21,21,0.72)" }}>{card.desc}</p>
+                <div className="text-xl  font leading-snug">
+                  {card.subtitle}
+                </div>
                 <div className="mt-3 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: "rgba(21,21,21,0.78)" }}>
-                  <span>{card.count}</span>
-                  <span>Cliquer pour explorer →</span>
+                  <span>Découvrir les {card.count}</span>
+                </div>
                 </div>
               </div>
             ))}
