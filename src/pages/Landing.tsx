@@ -1,6 +1,8 @@
 import AnimatedLogo from "@/components/AnimatedLogo"
+import Tendancy from "@/components/Tendancy"
 import ThemePage from "@/components/ThemePage"
 import ThemeSubPage from "@/components/ThemeSubPage"
+import ThemeSubPage12 from "@/components/ThemeSubPage12"
 
 type PageItem = {
     index: string
@@ -80,9 +82,9 @@ const pages: PageItem[] = [
 
         },
         {
-            index: "01",
-            title: "",
-            description: ""
+            index: "1.2",
+            title: "La diversification des canaux : email, SMS, voix, image",
+            description: "Le phishing ne passe plus uniquement par l'email. Smishing, vishing, quishing (QR codes), injections de calendrier, deepfakes audio/vidéo : chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants."
 
         },
         {
@@ -214,24 +216,29 @@ export default function Landing() {
                 </div>
 
                 <div className="relative mx-auto flex min-h-screen max-w-[90%] flex-col justify-center gap-24 px-6 py-20 md:px-12 lg:px-20">
-                    <div className="flex items-start gap-8 max-w-3xl">
-                        <AnimatedLogo />
+
+                    <div className="flex items-start gap-35 w-full">
+                        <div className="flex items-start gap-8 w-full">
+                            <AnimatedLogo />
+                            <div>
+                                <p className="  w-full mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-white/45">Léa jiner</p>
+                                <h1 className="text-5xl leading-tight text-white md:text-7xl big-text">
+                                    Cahier de tendances
+                                </h1>
+                                <p className="mt-5 max-w-2xl text-lg leading-8 text-white/65 md:text-2xl">
+                                    Ce cahier tire des tendances d'une synthèse de veille comprenant environ 70 articles/site web et 5 rapports sectoriels
+                                </p>
+                            </div>
+                        </div>
                         <div>
-                            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-white/45">Léa jiner</p>
-                            <h1 className="text-5xl leading-tight text-white md:text-7xl big-text">
-                                Cahier de tendances
-                            </h1>
-                            <p className="mt-5 max-w-2xl text-lg leading-8 text-white/65 md:text-2xl">
-                                Ce cahier tire des tendances d'une synthèse de veille comprenant environ 70 articles/site web et 5 rapports sectoriels
-                            </p>
+                            <img src="src/assets/characters/2.svg" className="relative mx-auto grid max-w-lg " />
                         </div>
                     </div>
-
                     <div className="grid gap-4 text-sm text-white/45 md:grid-cols-5 ">
                         {overviewCards.map((card) => (
                             <div
                                 key={card.index}
-                                className="rounded-2xl h-96 border px-4 py-4 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5 flex flex-col justify-between "
+                                className="rounded-2xl h-82 border px-4 py-4 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5 flex flex-col justify-between "
                                 style={{
                                     backgroundColor: card.accent,
                                     borderColor: card.accent,
@@ -263,7 +270,10 @@ export default function Landing() {
                 <div key={page.index}>
                     <ThemePage {...page} />
                     {page.index === "01" && (
-                        <ThemeSubPage index={page.index} title={page.title} subtitle={page.subtitle} accent={page.accent} background={page.background} subTendancy={page.subTendancy} />
+                        <>
+                            <ThemeSubPage index={page.index} title={page.title} subtitle={page.subtitle} accent={page.accent} background={page.background} subTendancy={page.subTendancy} />
+                            <ThemeSubPage12 accent={page.accent} background={page.background} />
+                        </>
                     )}
                 </div>
             ))}

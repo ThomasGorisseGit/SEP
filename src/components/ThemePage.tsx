@@ -1,3 +1,4 @@
+
 type ThemePageProps = {
   index: string
   title: string
@@ -6,7 +7,6 @@ type ThemePageProps = {
   background: string
   illustrationSide?: "left" | "right"
 }
-
 export default function ThemePage({
   index,
   title,
@@ -16,8 +16,7 @@ export default function ThemePage({
   illustrationSide = "right",
 }: ThemePageProps) {
   const illustration = (
-
-    <img src="src/assets/characters/1.svg" alt="" />
+    <img src={`/src/assets/characters/1.svg`} alt="" />
   )
 
   const content = (

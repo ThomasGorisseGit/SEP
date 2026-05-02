@@ -41,6 +41,7 @@ export default function ThemeSubPage({ accent, background, subTendancy }: ThemeS
       </div>
       <Tendancy index={subTendancy[0].index} title={subTendancy[0].title} description={subTendancy[0].description} accent={accent} />
 
+
       <div className="relative mx-auto grid min-h-screen max-w-[90%] items-stretch gap-5 px-6 py-12 md:grid-cols-[5fr_4fr] md:px-12 lg:px-20">
         {/* Colonne gauche : 2 petits + 1 moyen */}
         <div className="flex flex-col gap-5">
@@ -54,8 +55,8 @@ export default function ThemeSubPage({ accent, background, subTendancy }: ThemeS
                 Chiffre clé
               </span>
               <div className="flex flex-col items-center text-center">
-                <span className="big-text text-7xl leading-none" style={{ color: darkTextStrong }}>
-                  54%
+                <span className="big-text text-7xl leading-none p-4" style={{ color: darkTextStrong }}>
+                  54 %
                 </span>
                 <p className="mt-4 text-base leading-6" style={{ color: darkText }}>
                   taux de clic avec du phishing IA
@@ -76,8 +77,8 @@ export default function ThemeSubPage({ accent, background, subTendancy }: ThemeS
                 Chiffre clé
               </span>
               <div className="flex flex-col items-center text-center">
-                <span className="big-text text-7xl leading-none" style={{ color: darkTextStrong }}>
-                  ×4.5
+                <span className="big-text text-7xl leading-none p-4" style={{ color: darkTextStrong }}>
+                  × 4.5
                 </span>
                 <p className="mt-4 text-base leading-6" style={{ color: darkText }}>
                   la multiplication de l'efficacité des phishing grâce à l'IA
@@ -98,8 +99,8 @@ export default function ThemeSubPage({ accent, background, subTendancy }: ThemeS
                 Chiffre clé
               </span>
               <div className="flex flex-col items-center text-center">
-                <span className="big-text text-7xl leading-none" style={{ color: darkTextStrong }}>
-                  80%
+                <span className="big-text text-7xl leading-none p-4" style={{ color: darkTextStrong }}>
+                  80 %
                 </span>
                 <p className="mt-4 text-base leading-6" style={{ color: darkText }}>
                   des campagnes de phishing utilisent déjà l'IA
@@ -128,7 +129,7 @@ export default function ThemeSubPage({ accent, background, subTendancy }: ThemeS
         </div>
 
         <div
-          className="relative flex flex-col justify-center gap-16 overflow-hidden rounded-3xl border p-10 "
+          className="relative flex flex-col justify-center gap-16 overflow-hidden rounded-3xl  p-10 "
         >
           <div
             className="pointer-events-none absolute -bottom-16 -right-16 h-80 w-80 z-0 rounded-full blur-[100px]"
@@ -151,6 +152,8 @@ export default function ThemeSubPage({ accent, background, subTendancy }: ThemeS
           </div>
         </div>
       </div>
+      <Tendancy index={subTendancy[1].index} title={subTendancy[1].title} description={subTendancy[1].description} accent={accent} />
     </section>
+
   )
 }
