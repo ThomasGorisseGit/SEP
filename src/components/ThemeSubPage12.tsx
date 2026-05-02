@@ -30,8 +30,8 @@ const bands = [
   },
   {
     bg: "#E2F163",
-    label: "",
-    position: "center" as const,
+    label: " ",
+    position: "top" as const,
     content: (
       <blockquote className="text-base leading-7 italic font-bold text-center px-2" style={{ color: "#151515" }}>
         "Traditional red flags are disappearing in an era of pixel-perfect deception."
@@ -61,15 +61,13 @@ export default function ThemeSubPage12({ accent, background }: ThemeSubPage12Pro
           {bands.map((band, i) => (
             <div
               key={i}
-              className="flex flex-1 flex-col items-center px-5"
+              className="flex flex-1 flex-col items-center py-14 px-5"
               style={{
                 backgroundColor: band.bg,
                 justifyContent:
                   band.position === "top" ? "flex-start"
-                  : band.position === "bottom" ? "flex-end"
-                  : "center",
-              paddingTop: band.position === "top" ? "6rem" : band.position === "bottom" ? "3.5rem" : "3.5rem",
-              paddingBottom: band.position === "bottom" ? "6rem" : band.position === "top" ? "3.5rem" : "3.5rem",
+                    : band.position === "bottom" ? "flex-end"
+                      : "center",
                 gap: "1.25rem",
               }}
             >
@@ -93,7 +91,7 @@ export default function ThemeSubPage12({ accent, background }: ThemeSubPage12Pro
               Sous-tendance 1.2
             </span>
             <h2 className="big-text mt-4 text-4xl leading-tight text-white md:text-5xl">
-              La diversification des canaux : email, SMS, voix, image
+              La diversification des canaux&nbsp;: email, SMS, voix, image
             </h2>
             <p className="mt-5 text-lg leading-8 text-white/60">
               Le phishing ne passe plus uniquement par l'email. Smishing, vishing, quishing (QR codes), injections de calendrier, deepfakes audio/vidéo : chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants.
