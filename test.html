@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Mentale — Tendances Cyber HCC</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Syne:wght@400;600;800&display=swap');
+
+:root {
+  --bg: #f5f2eb;
+  --ink: #1a1812;
+  --muted: #7a7060;
+  --border: rgba(26,24,18,0.12);
+  --t1: #c0392b;
+  --t2: #2e86ab;
+  --t3: #e67e22;
+  --t4: #27ae60;
+  --t5: #8e44ad;
+  --t1-light: rgba(192,57,43,0.08);
+  --t2-light: rgba(46,134,171,0.08);
+  --t3-light: rgba(230,126,34,0.08);
+  --t4-light: rgba(39,174,96,0.08);
+  --t5-light: rgba(142,68,173,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 300;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(192,57,43,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(46,134,171,0.04) 0%, transparent 50%);
+}
+
+/* HEADER */
+.header {
+  padding: 48px 40px 32px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-left .eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.header-left h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.header-left h1 em {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.header-right {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.6;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  gap: 0;
+  padding: 0 40px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.nav-btn {
+  padding: 14px 20px;
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover { color: var(--ink); }
+.nav-btn.active { color: var(--ink); }
+.nav-btn[data-t="1"].active { border-bottom-color: var(--t1); color: var(--t1); }
+.nav-btn[data-t="2"].active { border-bottom-color: var(--t2); color: var(--t2); }
+.nav-btn[data-t="3"].active { border-bottom-color: var(--t3); color: var(--t3); }
+.nav-btn[data-t="4"].active { border-bottom-color: var(--t4); color: var(--t4); }
+.nav-btn[data-t="5"].active { border-bottom-color: var(--t5); color: var(--t5); }
+.nav::-webkit-scrollbar { height: 0; }
+
+/* MAIN */
+main { padding: 40px; }
+
+.trend-panel { display: none; animation: fadeIn 0.3s ease; }
+.trend-panel.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* TREND HEADER */
+.trend-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.trend-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 96px;
+  line-height: 0.85;
+  font-weight: 700;
+  opacity: 0.08;
+  color: var(--t-color);
+  user-select: none;
+  letter-spacing: -4px;
+}
+
+.trend-meta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 2.5vw, 34px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.trend-meta h2 strong {
+  font-weight: 700;
+  color: var(--t-color);
+}
+
+.trend-meta .desc {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 680px;
+  line-height: 1.7;
+}
+
+.trend-meta .sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.source-tag {
+  font-size: 9px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--t-color);
+  color: var(--t-color);
+  opacity: 0.6;
+}
+
+/* SUB-TRENDS GRID */
+.sub-trends {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+.sub-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.sub-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--t-color);
+}
+
+.sub-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--t-light);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.sub-card:hover::after { opacity: 1; }
+
+.sub-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--t-color);
+  margin-bottom: 8px;
+}
+
+.sub-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.sub-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stat {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 10px 14px;
+  flex: 1;
+  min-width: 110px;
+}
+
+.stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--t-color);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.stat-lbl {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* QUOTE */
+.quote {
+  border-left: 2px solid var(--t-color);
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  background: var(--bg);
+  border-radius: 0 6px 6px 0;
+}
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.quote-src {
+  font-size: 10px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--t-color);
+  opacity: 0.7;
+}
+
+/* FACTS */
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fact {
+  font-size: 11px;
+  color: var(--ink);
+  line-height: 1.5;
+  padding-left: 14px;
+  position: relative;
+}
+
+.fact::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--t-color);
+  font-size: 10px;
+}
+
+/* OVERVIEW (all trends) */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.overview-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.overview-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.overview-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+
+.overview-card[data-t="1"]::before { background: var(--t1); }
+.overview-card[data-t="2"]::before { background: var(--t2); }
+.overview-card[data-t="3"]::before { background: var(--t3); }
+.overview-card[data-t="4"]::before { background: var(--t4); }
+.overview-card[data-t="5"]::before { background: var(--t5); }
+
+.ov-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+  opacity: 0.1;
+}
+.overview-card[data-t="1"] .ov-num { color: var(--t1); }
+.overview-card[data-t="2"] .ov-num { color: var(--t2); }
+.overview-card[data-t="3"] .ov-num { color: var(--t3); }
+.overview-card[data-t="4"] .ov-num { color: var(--t4); }
+.overview-card[data-t="5"] .ov-num { color: var(--t5); }
+
+.ov-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.ov-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.ov-sub-count {
+  font-size: 10px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.overview-card[data-t="1"] .ov-sub-count { color: var(--t1); }
+.overview-card[data-t="2"] .ov-sub-count { color: var(--t2); }
+.overview-card[data-t="3"] .ov-sub-count { color: var(--t3); }
+.overview-card[data-t="4"] .ov-sub-count { color: var(--t4); }
+.overview-card[data-t="5"] .ov-sub-count { color: var(--t5); }
+
+.ov-hint {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 8px;
+  font-family: 'Syne', sans-serif;
+}
+
+/* SECTION LABEL */
+.section-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 32px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+@media (max-width: 640px) {
+  .header, .nav, main { padding-left: 20px; padding-right: 20px; }
+  .trend-header { grid-template-columns: 1fr; }
+  .trend-num { font-size: 60px; }
+  .sub-trends { grid-template-columns: 1fr; }
+  .overview-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="eyebrow">Thales HCC · Cahier de tendances 2025–2026</div>
+    <h1>Carte des tendances<br><em>& sous-tendances</em></h1>
+  </div>
+  <div class="header-right">
+    70 articles · 5 rapports sectoriels<br>
+    SANS · DBIR · SoSafe · Fortinet · ENISA
+  </div>
+</div>
+
+<nav class="nav">
+  <button class="nav-btn active" data-t="0" onclick="switchPanel(0, this)">Vue d'ensemble</button>
+  <button class="nav-btn" data-t="1" onclick="switchPanel(1, this)">① Phishing invisible</button>
+  <button class="nav-btn" data-t="2" onclick="switchPanel(2, this)">② Conformité → Culture</button>
+  <button class="nav-btn" data-t="3" onclick="switchPanel(3, this)">③ AI for Cyber / Cyber for AI</button>
+  <button class="nav-btn" data-t="4" onclick="switchPanel(4, this)">④ Réglementation</button>
+  <button class="nav-btn" data-t="5" onclick="switchPanel(5, this)">⑤ Cyber hors murs</button>
+</nav>
+
+<main>
+
+<!-- ═══════════════════ VUE D'ENSEMBLE ═══════════════════ -->
+<div class="trend-panel active" id="panel-0">
+  <div class="section-label">5 tendances · 15 sous-tendances</div>
+  <div class="overview-grid">
+
+    <div class="overview-card" data-t="1" onclick="switchPanel(1, document.querySelector('[data-t=\'1\']'))">
+      <div class="ov-num">01</div>
+      <div class="ov-title">L'ère du phishing "invisible" : quand l'IA efface les signaux d'alerte</div>
+      <div class="ov-desc">L'IA a supprimé tous les indices classiques de détection. Le phishing est désormais parfait, personnalisé, multicanal. On ne forme plus à repérer — on forme à douter.</div>
+      <div class="ov-sub-count">3 sous-tendances</div>
+      <div class="ov-hint">Cliquer pour explorer →</div>
+    </div>
+
+    <div class="overview-card" data-t="2" onclick="switchPanel(2, document.querySelector('[data-t=\'2\']'))">
+      <div class="ov-num">02</div>
+      <div class="ov-title">De la conformité à la culture cyber : vers une sensibilisation qui change vraiment les comportements</div>
+      <div class="ov-desc">La case à cocher est morte. L'enjeu n'est plus de former pour être conforme — c'est de construire une culture qui ancre des réflexes durables, par la psychologie positive, la gamification et le micro-learning.</div>
+      <div class="ov-sub-count">4 sous-tendances</div>
+      <div class="ov-hint">Cliquer pour explorer →</div>
+    </div>
+
+    <div class="overview-card" data-t="3" onclick="switchPanel(3, document.querySelector('[data-t=\'3\']'))">
+      <div class="ov-num">03</div>
+      <div class="ov-title">AI for Cyber, Cyber for AI : l'IA, menace et accélérateur pour toutes les équipes cyber</div>
+      <div class="ov-desc">L'IA est à la fois l'arme la plus puissante des attaquants et le multiplicateur de force le plus décisif pour les défenseurs. Les deux faces sont indissociables — Mythos en est l'illustration la plus récente et la plus saisissante.</div>
+      <div class="ov-sub-count">3 sous-tendances</div>
+      <div class="ov-hint">Cliquer pour explorer →</div>
+    </div>
+
+    <div class="overview-card" data-t="4" onclick="switchPanel(4, document.querySelector('[data-t=\'4\']'))">
+      <div class="ov-num">04</div>
+      <div class="ov-title">La réglementation devient le moteur de transformation des programmes</div>
+      <div class="ov-desc">NIS2, AI Act, CRA : pour la première fois, la sensibilisation est une obligation légale avec responsabilité personnelle des dirigeants. Un levier d'émancipation inédit.</div>
+      <div class="ov-sub-count">4 sous-tendances</div>
+      <div class="ov-hint">Cliquer pour explorer →</div>
+    </div>
+
+    <div class="overview-card" data-t="5" onclick="switchPanel(5, document.querySelector('[data-t=\'5\']'))">
+      <div class="ov-num">05</div>
+      <div class="ov-title">La cyber sort de l'entreprise : l'individu comme nouvelle surface d'attaque</div>
+      <div class="ov-desc">Les frontières pro/perso ont disparu. Désinformation, manipulation algorithmique, canaux privés : la cyber devient une compétence de vie, pas seulement professionnelle.</div>
+      <div class="ov-sub-count">3 sous-tendances</div>
+      <div class="ov-hint">Cliquer pour explorer →</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ TENDANCE 1 ═══════════════════ -->
+<div class="trend-panel" id="panel-1" style="--t-color: var(--t1); --t-light: var(--t1-light);">
+  <div class="trend-header">
+    <div class="trend-num">01</div>
+    <div class="trend-meta">
+      <h2><strong>L'ère du phishing "invisible"</strong> : quand l'IA efface les signaux d'alerte</h2>
+      <p class="desc">L'IA générative a supprimé tous les indices visuels et linguistiques que les formations traditionnelles apprenaient à repérer. Le phishing n'est plus une anomalie détectable — c'est un message parfait, personnalisé, émotionnellement ciblé, qui arrive sur n'importe quel canal. La rupture : on ne forme plus à la détection, on forme à la pause et au doute systématique.</p>
+      <div class="sources">
+        <span class="source-tag">Microsoft</span>
+        <span class="source-tag">ESET</span>
+        <span class="source-tag">SoSafe</span>
+        <span class="source-tag">ENISA</span>
+        <span class="source-tag">Beauceron</span>
+        <span class="source-tag">SANS</span>
+        <span class="source-tag">Technology.org</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-trends">
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 1.1</div>
+      <div class="sub-title">La personnalisation de masse comme nouvelle arme</div>
+      <div class="sub-desc">L'IA permet de générer des milliers de messages uniques, parfaitement rédigés, adaptés au destinataire, à son contexte et à son canal. Le spearphishing, autrefois réservé aux cibles à haute valeur, est désormais accessible à tous les attaquants.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">54%</div>
+          <div class="stat-lbl">taux de clic phishing IA vs 12% sans IA</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">×4,5</div>
+          <div class="stat-lbl">multiplication de l'efficacité grâce à l'IA</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"AI is not just accelerating cyberattacks, it's upgrading them."</div>
+        <div class="quote-src">Microsoft Security Blog, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">80%+ des campagnes de phishing utilisent déjà l'IA (ENISA, 2025)</div>
+        <div class="fact">L'IA réduit la préparation d'une attaque de plusieurs jours à quelques minutes (ESET)</div>
+        <div class="fact">Les modèles LLM commerciaux et des modèles détournés (WormGPT, FraudGPT) automatisent l'ingénierie sociale (ENISA)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 1.2</div>
+      <div class="sub-title">La diversification des canaux : email, SMS, voix, image</div>
+      <div class="sub-desc">Le phishing ne passe plus uniquement par l'email. Smishing, vishing, quishing (QR codes), injections de calendrier, deepfakes audio/vidéo : chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">25M$</div>
+          <div class="stat-lbl">transfert frauduleux via deepfake vocal d'un dirigeant (WEF)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">42,4%</div>
+          <div class="stat-lbl">des menaces suivies ciblent le mobile (ENISA)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"Traditional red flags are disappearing in an era of pixel-perfect deception."</div>
+        <div class="quote-src">Technology.org, mars 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Cas Retool : SMS + deepfake vocal combinés pour contourner la MFA (SoSafe)</div>
+        <div class="fact">Quishing : QR codes malveillants dans des PDF contournent les filtres classiques (ESET)</div>
+        <div class="fact">Volume d'attaques email de masse en baisse, mais SMS et vishing en forte progression (SoSafe)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 1.3</div>
+      <div class="sub-title">La mort des indices classiques de détection</div>
+      <div class="sub-desc">Les fautes d'orthographe, les expéditeurs inconnus, les liens suspects ont disparu. La formation doit opérer un virage complet : non plus repérer une anomalie technique, mais développer un réflexe de pause et de vérification systématique face à toute sollicitation urgente.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">4,6h</div>
+          <div class="stat-lbl">temps médian pour cliquer sur un phishing après réception</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">20%</div>
+          <div class="stat-lbl">des emails malveillants passent les filtres techniques</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"Attackers are no longer testing if employees can spot a fake email; they are testing if they can manipulate how they think."</div>
+        <div class="quote-src">Technadu, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Le signal d'alerte n'est plus la faute de syntaxe : c'est l'anomalie contextuelle (SoSafe)</div>
+        <div class="fact">Les simulations classiques ne préparent plus aux attaques ultra-personnalisées sur canaux privés (Technadu)</div>
+        <div class="fact">Former à la "pause cognitive" avant toute action sensible devient la priorité pédagogique (Technadu, SANS)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ TENDANCE 2 ═══════════════════ -->
+<div class="trend-panel" id="panel-2" style="--t-color: var(--t2); --t-light: var(--t2-light);">
+  <div class="trend-header">
+    <div class="trend-num">02</div>
+    <div class="trend-meta">
+      <h2><strong>De la conformité à la culture cyber</strong> : vers une sensibilisation qui change vraiment les comportements</h2>
+      <p class="desc">La sensibilisation cyber a longtemps été pilotée par la conformité. Résultat : des taux de complétion à 100 % et des comportements inchangés. La culture cyber, c'est autre chose : des réflexes ancrés, des comportements positifs valorisés, une prise de conscience collective. Là où les équipes d'audit identifient les risques humains, les équipes de sensibilisation construisent la réponse culturelle — par la psychologie positive, la gamification, le micro-learning et la donnée comportementale.</p>
+      <div class="sources">
+        <span class="source-tag">SANS 2025</span>
+        <span class="source-tag">SoSafe</span>
+        <span class="source-tag">Beauceron</span>
+        <span class="source-tag">Fortinet</span>
+        <span class="source-tag">KnowBe4</span>
+        <span class="source-tag">GovInsider</span>
+        <span class="source-tag">Jiner 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-trends">
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 2.1</div>
+      <div class="sub-title">De la conformité à la culture : un changement de paradigme complet</div>
+      <div class="sub-desc">La transition n'est pas un changement de format — c'est un changement de logique. De la conformité à la culture, de l'information à la motivation, de la campagne ponctuelle au cycle continu. Là où les équipes d'audit calculent le risque individuel, les équipes de sensibilisation construisent la réponse collective et culturelle à ce risque.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">95</div>
+          <div class="stat-lbl">programmes sur 2 700 au stade "optimisation" (SANS)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">67%</div>
+          <div class="stat-lbl">des orgs voient une réduction d'incidents après formation (Fortinet)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"Completion is not an outcome; changed behaviour is."</div>
+        <div class="quote-src">CyberDexterity / itweb, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Le SBCP (Security Behavior & Culture Program) remplace le SAT : motivation avant information (Beauceron)</div>
+        <div class="fact">Modèle B.J. Fogg : Motivation + Capacité + Déclencheur = comportement réel (Beauceron)</div>
+        <div class="fact">70% des leaders : la cyber est une responsabilité partagée, mais 26% n'agissent pas en conséquence (Fortinet)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 2.2</div>
+      <div class="sub-title">La psychologie positive comme nouveau standard pédagogique</div>
+      <div class="sub-desc">La peur et la honte ne fonctionnent plus. Le renforcement positif, la gamification, la valorisation du collaborateur comme acteur de la défense produisent de meilleurs résultats. La "shock fatigue" génère du désengagement progressif, pas de la vigilance durable.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">100%</div>
+          <div class="stat-lbl">des participants préfèrent un message positif pour sensibiliser (Jiner, 2025)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">50%</div>
+          <div class="stat-lbl">moins de clics chez ceux qui se sentent acteurs de la protection (Beauceron)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"La peur paralyse la vigilance, le renforcement positif l'aiguise."</div>
+        <div class="quote-src">SoSafe, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Modèle COM-B : diagnostiquer si l'erreur vient d'un manque de Capacité, d'Opportunité ou de Motivation (SoSafe)</div>
+        <div class="fact">CyberCup (Thales) : engagement immédiat, meilleure mémorisation vs formats classiques (Jiner, 2025)</div>
+        <div class="fact">Messages alarmistes comparés aux avertissements cigarettes : "plus personne ne lit vraiment" (Jiner, 2025)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 2.3</div>
+      <div class="sub-title">La donnée comportementale au service de la culture, pas du scoring individuel</div>
+      <div class="sub-desc">Le taux de complétion cède la place aux indicateurs culturels réels : fréquence des signalements, adoption collective des outils, évolution des réflexes dans le temps. Ces données pilotent l'amélioration continue des programmes — elles ne servent pas à surveiller ou scorer les individus.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">−38%</div>
+          <div class="stat-lbl">de taux de clic grâce aux nudges en temps réel (Beauceron)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">+30%</div>
+          <div class="stat-lbl">de taux de signalement avec le phishing adaptatif (Beauceron)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"La culture de sécurité se mesure à ce que les gens font quand personne ne regarde — pas à ce qu'ils ont coché dans un LMS."</div>
+        <div class="quote-src">SANS Security Awareness Report 2025</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Taux de signalement = baromètre de la confiance : plus les collaborateurs signalent, plus la culture est ancrée (SANS)</div>
+        <div class="fact">La donnée comportementale pilote l'amélioration des contenus et la cadence — pas la surveillance individuelle</div>
+        <div class="fact">Cycle continu : Identifier les lacunes → Adapter les contenus → Mesurer les comportements → Améliorer (GovInsider)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 2.4</div>
+      <div class="sub-title">Le micro-learning et la fréquence comme facteurs clés d'ancrage</div>
+      <div class="sub-desc">Moins de formation, mais plus souvent. Le module de 3,5 minutes espacé de 90 jours surpasse la session annuelle massive. Au-delà d'un seuil de saturation, la formation produit l'effet inverse. La cadence et le format court deviennent des conditions d'ancrage comportemental.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">3,5min</div>
+          <div class="stat-lbl">durée idéale par module, espacé de 90 jours (Beauceron)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">46%</div>
+          <div class="stat-lbl">des orgs forment désormais trimestriellement (Fortinet)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"People who took more than 1 hour of training in a given year saw weaker results than people whose training time fell between 30-35 minutes."</div>
+        <div class="quote-src">Beauceron Security Report 2025</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Seuil de saturation : au-delà de 60 min/an, l'engagement chute et le risque augmente (Beauceron)</div>
+        <div class="fact">93% des employés ne terminent pas l'intégralité de leur parcours de formation (Fortinet)</div>
+        <div class="fact">Formats efficaces : présentiel (53%), e-learning (52%), phishing simulé (45%) (Fortinet)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ TENDANCE 3 ═══════════════════ -->
+<div class="trend-panel" id="panel-3" style="--t-color: var(--t3); --t-light: var(--t3-light);">
+  <div class="trend-header">
+    <div class="trend-num">03</div>
+    <div class="trend-meta">
+      <h2><strong>AI for Cyber, Cyber for AI</strong> : l'IA, menace et accélérateur pour toutes les équipes cyber</h2>
+      <p class="desc">L'IA ne se contente plus d'accélérer les attaques existantes — elle en crée de nouvelles catégories. Agents autonomes, détection de vulnérabilités à grande échelle, exploitation sans intervention humaine : les capacités offensives de l'IA dépassent désormais celles des meilleurs experts humains. En miroir, l'IA devient le multiplicateur de force indispensable pour toutes les équipes cyber — SOC, CERT, CTI, audit, réponse à incident. Ces deux faces sont indissociables.</p>
+      <div class="sources">
+        <span class="source-tag">Anthropic / Mythos</span>
+        <span class="source-tag">CrowdStrike</span>
+        <span class="source-tag">Smart Brief</span>
+        <span class="source-tag">Illumio</span>
+        <span class="source-tag">IEEE Spectrum</span>
+        <span class="source-tag">SANS</span>
+        <span class="source-tag">Beauceron</span>
+        <span class="source-tag">RSAC 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-trends">
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 3.1</div>
+      <div class="sub-title">Les agents IA autonomes comme nouvelle catégorie de menace</div>
+      <div class="sub-desc">Les agents IA ne se contentent plus d'assister les attaquants — ils prennent des décisions tactiques de manière autonome : identifier des vulnérabilités, adapter des exploits en temps réel, naviguer latéralement dans les réseaux sans intervention humaine. La fenêtre de réaction des défenseurs s'effondre.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">29min</div>
+          <div class="stat-lbl">temps de breakout moyen, record à 27 secondes (CrowdStrike)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">82%</div>
+          <div class="stat-lbl">des détections sont désormais sans malware (CrowdStrike)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"The lead hacker is no longer a person in a hoodie; it's a script that thinks."</div>
+        <div class="quote-src">Smart Brief, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Passage du "Cyborg Hacking" à l'"Autonomous Hacking" : l'agent IA prend les décisions tactiques sans supervision humaine (Smart Brief)</div>
+        <div class="fact">Technique "misoperation" : manipulation des logiques industrielles sans déployer de fichier malveillant — attribution quasi impossible (RSAC 2026)</div>
+        <div class="fact">+89% d'attaques utilisant l'IA, +38% intrusions Chine-nexus, +130% Corée du Nord (CrowdStrike)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 3.2</div>
+      <div class="sub-title">Mythos et le double tranchant de l'IA : quand l'outil de défense devient arme offensive</div>
+      <div class="sub-desc">Claude Mythos Preview (Anthropic, avril 2026) illustre de façon saisissante le dilemme central de l'IA en cybersécurité : un modèle conçu pour détecter des vulnérabilités peut, entre de mauvaises mains, devenir l'outil d'exploitation le plus puissant jamais créé. L'IA est désormais à la fois la meilleure défense et la pire des menaces.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">181</div>
+          <div class="stat-lbl">exploits fonctionnels produits là où le modèle précédent en produisait quasi zéro (Anthropic)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">83%</div>
+          <div class="stat-lbl">des vulnérabilités exploitées avec succès dès le premier essai (ArmorCode)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"AI models have reached a level where they can surpass all but the most skilled humans at finding and exploiting software vulnerabilities."</div>
+        <div class="quote-src">Anthropic / ArmorCode, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Mythos a trouvé des zero-days dans tous les OS et navigateurs majeurs, dont un bug vieux de 27 ans dans OpenBSD — de manière totalement autonome, sur simple prompt (red.anthropic.com)</div>
+        <div class="fact">99%+ des vulnérabilités découvertes non encore patchées au moment de la découverte — et des ingénieurs sans formation sécurité ont pu générer des exploits fonctionnels (CETaS / Turing)</div>
+        <div class="fact">Project Glasswing : AWS, Apple, Google, Microsoft, NVIDIA utilisent Mythos pour sécuriser leurs logiciels — mais le même outil serait une arme redoutable en mains malveillantes (The Hacker News)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 3.3</div>
+      <div class="sub-title">L'IA comme multiplicateur de force pour toutes les équipes cyber</div>
+      <div class="sub-desc">Face à la pénurie de talents et à la vitesse d'évolution des menaces, l'IA générative devient le multiplicateur de force indispensable pour l'ensemble des équipes cyber — SOC, CERT, CTI, audit, réponse à incident, sensibilisation. Ce n'est plus une option : c'est une condition de compétitivité défensive.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">−40%</div>
+          <div class="stat-lbl">de taux de clic avec analyse automatisée et feedback comportemental en temps réel (Beauceron)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">946</div>
+          <div class="stat-lbl">praticiens citent le manque de personnel comme frein n°1 (SANS 2025)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"AI-powered vulnerability discovery at this scale makes the operational discipline of prioritizing, triaging, and remediating vulnerabilities more important than ever before. Not less."</div>
+        <div class="quote-src">ArmorCode, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">L'IA accélère la détection, le triage des alertes, l'analyse CTI, la réponse à incident et la génération de contenus de sensibilisation — toutes les équipes cyber sont concernées (SANS, Beauceron)</div>
+        <div class="fact">Shadow AI : des collaborateurs utilisent des outils GenAI non approuvés avec des données sensibles — un risque interne que l'IA peut aussi aider à détecter (HBR)</div>
+        <div class="fact">88% des organisations : l'usage de l'IA par les attaquants a aidé les employés à mieux comprendre l'importance de la sensibilisation (Fortinet)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ TENDANCE 4 ═══════════════════ -->
+<div class="trend-panel" id="panel-4" style="--t-color: var(--t4); --t-light: var(--t4-light);">
+  <div class="trend-header">
+    <div class="trend-num">04</div>
+    <div class="trend-meta">
+      <h2><strong>La réglementation</strong> devient le moteur de transformation des programmes</h2>
+      <p class="desc">NIS2 transforme la sensibilisation d'une bonne pratique optionnelle en obligation légale avec responsabilité personnelle des dirigeants. Pour la première fois, les équipes de sensibilisation ont un levier réglementaire pour obtenir des ressources, structurer leurs programmes et les ancrer dans la stratégie globale.</p>
+      <div class="sources">
+        <span class="source-tag">ENISA</span>
+        <span class="source-tag">SoSafe NIS2</span>
+        <span class="source-tag">Next.ink</span>
+        <span class="source-tag">ANSSI</span>
+        <span class="source-tag">Reuters AI Act</span>
+        <span class="source-tag">CNIL</span>
+        <span class="source-tag">HITRUST</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-trends">
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 4.1</div>
+      <div class="sub-title">NIS2 : de l'obligation à la responsabilité personnelle</div>
+      <div class="sub-desc">NIS2 impose une formation continue avec responsabilité directe des dirigeants. Des milliers de PME/ETI entrent dans son périmètre. La réglementation devient paradoxalement un levier d'émancipation pour des équipes sous-dotées qui peinent à obtenir des ressources.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">600</div>
+          <div class="stat-lbl">types d'entités en zone grise juridique en France (Next.ink)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">170p</div>
+          <div class="stat-lbl">guide technique ENISA sur l'Article 21 NIS2</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"Avec NIS2, la cybersécurité monte au conseil d'administration : ce n'est plus un sujet IT, c'est un sujet de gouvernance."</div>
+        <div class="quote-src">SoSafe, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Responsabilité personnelle des dirigeants en cas de manquement aux obligations de formation (NIS2)</div>
+        <div class="fact">NIS2 valorise la culture du signalement précoce comme élément central de la posture de sécurité</div>
+        <div class="fact">Mapping ECSF : chaque tâche NIS2 liée à un profil de compétence précis, délais de notification 24h/72h (ENISA)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 4.2</div>
+      <div class="sub-title">L'AI Act et le CRA : de nouveaux sujets de formation imposés</div>
+      <div class="sub-desc">L'AI Act impose des obligations de transparence et de formation pour les systèmes IA à haut risque. Le CRA impose la sécurité by design pour les produits connectés. Ces textes créent des sujets de formation obligatoires : usage responsable des outils IA, gestion des agents autonomes, droits et responsabilités.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">96%</div>
+          <div class="stat-lbl">des orgs préparent des politiques d'usage IA (Fortinet)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">53%</div>
+          <div class="stat-lbl">forment déjà sur l'usage sécurisé des outils GenAI (Fortinet)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"Agentic AI represents a shift from models that suggest to models that act — organizations must define the legal agency of these systems before full-scale deployment."</div>
+        <div class="quote-src">Reuters, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Risque de "hallucination d'action" : un agent IA exécute des commandes incorrectes de manière irréversible (Reuters)</div>
+        <div class="fact">Shadow AI : le plus grand risque vient des employés utilisant des outils GenAI non approuvés avec des données sensibles (HBR)</div>
+        <div class="fact">L'AI Act impose transparence et formation pour les systèmes IA à haut risque (recrutement, surveillance, décision)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 4.3</div>
+      <div class="sub-title">La souveraineté numérique comme enjeu de gouvernance</div>
+      <div class="sub-desc">Le débat NIS2 en France, le Cloud Act, l'initiative SecNumCloud européen portée par l'ANSSI : la souveraineté s'impose comme dimension incontournable de la gouvernance cyber. Pour les groupes internationaux, des questions concrètes émergent sur les outils utilisés et les juridictions concernées.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">Art.16bis</div>
+          <div class="stat-lbl">bloque la transposition NIS2 en France : chiffrement vs accès étatique</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">EUCS</div>
+          <div class="stat-lbl">Relance du label High+ pour protéger des lois extraterritoriales</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"Cette inertie affaiblit la position de la France au moment même où se redessine l'architecture européenne de la cybersécurité."</div>
+        <div class="quote-src">Next.ink, mars 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">ANSSI : distinction claire risques techniques (CSA2) vs risques de souveraineté (ICT Supply Chain Toolbox)</div>
+        <div class="fact">Cloud Act américain : les données hébergées chez des fournisseurs US peuvent être accessibles aux autorités américaines</div>
+        <div class="fact">ReCyF : guide opérationnel d'anticipation de l'ANSSI en attendant la stabilisation législative</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 4.4</div>
+      <div class="sub-title">La preuve d'impact comme nouvelle exigence réglementaire et stratégique</div>
+      <div class="sub-desc">NIS2 ne demande pas seulement de former — elle demande de prouver l'efficacité. Cela pousse les organisations vers des approches fondées sur la mesure comportementale, les audits réguliers et des reportings structurés. La certification devient un signal de qualité mesurable.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">99,62%</div>
+          <div class="stat-lbl">des envs certifiés HITRUST sans violation en 2025 (HITRUST)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">53%</div>
+          <div class="stat-lbl">mesurent l'efficacité par la réduction effective des incidents (Fortinet)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"Le Board ne veut pas savoir combien de personnes ont été formées, il veut savoir si l'entreprise est mieux protégée."</div>
+        <div class="quote-src">SANS Security Awareness Report 2025</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Tableau de bord risque humain au Comex : comportements réels, pas volumes de formation (SANS)</div>
+        <div class="fact">Crise de confiance : les questionnaires d'auto-évaluation échouent à garantir la sécurité réelle des tiers (HITRUST)</div>
+        <div class="fact">32% adoptent la formation additionnelle comme première mesure préventive après une brèche (UK Gov)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ TENDANCE 5 ═══════════════════ -->
+<div class="trend-panel" id="panel-5" style="--t-color: var(--t5); --t-light: var(--t5-light);">
+  <div class="trend-header">
+    <div class="trend-num">05</div>
+    <div class="trend-meta">
+      <h2><strong>La cyber sort de l'entreprise</strong> : l'individu comme nouvelle surface d'attaque</h2>
+      <p class="desc">Les frontières entre vie personnelle et professionnelle ont disparu du point de vue des attaquants. Désinformation, manipulation algorithmique, canaux privés ciblés : la cyber devient une compétence de vie (life skill). Les équipes de sensibilisation doivent étendre leur champ d'action bien au-delà du poste de travail.</p>
+      <div class="sources">
+        <span class="source-tag">SoSafe</span>
+        <span class="source-tag">SANS OUCH!</span>
+        <span class="source-tag">CNIL</span>
+        <span class="source-tag">Cybermalveillance</span>
+        <span class="source-tag">WEF</span>
+        <span class="source-tag">Illumio</span>
+        <span class="source-tag">Nat. Law Review</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-trends">
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 5.1</div>
+      <div class="sub-title">La convergence pro/perso : quand la vie privée devient un vecteur d'attaque professionnel</div>
+      <div class="sub-desc">Les attaquants ciblent les canaux personnels — WhatsApp, LinkedIn, SMS — et même les proches des collaborateurs pour atteindre les systèmes d'entreprise. La frontière entre surface d'attaque personnelle et professionnelle a disparu. La sensibilisation doit couvrir l'hygiène numérique dans son ensemble.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">73%</div>
+          <div class="stat-lbl">des citoyens wallons préoccupés par leur sécurité en ligne (Proximus)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">BYOD</div>
+          <div class="stat-lbl">les appareils hybrides travail/perso multiplient les vecteurs d'entrée</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"Simulation ends where real-world emotional pressure begins."</div>
+        <div class="quote-src">Technadu, avril 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Des groupes ransomware exploitent les numéros personnels des enfants de dirigeants pour exercer une pression (SoSafe)</div>
+        <div class="fact">Les attaques se déplacent vers WhatsApp, LinkedIn, SMS : là où les protections entreprise ne s'appliquent pas</div>
+        <div class="fact">CNIL Réseau Fantôme : fingerprinting, CNAME cloaking, pixels invisibles IA ciblent les données personnelles (CNIL)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 5.2</div>
+      <div class="sub-title">La désinformation comme nouvelle dimension du risque humain</div>
+      <div class="sub-desc">La manipulation des comportements sociaux à grande échelle via l'IA — tribalisme algorithmique, deepfakes politiques, Disinformation-as-a-Service — élargit le champ de la résilience cognitive. L'esprit critique et la littératie médiatique deviennent des compétences cyber à part entière.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">63%</div>
+          <div class="stat-lbl">des jeunes Européens voient régulièrement de fausses informations en ligne (SoSafe)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">DaaS</div>
+          <div class="stat-lbl">Disinformation-as-a-Service : campagnes packagées vendues sur le dark web (SoSafe)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"The line between observing society and engineering it may be thinner than anyone imagined."</div>
+        <div class="quote-src">National Law Review, mars 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">WEF : l'IA générant désinformation et cyberattaques figure parmi les principaux risques globaux 2024</div>
+        <div class="fact">Deepfakes lors d'élections slovaques : manipulation de l'opinion publique documentée (SoSafe)</div>
+        <div class="fact">Fausse image d'explosion au Pentagone ayant brièvement affecté les marchés US (SoSafe)</div>
+      </div>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-num">SOUS-TENDANCE 5.3</div>
+      <div class="sub-title">La cyber comme compétence de vie : vers une sensibilisation citoyenne</div>
+      <div class="sub-desc">Les campagnes publiques montrent que la sensibilisation à grande échelle est possible hors de l'entreprise, avec des formats accessibles et non techniques. La cyber devient une "life skill" au même titre que la sécurité routière. Les équipes en entreprise peuvent s'en inspirer pour toucher le quotidien des collaborateurs.</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">10M</div>
+          <div class="stat-lbl">personnes touchées par l'Opération Cactus 2026 — 1 Français sur 6 (CNIL)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">+2700%</div>
+          <div class="stat-lbl">d'infractions aux ENT entre 2017 et 2025 (Opération Cactus)</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-text">"Être né avec un smartphone dans la main ne protège pas des cyberattaques."</div>
+        <div class="quote-src">Campagne #CyberEnClair, Cybermalveillance, mars 2026</div>
+      </div>
+      <div class="facts">
+        <div class="fact">Opération Cactus : leurres personnalisés par public — faux matériel sport pour les parents, plateformes d'orientation pour lycéens (CNIL)</div>
+        <div class="fact">#CyberEnClair : TikTok + Instagram, ton non moralisateur, ambassadeurs communautaires (Cybermalveillance)</div>
+        <div class="fact">Wallonie & Proximus : modèle en cascade — former les formateurs, puis les citoyens via 211 EPN (Proximus)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<script>
+function switchPanel(n, btn) {
+  document.querySelectorAll('.trend-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + n).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+</script>
+</body>
+</html>
