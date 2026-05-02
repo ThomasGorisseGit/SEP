@@ -41,7 +41,21 @@ export type VerticalBandsLayout = {
   bullets: Array<{ text: string; source: string }>
 }
 
-export type SubTendancyLayout = StatsGridLayout | VerticalBandsLayout
+// Layout: 3 colonnes — grande carte gauche, 3 petites milieu, 2 moyennes droite
+export type ThreeColumnCard = {
+  color: string
+  content: CardContent
+  grow?: number
+}
+
+export type ThreeColumnLayout = {
+  type: "three-column"
+  leftCard: ThreeColumnCard
+  middleCards: ThreeColumnCard[]
+  rightCards: ThreeColumnCard[]
+}
+
+export type SubTendancyLayout = StatsGridLayout | VerticalBandsLayout | ThreeColumnLayout
 
 export type SubTendancy = {
   index: string

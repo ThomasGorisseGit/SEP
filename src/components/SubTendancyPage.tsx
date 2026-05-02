@@ -2,6 +2,7 @@ import type { SubTendancy } from "@/types"
 import Tendancy from "./Tendancy"
 import StatsGridLayout from "./layouts/StatsGridLayout"
 import VerticalBandsLayout from "./layouts/VerticalBandsLayout"
+import ThreeColumnLayout from "./layouts/ThreeColumnLayout"
 
 type Props = {
   subTendancy: SubTendancy
@@ -36,11 +37,16 @@ export default function SubTendancyPage({ subTendancy, accent, background }: Pro
 
       {subTendancy.layout.type === "vertical-bands" && (
         <VerticalBandsLayout
+          index={subTendancy.index}
           layout={subTendancy.layout}
           accent={accent}
           title={subTendancy.title}
           description={subTendancy.description}
         />
+      )}
+
+      {subTendancy.layout.type === "three-column" && (
+        <ThreeColumnLayout layout={subTendancy.layout} accent={accent} />
       )}
     </section>
   )

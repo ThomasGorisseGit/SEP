@@ -87,7 +87,7 @@ export const tendencies: Tendency[] = [
       },
       {
         index: "1.2",
-        title: "La diversification des canaux : email, SMS, voix, image",
+        title: "La diversification des canaux email, SMS, voix, image",
         description: "Le phishing ne passe plus uniquement par l'email. Smishing, vishing, quishing (QR codes), injections de calendrier, deepfakes audio/vidéo : chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants.",
         layout: {
           type: "vertical-bands",
@@ -113,6 +113,26 @@ export const tendencies: Tendency[] = [
             { text: "Quishing : QR codes malveillants dans des PDF contournent les filtres classiques", source: "ESET" },
             { text: "Volume d'attaques email de masse en baisse, mais SMS et vishing en forte progression", source: "SoSafe" },
           ],
+        },
+      },
+       {
+        index: "1.2",
+        title: "La diversification des canaux email, SMS, voix, image",
+        description: "Le phishing ne passe plus uniquement par l'email. Smishing, vishing, quishing (QR codes), injections de calendrier, deepfakes audio/vidéo : chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants.",
+        layout: {
+          type: "three-column",
+          leftCard: {
+            color: "#7774FF",
+            content: {
+              type: "stat",
+              value: "",
+              label: "",
+              source: undefined
+            }
+          },
+              
+            middleCards: [],
+            rightCards: [],
         },
       },
     ],

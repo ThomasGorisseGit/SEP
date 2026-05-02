@@ -23,13 +23,14 @@ function BandContent({ content }: { content: CardContent }) {
 }
 
 type Props = {
+  index: string
   layout: VerticalBandsLayoutType
   accent: string
   title: string
   description: string
 }
 
-export default function VerticalBandsLayout({ layout, accent, title, description }: Props) {
+export default function VerticalBandsLayout({ index, layout, accent, title, description }: Props) {
   return (
     <div className="grid min-h-screen grid-cols-[1fr_1fr]">
       {/* Bandes verticales */}
@@ -42,8 +43,8 @@ export default function VerticalBandsLayout({ layout, accent, title, description
               backgroundColor: band.color,
               justifyContent:
                 band.position === "top" ? "flex-start"
-                : band.position === "bottom" ? "flex-end"
-                : "center",
+                  : band.position === "bottom" ? "flex-end"
+                    : "center",
               paddingTop: band.position === "top" ? "6rem" : "3.5rem",
               paddingBottom: band.position === "bottom" ? "6rem" : "3.5rem",
               gap: "1.25rem",
@@ -66,7 +67,7 @@ export default function VerticalBandsLayout({ layout, accent, title, description
             className="text-xs font-semibold uppercase tracking-[0.3em]"
             style={{ color: accent }}
           >
-            Sous-tendance
+            Sous-tendance {index}
           </span>
           <h2 className="big-text mt-4 text-4xl leading-tight text-white md:text-5xl">
             {title}
