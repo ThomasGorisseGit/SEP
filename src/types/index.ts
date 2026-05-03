@@ -150,7 +150,18 @@ export type VerticalBandsInvertedLayout = {
   bullets: Array<{ text: string; source: string }>
 }
 
-export type SubTendancyLayout = StatsGridLayout | StatsGridInvertedLayout | VerticalBandsLayout | VerticalBandsInvertedLayout | ThreeColumnLayout | ThreeCardsLayout | TiltedCardsLayout | NewspaperLayout | FourPlusTwoLayout
+// Layout : grille bento asymétrique — 1 grande + 2 petites + 1 wide + 1 petite
+export type BentoCard = {
+  color: string
+  content: CardContent
+}
+
+export type BentoLayout = {
+  type: "bento"
+  cards: BentoCard[]
+}
+
+export type SubTendancyLayout = StatsGridLayout | StatsGridInvertedLayout | VerticalBandsLayout | VerticalBandsInvertedLayout | ThreeColumnLayout | ThreeCardsLayout | TiltedCardsLayout | NewspaperLayout | FourPlusTwoLayout | BentoLayout
 
 export type SubTendancy = {
   index: string

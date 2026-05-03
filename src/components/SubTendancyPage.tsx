@@ -9,6 +9,7 @@ import SliderCards from "./layouts/SliderCards"
 import TiltedCardsLayout from "./layouts/TiltedCardsLayout"
 import NewspaperLayout from "./layouts/NewspaperLayout"
 import FourPlusTwoLayout from "./layouts/FourPlusTwoLayout"
+import BentoLayout from "./layouts/BentoLayout"
 
 type Props = {
   subTendancy: SubTendancy
@@ -88,6 +89,10 @@ export default function SubTendancyPage({ subTendancy, accent, background }: Pro
 
       {subTendancy.layout.type === "four-plus-two" && (
         <FourPlusTwoLayout layout={subTendancy.layout} accent={accent} />
+      )}
+
+      {subTendancy.layout.type === "bento" && (
+        <BentoLayout layout={subTendancy.layout} accent={accent} />
       )}
     </section>
   )

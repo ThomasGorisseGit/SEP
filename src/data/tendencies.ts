@@ -468,6 +468,67 @@ export const tendencies: Tendency[] = [
           ],
         },
       },
+      {
+        index: "3.3",
+        title: "L'IA au service de la défense : accélérateur humain, pas remplaçant",
+        description: "L'IA redéfinit les métiers cyber en augmentant les capacités défensives — détection, triage, CTI, sensibilisation — tout en révélant de nouveaux risques internes.",
+        layout: {
+          type: "bento",
+          cards: [
+            {
+              color: "#151515",
+              content: {
+                type: "stat",
+                value: "−40%",
+                label: "De taux de clic avec analyse automatisée et feedback comportemental en temps réel",
+                source: "Beauceron",
+              },
+            },
+            {
+              color: "#FFA7DC",
+              content: {
+                type: "stat",
+                value: "946",
+                label: "Praticiens citent le manque de personnel comme frein n°1",
+                source: "SANS 2025",
+              },
+            },
+            {
+              color: "#AA96F8",
+              content: {
+                type: "stat",
+                value: "88%",
+                label: "Des organisations : l'usage de l'IA par les attaquants a aidé les employés à mieux comprendre l'importance de la sensibilisation",
+                source: "Fortinet",
+              },
+            },
+            {
+              color: "#DDB7F0",
+              content: {
+                type: "quote",
+                text: "AI-powered vulnerability discovery at this scale makes the operational discipline of prioritizing, triaging, and remediating vulnerabilities more important than ever before. Not less.",
+                source: "ArmorCode, avril 2026",
+              },
+            },
+            {
+              color: "#E2F163",
+              content: {
+                type: "bullets",
+                items: [
+                  {
+                    text: "L'IA accélère la détection, le triage des alertes, l'analyse CTI, la réponse à incident et la génération de contenus de sensibilisation",
+                    source: "SANS, Beauceron",
+                  },
+                  {
+                    text: "Shadow AI : des collaborateurs utilisent des outils GenAI non approuvés avec des données sensibles — un risque interne que l'IA peut aussi aider à détecter",
+                    source: "HBR",
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
     ],
   },
   {
