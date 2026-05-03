@@ -106,9 +106,16 @@ export type TiltedCardsLayout = {
 }
 
 // Layout : editorial — headline XXL + colonnes de texte + pull quote
+export type NewspaperColumnItem = {
+  text: string
+  label?: string
+}
+
 export type NewspaperColumn = {
   content: string
   source?: string
+  stat?: string
+  items?: NewspaperColumnItem[]
 }
 
 export type NewspaperLayout = {

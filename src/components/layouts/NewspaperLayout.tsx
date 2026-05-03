@@ -18,7 +18,7 @@ export default function NewspaperLayout({ layout, accent }: Props) {
         </p>
 
         {/* Headline */}
-        <h2 className="big-text mt-5  leading-[1.05] text-white md:text-6xl">
+        <h2 className="big-text mt-5  leading-[1.05] text-white md:text-5xl">
           {layout.headline}
         </h2>
 
@@ -31,7 +31,7 @@ export default function NewspaperLayout({ layout, accent }: Props) {
               style={{ backgroundColor: accent }}
             />
             <blockquote className="relative">
-              <p className="big-text text-2xl leading-snug text-white md:text-xl italic">
+              <p className=" text-2xl leading-snug text-white md:text-xl italic">
                 "{layout.pullQuote.text}"
               </p>
               <cite className="mt-4 block text-xs not-italic font-semibold uppercase tracking-[0.4em]" style={{ color: accent }}>
@@ -59,9 +59,34 @@ export default function NewspaperLayout({ layout, accent }: Props) {
                 <div className="h-px flex-1" style={{ backgroundColor: i === 0 ? accent : "rgba(255,255,255,0.08)" }} />
               </div>
 
-              <p className="text-base leading-8 text-white/65">
-                {col.content}
-              </p>
+              {/* Grand chiffre mis en avant */}
+              {col.stat && (
+                <p className="text-7xl font-black leading-none tracking-tight text-white">
+                  {col.stat}
+                </p>
+              )}
+
+              {/* 3 petits blocs (colonne droite) */}
+              {col.items ? (
+                <div className="flex flex-col gap-3">
+                  {col.items.map((item, j) => (
+                    <div
+                      key={j}
+                      className="flex items-center gap-4 rounded-xl px-4 py-3"
+                      style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
+                    >
+                      <span className="text-2xl font-black leading-none" style={{ color: accent }}>
+                        {item.label}
+                      </span>
+                      <span className="text-sm text-white/65">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-base leading-8 text-white/65">
+                  {col.content}
+                </p>
+              )}
 
               {col.source && (
                 <p className="text-xs font-semibold uppercase tracking-widest text-white/25">

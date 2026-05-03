@@ -304,16 +304,23 @@ export const tendencies: Tendency[] = [
           headline: "Fréquence, durée et formats : le vrai levier de la sensibilisation",
           columns: [
             {
-              content: "3,5 min par module, espacés de 90 jours, c'est la durée idéale pour maintenir l'attention et ancrer les réflexes (Beauceron). 46% des organisations forment désormais leurs équipes de manière trimestrielle (Fortinet).",
+              stat: "3,5 min",
+              content: "Par module, espacés de 90 jours : la durée idéale pour ancrer les réflexes et maintenir l'attention. 46% des organisations forment leurs équipes de manière trimestrielle.",
               source: "Beauceron / Fortinet",
             },
             {
-              content: "Au-delà de 60 min par an, l'engagement chute et le risque augmente. Le seuil de saturation est donc réel : trop de formation dilue l'impact, trop peu laisse les comportements inchangés (Beauceron). 93% des employés ne terminent pas l'intégralité de leur parcours de formation (Fortinet).",
+              stat: "93%",
+              content: "Des employés ne terminent pas l'intégralité de leur parcours de formation. Au-delà de 60 min par an, l'engagement chute et le risque augmente.",
               source: "Beauceron / Fortinet",
             },
             {
-              content: "Les formats les plus efficaces se combinent : présentiel (53%), e-learning (52%) et phishing simulé (45%) ressortent comme les modalités les plus performantes pour garder l'attention et faire bouger les comportements (Fortinet).",
+              content: "Les formats les plus efficaces se combinent pour garder l'attention et faire bouger les comportements.",
               source: "Fortinet",
+              items: [
+                { label: "53%", text: "Présentiel" },
+                { label: "52%", text: "E-learning" },
+                { label: "45%", text: "Phishing simulé" },
+              ],
             },
           ],
           pullQuote: {
