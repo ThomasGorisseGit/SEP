@@ -77,7 +77,7 @@ function QuoteCard({ content }: { content: Extract<CardContent, { type: "quote" 
         style={{ fontSize: "clamp(10rem, 20vw, 16rem)", color: "rgba(21,21,21,0.05)", top: "-8%", left: "-2%", lineHeight: 1 }}>
         "
       </div>
-      <div className="absolute inset-0 flex flex-col justify-end p-7">
+      <div className="absolute inset-0 flex flex-col justify-center p-7">
         <p className="mb-5 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>
           Citation
         </p>
@@ -96,7 +96,7 @@ function QuoteCard({ content }: { content: Extract<CardContent, { type: "quote" 
 
 function BulletsCard({ content }: { content: Extract<CardContent, { type: "bullets" }> }) {
   return (
-    <div className="absolute inset-0 flex flex-col justify-end p-7">
+    <div className="absolute inset-0 flex flex-col justify-center p-7">
       <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>
         Points clés
       </p>

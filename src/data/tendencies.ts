@@ -503,14 +503,6 @@ export const tendencies: Tendency[] = [
               },
             },
             {
-              color: "#DDB7F0",
-              content: {
-                type: "quote",
-                text: "AI-powered vulnerability discovery at this scale makes the operational discipline of prioritizing, triaging, and remediating vulnerabilities more important than ever before. Not less.",
-                source: "ArmorCode, avril 2026",
-              },
-            },
-            {
               color: "#E2F163",
               content: {
                 type: "bullets",
@@ -524,6 +516,14 @@ export const tendencies: Tendency[] = [
                     source: "HBR",
                   },
                 ],
+              },
+            },
+            {
+              color: "#DDB7F0",
+              content: {
+                type: "quote",
+                text: "AI-powered vulnerability discovery at this scale makes the operational discipline of prioritizing, triaging, and remediating vulnerabilities more important than ever before. Not less.",
+                source: "ArmorCode, avril 2026",
               },
             },
           ],
