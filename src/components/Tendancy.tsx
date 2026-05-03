@@ -1,4 +1,4 @@
-
+import image from "../assets/characters/5.svg"
 type SousTendance = {
   index: string
   title: string
@@ -28,7 +28,7 @@ export default function Tendancy({
         >
           <div className="flex h-full flex-col gap-4">
             <div className="flex flex-row items-center gap-4">
-              <img src="src\assets\characters\5.svg" className="w-20" />
+              <img src={image} className="w-20" />
               <div className="uppercase italic text-lg">Sous-tendance {index} </div>
             </div>
             <div className="flex flex-row items-center gap-12">

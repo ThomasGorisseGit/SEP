@@ -1,4 +1,5 @@
 
+import image from '../assets/characters/1.svg'
 type ThemePageProps = {
   index: string
   title: string
@@ -16,7 +17,7 @@ export default function ThemePage({
   illustrationSide = "right",
 }: ThemePageProps) {
   const illustration = (
-    <img src={`/src/assets/characters/1.svg`} alt="" />
+    <img src={image} alt="" />
   )
 
   const content = (
