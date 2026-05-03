@@ -339,7 +339,136 @@ export const tendencies: Tendency[] = [
     accent: "#E2F163",
     background: "#151515",
     illustrationSide: "right",
-    subTendancies: [],
+    subTendancies: [
+      {
+        index: "3.1",
+        title: "L'IA transforme les attaquants en machines autonomes",
+        description: "Les agents IA prennent désormais des décisions tactiques sans supervision humaine, accélérant la vitesse et la furtivité des intrusions.",
+        layout: {
+          type: "four-plus-two",
+          topCards: [
+            {
+              color: "#E2F163",
+              content: {
+                type: "stat",
+                value: "29 min",
+                label: "Temps de breakout moyen — record absolu à 27 secondes",
+                source: "CrowdStrike",
+              },
+            },
+            {
+              color: "#7774FF",
+              content: {
+                type: "stat",
+                value: "82%",
+                label: "Des détections sont désormais sans malware",
+                source: "CrowdStrike",
+              },
+            },
+            {
+              color: "#E2F163",
+              content: {
+                type: "quote",
+                text: "The lead hacker is no longer a person in a hoodie; it's a script that thinks.",
+                source: "Smart Brief, avril 2026",
+              },
+            },
+            {
+              color: "#7774FF",
+              content: {
+                type: "bullets",
+                items: [
+                  {
+                    text: "Passage du « Cyborg Hacking » à l'« Autonomous Hacking » : l'agent IA prend les décisions tactiques sans supervision humaine",
+                    source: "Smart Brief",
+                  },
+                ],
+              },
+            },
+          ],
+          bottomCards: [
+            {
+              label: "Technique émergente",
+              color: "#EFEFEF",
+              content: {
+                type: "bullets",
+                items: [
+                  {
+                    text: "Technique « misoperation » : manipulation des logiques industrielles sans déployer de fichier malveillant — attribution quasi impossible",
+                    source: "RSAC 2026",
+                  },
+                ],
+              },
+            },
+            {
+              label: "Chiffres 2025",
+              color: "#E8ECDF",
+              content: {
+                type: "bullets",
+                items: [
+                  { text: "+89% d'attaques utilisant l'IA", source: "CrowdStrike" },
+                  { text: "+38% d'intrusions Chine-nexus", source: "CrowdStrike" },
+                  { text: "+130% d'attaques Corée du Nord", source: "CrowdStrike" },
+                ],
+              },
+            },
+          ],
+        },
+      },
+      {
+        index: "3.2",
+        title: "Mythos et la découverte autonome de vulnérabilités : l'IA dépasse les meilleurs experts",
+        description: "Les modèles IA franchissent le seuil critique : ils trouvent et exploitent des zero-days de manière autonome, surpassant les ingénieurs les plus qualifiés.",
+        layout: {
+          type: "vertical-bands-inverted",
+          bands: [
+            {
+              color: "#E2F163",
+              position: "top",
+              content: {
+                type: "stat",
+                value: "181",
+                label: "Exploits fonctionnels produits là où le modèle précédent en produisait quasi zéro",
+                source: "Anthropic",
+              },
+            },
+            {
+              color: "#AA96F8",
+              position: "bottom",
+              content: {
+                type: "stat",
+                value: "83%",
+                label: "Des vulnérabilités exploitées avec succès dès le premier essai",
+                source: "ArmorCode",
+              },
+            },
+            {
+              color: "#7774FF",
+              position: "center",
+              content: {
+                type: "quote",
+                text: "AI models have reached a level where they can surpass all but the most skilled humans at finding and exploiting software vulnerabilities.",
+                source: "Anthropic / ArmorCode, avril 2026",
+              },
+            },
+          ],
+          bullets: [
+            {
+              text: "Mythos a trouvé des zero-days dans tous les OS et navigateurs majeurs, dont un bug vieux de 27 ans dans OpenBSD — de manière totalement autonome, sur simple prompt",
+              source: "red.anthropic.com",
+            },
+            {
+              text: "99%+ des vulnérabilités découvertes non encore patchées au moment de la découverte — des ingénieurs sans formation sécurité ont pu générer des exploits fonctionnels",
+              source: "CETaS / Turing",
+            },
+            {
+              text: "Project Glasswing : AWS, Apple, Google, Microsoft, NVIDIA utilisent Mythos pour sécuriser leurs logiciels — mais le même outil serait une arme redoutable en mains malveillantes",
+              source: "The Hacker News",
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     index: "04",

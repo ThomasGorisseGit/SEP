@@ -1,4 +1,4 @@
-import type { VerticalBandsLayout as VerticalBandsLayoutType, CardContent } from "@/types"
+import type { VerticalBandsInvertedLayout as VerticalBandsInvertedLayoutType, CardContent } from "@/types"
 
 function isLight(hex: string): boolean {
   const r = parseInt(hex.slice(1, 3), 16)
@@ -36,16 +36,46 @@ function BandContent({ content, dark }: { content: CardContent; dark?: boolean }
 
 type Props = {
   index: string
-  layout: VerticalBandsLayoutType
+  layout: VerticalBandsInvertedLayoutType
   accent: string
   title: string
   description: string
 }
 
-export default function VerticalBandsLayout({ index, layout, accent, title, description }: Props) {
+export default function VerticalBandsInvertedLayout({ index, layout, accent, title, description }: Props) {
   return (
     <div className="grid min-h-screen grid-cols-[1fr_1fr]">
-      {/* Bandes verticales */}
+
+      {/* Partie gauche — titre + bullets */}
+      <div className="flex flex-col justify-center gap-10 px-16 py-16">
+        <div>
+          <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: accent }}>
+            Sous-tendance {index}
+          </span>
+          <h2 className="big-text mt-4 text-4xl leading-tight text-white md:text-5xl">
+            {title}
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-white/60">
+            {description}
+          </p>
+        </div>
+
+        <ul className="flex flex-col gap-5">
+          {layout.bullets.map((b, i) => (
+            <li key={i} className="flex items-start gap-4">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: accent }} />
+              <p className="text-base leading-7 text-white/70">
+                {b.text}{" "}
+                <span className="text-xs uppercase tracking-widest text-white/30">({b.source})</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+
+        <div className="h-px w-20 opacity-40" style={{ backgroundColor: accent }} />
+      </div>
+
+      {/* Bandes verticales à droite */}
       <div className="flex flex-row h-full">
         {layout.bands.map((band, i) => (
           <div
@@ -75,40 +105,6 @@ export default function VerticalBandsLayout({ index, layout, accent, title, desc
         ))}
       </div>
 
-      {/* Partie droite */}
-      <div className="flex flex-col justify-center gap-10 px-16 py-16">
-        <div>
-          <span
-            className="text-xs font-semibold uppercase tracking-[0.3em]"
-            style={{ color: accent }}
-          >
-            Sous-tendance {index}
-          </span>
-          <h2 className="big-text mt-4 text-4xl leading-tight text-white md:text-5xl">
-            {title}
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-white/60">
-            {description}
-          </p>
-        </div>
-
-        <ul className="flex flex-col gap-5">
-          {layout.bullets.map((b, i) => (
-            <li key={i} className="flex items-start gap-4">
-              <span
-                className="mt-2 h-2 w-2 shrink-0 rounded-full"
-                style={{ backgroundColor: accent }}
-              />
-              <p className="text-base leading-7 text-white/70">
-                {b.text}{" "}
-                <span className="text-xs uppercase tracking-widest text-white/30">({b.source})</span>
-              </p>
-            </li>
-          ))}
-        </ul>
-
-        <div className="h-px w-20 opacity-40" style={{ backgroundColor: accent }} />
-      </div>
     </div>
   )
 }

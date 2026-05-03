@@ -67,6 +67,7 @@ export type ThreeColumnLayout = {
   rightCards: ThreeColumnCard[]
 }
 
+
 // Layout: 3 grandes cartes bipartites (haut coloré + bas résumé)
 export type ThreeCardsCard = {
   color: string
@@ -130,7 +131,26 @@ export type NewspaperLayout = {
   }
 }
 
-export type SubTendancyLayout = StatsGridLayout | StatsGridInvertedLayout | VerticalBandsLayout | ThreeColumnLayout | ThreeCardsLayout | TiltedCardsLayout | NewspaperLayout
+// Layout : 4 petites cartes en haut + 2 grandes en bas
+export type FourPlusTwoCard = {
+  color: string
+  label?: string
+  content: CardContent
+}
+
+export type FourPlusTwoLayout = {
+  type: "four-plus-two"
+  topCards: FourPlusTwoCard[]
+  bottomCards: FourPlusTwoCard[]
+}
+
+export type VerticalBandsInvertedLayout = {
+  type: "vertical-bands-inverted"
+  bands: Band[]
+  bullets: Array<{ text: string; source: string }>
+}
+
+export type SubTendancyLayout = StatsGridLayout | StatsGridInvertedLayout | VerticalBandsLayout | VerticalBandsInvertedLayout | ThreeColumnLayout | ThreeCardsLayout | TiltedCardsLayout | NewspaperLayout | FourPlusTwoLayout
 
 export type SubTendancy = {
   index: string
