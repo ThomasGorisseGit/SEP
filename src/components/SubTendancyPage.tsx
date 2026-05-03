@@ -40,6 +40,7 @@ export default function SubTendancyPage({ subTendancy, accent, background }: Pro
         title={subTendancy.title}
         description={subTendancy.description}
         accent={accent}
+        background={background}
       />
 
       {subTendancy.layout.type === "stats-grid" && (
