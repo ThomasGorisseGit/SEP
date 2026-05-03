@@ -115,24 +115,40 @@ export const tendencies: Tendency[] = [
           ],
         },
       },
-       {
-        index: "1.2",
-        title: "La diversification des canaux email, SMS, voix, image",
-        description: "Le phishing ne passe plus uniquement par l'email. Smishing, vishing, quishing (QR codes), injections de calendrier, deepfakes audio/vidéo : chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants.",
+      {
+        index: "1.3",
+        title: "Quand les filtres échouent : l'anomalie contextuelle comme nouveau signal",
+        description: "20 % des emails malveillants franchissent les filtres techniques. Le signal d'alerte n'est plus la faute de syntaxe — c'est l'anomalie contextuelle. Les équipes doivent apprendre à détecter l'incohérence, pas l'imperfection.",
         layout: {
           type: "three-column",
           leftCard: {
-            color: "#7774FF",
-            content: {
-              type: "stat",
-              value: "",
-              label: "",
-              source: undefined
-            }
+            color: "#E2F163",
+            content: { type: "stat", value: "20%", label: "des emails malveillants passent les filtres techniques" },
           },
-              
-            middleCards: [],
-            rightCards: [],
+          middleCards: [
+            {
+              color: "#7774FF",
+              content: { type: "quote", text: "Le signal d'alerte n'est plus la faute de syntaxe : c'est l'anomalie contextuelle", source: "SoSafe" },
+            },
+            {
+              color: "#232323",
+              content: { type: "quote", text: "Les simulations classiques ne préparent plus aux attaques ultra-personnalisées sur canaux privés", source: "Technadu" },
+            },
+            {
+              color: "#AA96F8",
+              content: { type: "quote", text: "Former à la \"pause cognitive\" avant toute action sensible devient la priorité pédagogique", source: "Technadu, SANS" },
+            },
+          ],
+          rightCards: [
+            {
+              color: "#AA96F8",
+              content: { type: "stat", value: "4,6h", label: "temps médian pour cliquer sur un phishing après réception" },
+            },
+            {
+              color: "#7774FF",
+              content: { type: "quote", text: "Attackers are no longer testing if employees can spot a fake email; they are testing if they can manipulate how they think.", source: "Technadu, avril 2026" },
+            },
+          ],
         },
       },
     ],

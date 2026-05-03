@@ -1,20 +1,29 @@
 import type { ThreeColumnLayout as ThreeColumnLayoutType, CardContent } from "@/types"
 
-function CardView({ content, style }: { content: CardContent; style?: React.CSSProperties }) {
+function CardView({ content, accent, dark }: { content: CardContent; accent?: string; dark?: boolean }) {
+  const valueColor = dark ? "#151515" : (accent ?? "#ffffff")
+  const labelColor = dark ? "rgba(21,21,21,0.65)" : undefined
+
   if (content.type === "stat") {
     return (
-      <div className="flex flex-col items-center justify-center text-center gap-3" style={style}>
-        <span className="big-text text-6xl leading-none text-white">{content.value}</span>
-        <p className="text-sm leading-5 text-white/70">{content.label}</p>
+      <div className="flex flex-col items-center justify-center text-center gap-3">
+        <span className="big-text text-6xl leading-none" style={{ color: valueColor }}>
+          {content.value}
+        </span>
+        <p className="text-sm leading-5" style={{ color: labelColor ?? "rgba(255,255,255,0.7)" }}>
+          {content.label}
+        </p>
         {content.source && (
-          <p className="text-xs uppercase tracking-widest text-white/40">{content.source}</p>
+          <p className="text-xs uppercase tracking-widest" style={{ color: dark ? "rgba(21,21,21,0.4)" : "rgba(255,255,255,0.4)" }}>
+            {content.source}
+          </p>
         )}
       </div>
     )
   }
   return (
-    <blockquote className="text-base leading-7 italic font-bold text-center px-2 text-white" style={style}>
-      "{content.text}"
+    <blockquote className="text-base leading-7 italic font-bold text-center px-2 text-white">
+      {content.text}
       <p className="mt-3 text-xs not-italic font-semibold uppercase tracking-widest text-white/40">
         {content.source}
       </p>
@@ -25,30 +34,64 @@ function CardView({ content, style }: { content: CardContent; style?: React.CSSP
 type Props = {
   layout: ThreeColumnLayoutType
   accent: string
+  index?: string
+  title?: string
 }
 
-export default function ThreeColumnLayout({ layout, accent }: Props) {
+export default function ThreeColumnLayout({ layout, accent, index, title }: Props) {
   return (
-    <div className="grid min-h-screen grid-cols-3 gap-5 px-8 py-10" style={{ alignItems: "stretch" }}>
-      {/* Colonne gauche — grande carte pleine hauteur */}
-      <div
-        className="flex flex-col items-center justify-center rounded-3xl p-8"
-        style={{ backgroundColor: layout.leftCard.color }}
-      >
-        <CardView content={layout.leftCard.content} />
+    <div className="mx-auto grid min-h-screen max-w-[75%] grid-cols-3 gap-5 py-14" style={{ alignItems: "stretch" }}>
+      {/* Colonne gauche — 2 blocs empilés */}
+      <div className="flex flex-col gap-5">
+        {/* Bloc 1 : label + titre, sans fond */}
+        <div className="flex flex-1 flex-col justify-center px-2">
+          {index && title && (
+            <>
+              <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: accent }}>
+                Sous-tendance {index}
+              </span>
+              <h3 className="big-text mt-3 text-3xl leading-tight text-white">
+                {title}
+              </h3>
+            </>
+          )}
+        </div>
+        {/* Bloc 2 : stat avec fond coloré, en bas */}
+        <div
+          className="flex flex-col items-center justify-center rounded-3xl p-8"
+          style={{ backgroundColor: layout.leftCard.color, minHeight: "40%" }}
+        >
+          <CardView content={layout.leftCard.content} accent={accent} dark />
+        </div>
       </div>
 
-      {/* Colonne milieu — 3 petites cartes */}
+      {/* Colonne milieu — 3 cartes ou bullets */}
       <div className="flex flex-col gap-5">
-        {layout.middleCards.map((card, i) => (
-          <div
-            key={i}
-            className="flex flex-1 flex-col items-center justify-center rounded-3xl p-6"
-            style={{ backgroundColor: card.color }}
-          >
-            <CardView content={card.content} />
+        {layout.middleBullets ? (
+          <div className="flex flex-1 flex-col justify-center gap-6 rounded-3xl px-8 py-10" style={{ backgroundColor: "rgba(255,255,255,0.04)" }}>
+            <ul className="flex flex-col gap-6">
+              {layout.middleBullets.map((b, i) => (
+                <li key={i} className="flex items-start gap-4">
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: accent }} />
+                  <p className="text-base leading-7 text-white/80">
+                    {b.text}{" "}
+                    <span className="text-xs uppercase tracking-widest text-white/35">({b.source})</span>
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
+        ) : (
+          layout.middleCards?.map((card, i) => (
+            <div
+              key={i}
+              className="flex flex-1 flex-col items-center justify-center rounded-3xl p-6"
+              style={{ backgroundColor: card.color }}
+            >
+              <CardView content={card.content} />
+            </div>
+          ))
+        )}
       </div>
 
       {/* Colonne droite — 2 cartes moyennes */}
@@ -57,10 +100,7 @@ export default function ThreeColumnLayout({ layout, accent }: Props) {
           <div
             key={i}
             className="flex flex-col items-center justify-center rounded-3xl p-7"
-            style={{
-              backgroundColor: card.color,
-              flex: card.grow ?? 1,
-            }}
+            style={{ backgroundColor: card.color, flex: card.grow ?? 1 }}
           >
             <CardView content={card.content} />
           </div>

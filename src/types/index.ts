@@ -51,7 +51,8 @@ export type ThreeColumnCard = {
 export type ThreeColumnLayout = {
   type: "three-column"
   leftCard: ThreeColumnCard
-  middleCards: ThreeColumnCard[]
+  middleCards?: ThreeColumnCard[]
+  middleBullets?: Array<{ text: string; source: string }>
   rightCards: ThreeColumnCard[]
 }
 

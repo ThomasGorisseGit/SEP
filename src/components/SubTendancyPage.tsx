@@ -46,7 +46,12 @@ export default function SubTendancyPage({ subTendancy, accent, background }: Pro
       )}
 
       {subTendancy.layout.type === "three-column" && (
-        <ThreeColumnLayout layout={subTendancy.layout} accent={accent} />
+        <ThreeColumnLayout
+          layout={subTendancy.layout}
+          accent={accent}
+          index={subTendancy.index}
+          title={subTendancy.title}
+        />
       )}
     </section>
   )

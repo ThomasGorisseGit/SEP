@@ -38,7 +38,7 @@ type Props = {
   accent: string
 }
 
-export default function StatsGridLayout({ layout, accent }: Props) {
+export default function StatsGridLayout({ layout }: Props) {
   const topRow = layout.cards.slice(0, 2)
   const bottomRow = layout.cards.slice(2, 4)
 
