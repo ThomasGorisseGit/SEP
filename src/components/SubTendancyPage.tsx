@@ -6,6 +6,7 @@ import VerticalBandsLayout from "./layouts/VerticalBandsLayout"
 import ThreeColumnLayout from "./layouts/ThreeColumnLayout"
 import SliderCards from "./layouts/SliderCards"
 import TiltedCardsLayout from "./layouts/TiltedCardsLayout"
+import NewspaperLayout from "./layouts/NewspaperLayout"
 
 type Props = {
   subTendancy: SubTendancy
@@ -18,7 +19,7 @@ export default function SubTendancyPage({ subTendancy, accent, background }: Pro
     <section className="relative overflow-hidden" style={{ backgroundColor: background }}>
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute -top-16 right-0 h-[200px] w-[200px] rounded-full blur-[140px]"
+          className="absolute -top-16 right-0 h-50 w-50 rounded-full blur-[140px]"
           style={{ backgroundColor: accent, opacity: 0.09 }}
         />
         <div
@@ -67,6 +68,10 @@ export default function SubTendancyPage({ subTendancy, accent, background }: Pro
 
       {subTendancy.layout.type === "tilted-cards" && (
         <TiltedCardsLayout layout={subTendancy.layout} accent={accent} />
+      )}
+
+      {subTendancy.layout.type === "newspaper" && (
+        <NewspaperLayout layout={subTendancy.layout} accent={accent} />
       )}
     </section>
   )

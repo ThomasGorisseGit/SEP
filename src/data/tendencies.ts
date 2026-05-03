@@ -246,6 +246,82 @@ export const tendencies: Tendency[] = [
           ],
         },
       },
+      {
+        index: "2.3",
+        title: "Le micro-learning et la fréquence comme leviers d'ancrage",
+        description: "La durée et la cadence des formations comptent autant que le contenu. Au-delà de 60 min/an, l'engagement chute. Le micro-learning espacé de 90 jours ancre durablement les comportements.",
+        layout: {
+          type: "tilted-cards",
+          kicker:"Sous-tendance 2.3",
+          headline:"La donnée comportementale",    
+          cards: [
+            {
+              title: "3,5 min",
+              content: "Durée idéale par module, espacé de 90 jours",
+              source: "Beauceron",
+              icon: "timer",
+            },
+            {
+              title: "46%",
+              content: "Des organisations forment désormais trimestriellement",
+              source: "Fortinet",
+              icon: "calendar",
+            },
+            {
+              title: "Durée optimale",
+              content: "People who took more than 1 hour of training in a given year saw weaker results than people whose training time fell between 30–35 minutes.",
+              source: "Beauceron Security Report 2025",
+              icon: "book",
+            },
+            {
+              title: "Seuil de saturation",
+              content: "Au-delà de 60 min/an, l'engagement chute et le risque augmente",
+              source: "Beauceron",
+              icon: "warning",
+            },
+            {
+              title: "93%",
+              content: "Des employés ne terminent pas l'intégralité de leur parcours de formation",
+              source: "Fortinet",
+              icon: "chart",
+            },
+            {
+              title: "Formats efficaces",
+              content: "Présentiel (53%), e-learning (52%), phishing simulé (45%)",
+              source: "Fortinet",
+              icon: "graduation",
+            },
+          ],
+        },
+      },
+      {
+        index: "2.4",
+        title: "La bonne fréquence et les bons formats changent tout",
+        description: "Le micro-learning espacé, la durée courte et les formats hybrides maximisent l'engagement et limitent la saturation.",
+        layout: {
+          type: "newspaper",
+          kicker: "Sous-tendance 2.4",
+          headline: "Fréquence, durée et formats : le vrai levier de la sensibilisation",
+          columns: [
+            {
+              content: "3,5 min par module, espacés de 90 jours, c'est la durée idéale pour maintenir l'attention et ancrer les réflexes (Beauceron). 46% des organisations forment désormais leurs équipes de manière trimestrielle (Fortinet).",
+              source: "Beauceron / Fortinet",
+            },
+            {
+              content: "Au-delà de 60 min par an, l'engagement chute et le risque augmente. Le seuil de saturation est donc réel : trop de formation dilue l'impact, trop peu laisse les comportements inchangés (Beauceron). 93% des employés ne terminent pas l'intégralité de leur parcours de formation (Fortinet).",
+              source: "Beauceron / Fortinet",
+            },
+            {
+              content: "Les formats les plus efficaces se combinent : présentiel (53%), e-learning (52%) et phishing simulé (45%) ressortent comme les modalités les plus performantes pour garder l'attention et faire bouger les comportements (Fortinet).",
+              source: "Fortinet",
+            },
+          ],
+          pullQuote: {
+            text: "People who took more than 1 hour of training in a given year saw weaker results than people whose training time fell between 30-35 minutes.",
+            source: "Beauceron Security Report 2025",
+          },
+        },
+      },
     ],
   },
   {

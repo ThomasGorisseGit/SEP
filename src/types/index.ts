@@ -100,10 +100,29 @@ export type TiltedCard = {
 
 export type TiltedCardsLayout = {
   type: "tilted-cards"
+  kicker: string
+  headline: string
   cards: TiltedCard[]
 }
 
-export type SubTendancyLayout = StatsGridLayout | StatsGridInvertedLayout | VerticalBandsLayout | ThreeColumnLayout | ThreeCardsLayout | TiltedCardsLayout
+// Layout : editorial — headline XXL + colonnes de texte + pull quote
+export type NewspaperColumn = {
+  content: string
+  source?: string
+}
+
+export type NewspaperLayout = {
+  type: "newspaper"
+  kicker: string
+  headline: string
+  columns: NewspaperColumn[]
+  pullQuote?: {
+    text: string
+    source: string
+  }
+}
+
+export type SubTendancyLayout = StatsGridLayout | StatsGridInvertedLayout | VerticalBandsLayout | ThreeColumnLayout | ThreeCardsLayout | TiltedCardsLayout | NewspaperLayout
 
 export type SubTendancy = {
   index: string
