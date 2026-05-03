@@ -18,21 +18,21 @@ export default function NewspaperLayout({ layout, accent }: Props) {
         </p>
 
         {/* Headline */}
-        <h2 className="big-text mt-5 text-6xl leading-[1.05] text-white md:text-8xl">
+        <h2 className="big-text mt-5  leading-[1.05] text-white md:text-6xl">
           {layout.headline}
         </h2>
 
         {/* Pull quote — bande pleine largeur colorée */}
         {layout.pullQuote && (
-          <div className="relative my-12 overflow-hidden rounded-2xl px-10 py-8">
+          <div className="relative my-12 overflow-hidden rounded-2xl px-10 py-8  w-4/5">
             <div className="pointer-events-none absolute inset-0" style={{ backgroundColor: accent, opacity: 0.13 }} />
             <div
               className="pointer-events-none absolute bottom-0 left-0 top-0 w-1 rounded-full"
               style={{ backgroundColor: accent }}
             />
             <blockquote className="relative">
-              <p className="big-text text-2xl leading-snug text-white md:text-3xl">
-                {layout.pullQuote.text}
+              <p className="big-text text-2xl leading-snug text-white md:text-xl italic">
+                "{layout.pullQuote.text}"
               </p>
               <cite className="mt-4 block text-xs not-italic font-semibold uppercase tracking-[0.4em]" style={{ color: accent }}>
                 — {layout.pullQuote.source}

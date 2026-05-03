@@ -48,7 +48,7 @@ export default function TiltedCardsLayout({ layout, accent }: Props) {
               {layout.kicker}
             </p>
 
-            <h2 className="big-text mt-4 text-6xl leading-[1.05] text-white md:text-7xl">
+            <h2 className="big-text mt-4 text-4xl leading-[1.05] text-white md:text-6xl">
               {layout.headline}
             </h2>
           </div>
