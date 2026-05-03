@@ -535,10 +535,114 @@ export const tendencies: Tendency[] = [
     index: "04",
     title: "La réglementation: le moteur de transformation des programmes",
     subtitle: "Quand NIS2, AI Act et CRA deviennent des leviers de changement et structurent les pratiques.",
-    accent: "#7774FF",
+    accent: "#FFA7DC",
     background: "#2B2B2B",
     illustrationSide: "left",
-    subTendancies: [],
+    subTendancies: [
+      {
+        index: "4.1",
+        title: "NIS2 : l'obligation légale de sensibiliser",
+        description: "Pour la première fois, la sensibilisation n'est plus facultative. NIS2 en fait une obligation légale avec responsabilité personnelle des dirigeants.",
+        layout: {
+          type: "dual-stats",
+          stats: [
+            { type: "stat", value: "100%", label: "des organisations de 250+ salariés concernées par NIS2", source: "ENISA" },
+            { type: "stat", value: "2024", label: "année d'entrée en vigueur de NIS2", source: "UE" },
+          ],
+          quote: {
+            type: "quote",
+            text: "NIS2 transforms security awareness from a compliance checkbox into a legal mandate with executive accountability. It's the beginning of the end for theater.",
+            source: "Cybersecurity & Infrastructure Security Agency, 2025",
+          },
+          bullets: {
+            type: "bullets",
+            items: [
+              { text: "Responsabilité personnelle des COMEX : une première en réglementation cyber", source: "NIS2 Directive" },
+              { text: "Sensibilisation doit être documentée, mesurée et adaptée aux rôles", source: "ANSSI" },
+              { text: "Audits réguliers et preuves de conformité : plus de 'déclaratif'", source: "Deloitte" },
+            ],
+          },
+        },
+      },
+      {
+        index: "4.2",
+        title: "AI Act : cadre de conformité pour les systèmes IA en cybersécurité",
+        description: "L'AI Act crée un cadre pour les systèmes IA utilisés en défense comme en attaque. La sensibilisation doit intégrer la culture du risque IA.",
+        layout: {
+          type: "cards-flow",
+          kicker: "Sous-tendance 4.2",
+          headline: "AI Act : réguler l'usage de l'IA en cyber",
+          cards: [
+            {
+              color: "#2B2B2B",
+              content: { type: "stat", value: "40%", label: "des organisations utilisent déjà l'IA pour les simulations de phishing", source: "Gartner 2025" },
+            },
+            {
+              color: "#FFA7DC",
+              content: { type: "quote", text: "AI systems used for security must be transparent, auditable, and their usage communicated to all staff. There is no hidden AI in defense.", source: "EC DG DIGIT, 2025" },
+            },
+            {
+              color: "#2B2B2B",
+              content: { type: "bullets", items: [
+                { text: "Classification des systèmes IA par niveau de risque", source: "AI Act" },
+                { text: "Documentation obligatoire des modèles utilisés en sensibilisation", source: "Conformité UE" },
+                { text: "Traçabilité des décisions IA : qui décide, pourquoi et comment", source: "CNIL" },
+              ]},
+            },
+          ],
+        },
+      },
+      {
+        index: "4.3",
+        title: "CRA : vers une chaîne de responsabilité totale",
+        description: "Le Cyber Resilience Act élargit la responsabilité au-delà de l'organisation. La sensibilisation devient un élément du cycle de responsabilité de la chaîne logicielle.",
+        layout: {
+          type: "modern-stats",
+          kicker: "Sous-tendance 4.3",
+          headline: "Cyber Resilience Act : responsabilité étendue",
+          stat1: { type: "stat", value: "2027", label: "Date de pleine application du CRA en UE", source: "European Commission" },
+          stat2: { type: "stat", value: "100%", label: "des fournisseurs logiciels devront justifier leurs mesures de sensibilisation", source: "NIS2 / CRA" },
+          quote: {
+            type: "quote",
+            text: "CRA rewrites the rules: you're liable not just for your security, but for your supply chain's security—and for how well you've made them aware of their role.",
+            source: "Forrester, 2025",
+          },
+          bullets: {
+            type: "bullets",
+            items: [
+              { text: "Obligation de documenter la sensibilisation dans toute la supply chain", source: "CRA Directive" },
+              { text: "Incident suite à manque de sensibilisation = responsabilité accrue du fournisseur", source: "Legal Analysis" },
+              { text: "Audit annuel des mesures de formation : preuve de diligence requise", source: "CRA Requirements" },
+            ],
+          },
+        },
+      },
+      {
+        index: "4.4",
+        title: "L'effet cascadant : la réglementation transforme la sensibilisation",
+        description: "NIS2, AI Act et CRA ne sont que le début. Ensemble, ils restructurent les budgets, les rôles et les mesures de succès de la sensibilisation.",
+        layout: {
+          type: "gradient-flow",
+          kicker: "Sous-tendance 4.4",
+          headline: "Réglementation : la transformation en cascade",
+          stat1: { type: "stat", value: "+60%", label: "d'augmentation budgétaire moyenne en sensibilisation depuis l'annonce de NIS2", source: "Forrester" },
+          stat2: { type: "stat", value: "3,2M€", label: "coût moyen d'une amende NIS2 pour une PME de 250 salariés", source: "ANSSI" },
+          quote: {
+            type: "quote",
+            text: "Regulation is the only thing that moves markets. We're entering the era where compliance driving transformation, not resisting it.",
+            source: "Gartner Security Summit, 2025",
+          },
+          bullets: {
+            type: "bullets",
+            items: [
+              { text: "Budget de sensibilisation : nouveau poste critique au bilan des risques", source: "Fortinet Risk Report" },
+              { text: "Mesure de ROI obligatoire : réduction d'incidents, taux de signalement, taux de clic", source: "NIS2 Compliance Framework" },
+              { text: "Gouvernance nouvelle : sensibilisation relève du CISO et du COMEX, pas du RH", source: "Security Culture Report 2025" },
+            ],
+          },
+        },
+      },
+    ],
   },
   {
     index: "05",

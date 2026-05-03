@@ -10,6 +10,10 @@ import TiltedCardsLayout from "./layouts/TiltedCardsLayout"
 import NewspaperLayout from "./layouts/NewspaperLayout"
 import FourPlusTwoLayout from "./layouts/FourPlusTwoLayout"
 import BentoLayout from "./layouts/BentoLayout"
+import DualStatsLayout from "./layouts/DualStatsLayout"
+import CardsFlowLayout from "./layouts/CardsFlowLayout"
+import ModernStatsLayout from "./layouts/ModernStatsLayout"
+import GradientFlowLayout from "./layouts/GradientFlowLayout"
 
 type Props = {
   subTendancy: SubTendancy
@@ -93,6 +97,22 @@ export default function SubTendancyPage({ subTendancy, accent, background }: Pro
 
       {subTendancy.layout.type === "bento" && (
         <BentoLayout layout={subTendancy.layout} accent={accent} />
+      )}
+
+      {subTendancy.layout.type === "dual-stats" && (
+        <DualStatsLayout layout={subTendancy.layout} accent={accent} />
+      )}
+
+      {subTendancy.layout.type === "cards-flow" && (
+        <CardsFlowLayout layout={subTendancy.layout} accent={accent} />
+      )}
+
+      {subTendancy.layout.type === "modern-stats" && (
+        <ModernStatsLayout layout={subTendancy.layout} accent={accent} />
+      )}
+
+      {subTendancy.layout.type === "gradient-flow" && (
+        <GradientFlowLayout layout={subTendancy.layout} accent={accent} />
       )}
     </section>
   )

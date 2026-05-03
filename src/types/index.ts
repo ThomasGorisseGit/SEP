@@ -161,7 +161,50 @@ export type BentoLayout = {
   cards: BentoCard[]
 }
 
-export type SubTendancyLayout = StatsGridLayout | StatsGridInvertedLayout | VerticalBandsLayout | VerticalBandsInvertedLayout | ThreeColumnLayout | ThreeCardsLayout | TiltedCardsLayout | NewspaperLayout | FourPlusTwoLayout | BentoLayout
+// Layout: 2 stats centrées + citation overlay + bullets
+export type DualStatsLayout = {
+  type: "dual-stats"
+  stats: StatContent[]
+  quote: QuoteContent
+  bullets: BulletsContent
+}
+
+// Layout: Flow vertical moderne avec cartes empilées
+export type CardsFlowCard = {
+  color: string
+  content: CardContent
+}
+
+export type CardsFlowLayout = {
+  type: "cards-flow"
+  kicker: string
+  headline: string
+  cards: CardsFlowCard[]
+}
+
+// Layout: Stats XXL + Citation dégradée + Bullets modernes
+export type ModernStatsLayout = {
+  type: "modern-stats"
+  kicker: string
+  headline: string
+  stat1: StatContent
+  stat2: StatContent
+  quote: QuoteContent
+  bullets: BulletsContent
+}
+
+// Layout: Colonnes asymétriques avec gradient flow
+export type GradientFlowLayout = {
+  type: "gradient-flow"
+  kicker: string
+  headline: string
+  stat1: StatContent
+  stat2: StatContent
+  quote: QuoteContent
+  bullets: BulletsContent
+}
+
+export type SubTendancyLayout = StatsGridLayout | StatsGridInvertedLayout | VerticalBandsLayout | VerticalBandsInvertedLayout | ThreeColumnLayout | ThreeCardsLayout | TiltedCardsLayout | NewspaperLayout | FourPlusTwoLayout | BentoLayout | DualStatsLayout | CardsFlowLayout | ModernStatsLayout | GradientFlowLayout
 
 export type SubTendancy = {
   index: string
