@@ -301,7 +301,8 @@ export const tendencies: Tendency[] = [
         layout: {
           type: "newspaper",
           kicker: "Sous-tendance 2.4",
-          headline: "Fréquence, durée et formats : le vrai levier de la sensibilisation",
+          headline: "Fréquence, durée et formats :",
+          subheadline: " les vrais leviers de la sensibilisation",
           columns: [
             {
               stat: "3,5 min",
@@ -314,10 +315,10 @@ export const tendencies: Tendency[] = [
               source: "Beauceron / Fortinet",
             },
             {
-              content: "Les formats les plus efficaces se combinent pour garder l'attention et faire bouger les comportements.",
+              content: "Formats de sensibilisation les plus efficaces",
               source: "Fortinet",
               items: [
-                { label: "53%", text: "Présentiel" },
+                { label: "53%", text: "Session en présentiel" },
                 { label: "52%", text: "E-learning" },
                 { label: "45%", text: "Phishing simulé" },
               ],

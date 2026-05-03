@@ -122,6 +122,7 @@ export type NewspaperLayout = {
   type: "newspaper"
   kicker: string
   headline: string
+  subheadline?:string
   columns: NewspaperColumn[]
   pullQuote?: {
     text: string
