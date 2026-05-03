@@ -3,12 +3,14 @@ export type StatContent = {
   value: string
   label: string
   source?: string
+  textColor?: string
 }
 
 export type QuoteContent = {
   type: "quote"
   text: string
   source: string
+  textColor?: string
 }
 
 export type BarChartContent = {
@@ -21,11 +23,13 @@ export type PercentageChartContent = {
   type: "percentage-chart"
   value: number
   label: string
+  textColor?: string
 }
 
 export type BulletsContent = {
   type: "bullets"
   items: Array<{ text: string; source: string }>
+  textColor?: string
 }
 
 export type CardContent = StatContent | QuoteContent | BarChartContent | PercentageChartContent | BulletsContent
@@ -63,6 +67,7 @@ export type ThreeColumnCard = {
   color: string
   content: CardContent
   grow?: number
+  textColor?: string
 }
 
 export type ThreeColumnLayout = {

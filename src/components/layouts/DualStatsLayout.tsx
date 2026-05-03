@@ -7,6 +7,14 @@ type Props = {
 
 export default function DualStatsLayoutComponent({ layout, accent }: Props) {
     const [stat1, stat2] = layout.stats
+    const stat1TextColor = stat1.textColor ?? "rgba(255,255,255,0.7)"
+    const stat1SourceColor = stat1.textColor ?? "rgba(255,255,255,0.4)"
+    const stat2TextColor = stat2.textColor ?? "rgba(255,255,255,0.7)"
+    const stat2SourceColor = stat2.textColor ?? "rgba(255,255,255,0.4)"
+    const quoteTextColor = layout.quote.textColor ?? "rgba(21,21,21,0.95)"
+    const quoteSourceColor = layout.quote.textColor ?? "rgba(21,21,21,0.65)"
+    const bulletTextColor = layout.bullets.textColor ?? "rgba(255,255,255,0.8)"
+    const bulletSourceColor = layout.bullets.textColor ?? "rgba(255,255,255,0.4)"
 
     return (
         <div className="mx-auto max-w-[88%] min-h-screen flex flex-col justify-center py-14">
@@ -14,7 +22,7 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
             <div className="mb-12 grid grid-cols-2 gap-8">
                 {/* Stat 1 */}
                 <div
-                    className="relative overflow-hidden rounded-3xl p-8 flex flex-col justify-center min-h-[320px]"
+                    className="relative overflow-hidden rounded-3xl p-8 flex flex-col justify-center min-h-80"
                     style={{ backgroundColor: "#2B2B2B" }}
                 >
                     <div className="pointer-events-none absolute font-black leading-none select-none"
@@ -36,11 +44,11 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
                         <p className="text-5xl font-black leading-tight" style={{ color: accent }}>
                             {stat1.value}
                         </p>
-                        <p className="mt-4 text-base leading-6" style={{ color: "rgba(255,255,255,0.7)" }}>
+                        <p className="mt-4 text-base leading-6" style={{ color: stat1TextColor }}>
                             {stat1.label}
                         </p>
                         {stat1.source && (
-                            <p className="mt-2 text-xs uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.4)" }}>
+                            <p className="mt-2 text-xs uppercase tracking-widest" style={{ color: stat1SourceColor }}>
                                 {stat1.source}
                             </p>
                         )}
@@ -49,7 +57,7 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
 
                 {/* Stat 2 */}
                 <div
-                    className="relative overflow-hidden rounded-3xl p-8 flex flex-col justify-center min-h-[320px]"
+                    className="relative overflow-hidden rounded-3xl p-8 flex flex-col justify-center min-h-80"
                     style={{ backgroundColor: "#2B2B2B" }}
                 >
                     <div className="pointer-events-none absolute font-black leading-none select-none"
@@ -71,11 +79,11 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
                         <p className="text-5xl font-black leading-tight" style={{ color: accent }}>
                             {stat2.value}
                         </p>
-                        <p className="mt-4 text-base leading-6" style={{ color: "rgba(255,255,255,0.7)" }}>
+                        <p className="mt-4 text-base leading-6" style={{ color: stat2TextColor }}>
                             {stat2.label}
                         </p>
                         {stat2.source && (
-                            <p className="mt-2 text-xs uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.4)" }}>
+                            <p className="mt-2 text-xs uppercase tracking-widest" style={{ color: stat2SourceColor }}>
                                 {stat2.source}
                             </p>
                         )}
@@ -96,10 +104,10 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
                     "
                 </div>
                 <blockquote className=" relative z-10 flex flex-col gap-4 max-w-3xl">
-                    <p className="text-lg italic font-semibold leading-8" style={{ color: "rgba(21,21,21,0.95)" }}>
+                    <p className="text-lg italic font-semibold leading-8" style={{ color: quoteTextColor }}>
                         "{layout.quote.text}"
                     </p>
-                    <cite className="text-sm not-italic uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.65)" }}>
+                    <cite className="text-sm not-italic uppercase tracking-widest" style={{ color: quoteSourceColor }}>
                         — {layout.quote.source}
                     </cite>
                 </blockquote>
@@ -115,11 +123,11 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
                         <li key={i} className="flex items-start gap-4">
                             <span className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: accent }} />
                             <div>
-                                <p className="text-base leading-6" style={{ color: "rgba(255,255,255,0.8)" }}>
+                                <p className="text-base leading-6" style={{ color: bulletTextColor }}>
                                     {bullet.text}
                                 </p>
                                 {bullet.source && (
-                                    <p className="mt-1 text-xs uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.4)" }}>
+                                    <p className="mt-1 text-xs uppercase tracking-widest" style={{ color: bulletSourceColor }}>
                                         {bullet.source}
                                     </p>
                                 )}

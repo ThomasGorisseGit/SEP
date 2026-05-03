@@ -123,15 +123,18 @@ export const tendencies: Tendency[] = [
           type: "three-column",
           leftCard: {
             color: "#E2F163",
+            textColor:"#151515",
             content: { type: "stat", value: "20%", label: "des emails malveillants passent les filtres techniques" },
           },
           middleCards: [
             {
               color: "#7774FF",
+              textColor:"white",
               content: { type: "quote", text: "Le signal d'alerte n'est plus la faute de syntaxe : c'est l'anomalie contextuelle", source: "SoSafe" },
             },
             {
               color: "#232323",
+              textColor:"white",
               content: { type: "quote", text: "Les simulations classiques ne préparent plus aux attaques ultra-personnalisées sur canaux privés", source: "Technadu" },
             },
             {
@@ -141,11 +144,13 @@ export const tendencies: Tendency[] = [
           ],
           rightCards: [
             {
+              textColor:"white",
               color: "#AA96F8",
               content: { type: "stat", value: "4,6h", label: "temps médian pour cliquer sur un phishing après réception" },
             },
             {
-              color: "#7774FF",
+              color: "#7774FF",              
+              textColor:"white",
               content: { type: "quote", text: "Attackers are no longer testing if employees can spot a fake email; they are testing if they can manipulate how they think.", source: "Technadu, avril 2026" },
             },
           ],
@@ -572,33 +577,39 @@ export const tendencies: Tendency[] = [
           type: "three-column",
           leftCard: {
             color: "#E2F163",
+            textColor:"#151515",
             content: { type: "quote", text: "Agentic AI represents a shift from models that suggest to models that act — organizations must define the legal agency of these systems before full-scale deployment.", source: "Reuters, avril 2026" },
           },
           middleCards: [
             {
-              color: "#7774FF",
+              color: "#FFA7DC",
+              textColor: "#FFFFFF",
               content: { type: "percentage-chart", value: 96, label: "des orgs préparent des politiques d'usage IA" },
             },
             {
               color: "#AA96F8",
+              textColor:"#FFFFFF",
               content: { type: "percentage-chart", value: 53, label: "forment déjà sur l'usage sécurisé des outils GenAI" },
             },
           ],
           rightCards: [
             {
               color: "#DDB7F0",
+              textColor:"#FFFFFF",
               content: { type: "bullets", items: [
                 { text: "Risque de \"hallucination d'action\" : un agent IA exécute des commandes incorrectes de manière irréversible", source: "Reuters" },
               ]},
             },
             {
               color: "#151515",
+              textColor:"#FFFFFF",
               content: { type: "bullets", items: [
                 { text: "Shadow AI : le plus grand risque vient des employés utilisant des outils GenAI non approuvés avec des données sensibles", source: "HBR" },
               ]},
             },
             {
-              color: "#FFA7DC",
+              color: "#7774FF",
+              textColor:"#FFFFFF",
               content: { type: "bullets", items: [
                 { text: "L'AI Act impose transparence et formation pour les systèmes IA à haut risque (recrutement, surveillance, décision)", source: "AI Act" },
               ]},

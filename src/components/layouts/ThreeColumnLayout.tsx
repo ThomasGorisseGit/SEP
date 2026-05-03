@@ -1,8 +1,20 @@
 import type { ThreeColumnLayout as ThreeColumnLayoutType, CardContent } from "@/types"
 
-function CardView({ content, accent, dark }: { content: CardContent; accent?: string; dark?: boolean }) {
-  const valueColor = dark ? "#151515" : (accent ?? "#ffffff")
-  const labelColor = dark ? "rgba(21,21,21,0.65)" : undefined
+function isDarkHexColor(hex: string): boolean {
+  const normalized = hex.replace("#", "")
+  if (normalized.length !== 6) return false
+
+  const red = Number.parseInt(normalized.slice(0, 2), 16)
+  const green = Number.parseInt(normalized.slice(2, 4), 16)
+  const blue = Number.parseInt(normalized.slice(4, 6), 16)
+
+  const luminance = (red * 299 + green * 587 + blue * 114) / 1000
+  return luminance < 140
+}
+
+function CardView({ content, accent, dark, textColor }: { content: CardContent; accent?: string; dark?: boolean; textColor?: string }) {
+  const valueColor = textColor ?? (dark ? "#151515" : (accent ?? "#ffffff"))
+  const labelColor = textColor ?? (dark ? 'white' : '#151515')
 
   if (content.type === "stat") {
     return (
@@ -10,11 +22,11 @@ function CardView({ content, accent, dark }: { content: CardContent; accent?: st
         <span className="big-text text-6xl leading-none" style={{ color: valueColor }}>
           {content.value}
         </span>
-        <p className="text-sm leading-5" style={{ color: labelColor ?? "rgba(255,255,255,0.7)" }}>
+        <p className="text-sm leading-5 text-red-500" style={{ color: labelColor ?? "red" }}>
           {content.label}
         </p>
         {content.source && (
-          <p className="text-xs uppercase tracking-widest" style={{ color: dark ? "rgba(21,21,21,0.4)" : "rgba(255,255,255,0.4)" }}>
+          <p className="text-xs uppercase tracking-widest " style={{ color: textColor ? "rgba(43,43,43,0.52)" : dark ? "rgba(21,21,21,0.4)" : "rgba(255,255,255,0.4)" }}>
             {content.source}
           </p>
         )}
@@ -63,11 +75,35 @@ function CardView({ content, accent, dark }: { content: CardContent; accent?: st
     )
   }
 
+  if (content.type === "bullets") {
+    const bulletTextColor = textColor ?? (dark ? "rgba(21,21,21,0.88)" : "rgba(255,255,255,0.82)")
+    const sourceColor = dark ? "white" : "#151515"
+
+    return (
+      <ul className="flex flex-col gap-4">
+        {content.items.map((bullet, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="mt-2 h-2 w-2 shrink-0 rounded-full" />
+            <p className="text-sm leading-6" style={{ color: bulletTextColor }}>
+              {bullet.text}
+              <span className="ml-2 text-xs uppercase tracking-widest" style={{ color: sourceColor }}>
+                ({bullet.source})
+              </span>
+            </p>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
   if (content.type !== "quote") return null
+  const color = textColor ?? (dark ? "rgba(21,21,21,0.88)" : "rgba(255,255,255,0.82)")
+  const sourceColor = textColor ?? (dark ? "white" : "#151515")
+
   return (
-    <blockquote className="text-base leading-7 italic font-bold text-center px-2 text-white">
+    <blockquote className="text-base leading-7 italic font-bold text-center px-2 text-white " style={{ color: color }}>
       {content.text}
-      <p className="mt-3 text-xs not-italic font-semibold uppercase tracking-widest text-white/40">
+      <p className="mt-3 text-xs not-italic font-semibold uppercase tracking-widest text-white/40" style={{ color: sourceColor }}>
         {content.source}
       </p>
     </blockquote>
@@ -104,7 +140,7 @@ export default function ThreeColumnLayout({ layout, accent, index, title }: Prop
           className="flex flex-col items-center justify-center rounded-3xl p-8"
           style={{ backgroundColor: layout.leftCard.color, minHeight: "40%" }}
         >
-          <CardView content={layout.leftCard.content} accent={accent} dark />
+          <CardView content={layout.leftCard.content} accent={accent} dark textColor={layout.leftCard.textColor} />
         </div>
       </div>
 
@@ -131,7 +167,7 @@ export default function ThreeColumnLayout({ layout, accent, index, title }: Prop
               className="flex flex-1 flex-col items-center justify-center rounded-3xl p-6"
               style={{ backgroundColor: card.color }}
             >
-              <CardView content={card.content} />
+              <CardView content={card.content} accent={accent} textColor={card.textColor} dark={isDarkHexColor(card.color)} />
             </div>
           ))
         )}
@@ -145,7 +181,7 @@ export default function ThreeColumnLayout({ layout, accent, index, title }: Prop
             className="flex flex-col items-center justify-center rounded-3xl p-7"
             style={{ backgroundColor: card.color, flex: card.grow ?? 1 }}
           >
-            <CardView content={card.content} />
+            <CardView content={card.content} accent={accent} dark={isDarkHexColor(card.color)} textColor={card.textColor} />
           </div>
         ))}
       </div>
