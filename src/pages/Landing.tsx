@@ -2,7 +2,7 @@ import AnimatedLogo from "@/components/AnimatedLogo"
 import ThemePage from "@/components/ThemePage"
 import SubTendancyPage from "@/components/SubTendancyPage"
 import { tendencies, overviewCards } from "@/data/tendencies"
-import image from 'src/assets/characters/2.svg'
+import image from '../assets/characters/2.svg'
 export default function Landing() {
     return (
         <main>
