@@ -9,11 +9,7 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
     const [stat1, stat2] = layout.stats
 
     return (
-        <div className="mx-auto max-w-[88%] py-14">
-            <h2 className="big-text mb-10 text-4xl leading-tight text-white" style={{ maxWidth: "70%" }}>
-                Ce que l'on observe
-            </h2>
-
+        <div className="mx-auto max-w-[88%] min-h-screen flex flex-col justify-center py-14">
             {/* Dual Stats Section */}
             <div className="mb-12 grid grid-cols-2 gap-8">
                 {/* Stat 1 */}
@@ -91,15 +87,15 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
             <div className="mb-12 relative overflow-hidden rounded-3xl p-10" style={{ backgroundColor: accent, backgroundImage: `linear-gradient(135deg, ${accent} 0%, ${accent}dd 100%)` }}>
                 <div className="pointer-events-none absolute font-black select-none"
                     style={{
-                        fontSize: "clamp(10rem, 20vw, 16rem)",
-                        color: "rgba(21,21,21,0.1)",
-                        top: "-5%",
-                        left: "-2%",
+                        fontSize: "clamp(12rem, 25vw, 20rem)",
+                        color: "rgba(21,21,21,0.2)",
+                        top: "-10%",
+                        left: "85%",
                         lineHeight: 1,
                     }}>
                     "
                 </div>
-                <blockquote className="relative z-10 flex flex-col gap-4">
+                <blockquote className=" relative z-10 flex flex-col gap-4 max-w-3xl">
                     <p className="text-lg italic font-semibold leading-8" style={{ color: "rgba(21,21,21,0.95)" }}>
                         "{layout.quote.text}"
                     </p>

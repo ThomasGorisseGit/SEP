@@ -569,24 +569,38 @@ export const tendencies: Tendency[] = [
         title: "AI Act : cadre de conformité pour les systèmes IA en cybersécurité",
         description: "L'AI Act crée un cadre pour les systèmes IA utilisés en défense comme en attaque. La sensibilisation doit intégrer la culture du risque IA.",
         layout: {
-          type: "cards-flow",
-          kicker: "Sous-tendance 4.2",
-          headline: "AI Act : réguler l'usage de l'IA en cyber",
-          cards: [
+          type: "three-column",
+          leftCard: {
+            color: "#E2F163",
+            content: { type: "quote", text: "Agentic AI represents a shift from models that suggest to models that act — organizations must define the legal agency of these systems before full-scale deployment.", source: "Reuters, avril 2026" },
+          },
+          middleCards: [
             {
-              color: "#2B2B2B",
-              content: { type: "stat", value: "40%", label: "des organisations utilisent déjà l'IA pour les simulations de phishing", source: "Gartner 2025" },
+              color: "#7774FF",
+              content: { type: "percentage-chart", value: 96, label: "des orgs préparent des politiques d'usage IA" },
+            },
+            {
+              color: "#AA96F8",
+              content: { type: "percentage-chart", value: 53, label: "forment déjà sur l'usage sécurisé des outils GenAI" },
+            },
+          ],
+          rightCards: [
+            {
+              color: "#DDB7F0",
+              content: { type: "bullets", items: [
+                { text: "Risque de \"hallucination d'action\" : un agent IA exécute des commandes incorrectes de manière irréversible", source: "Reuters" },
+              ]},
+            },
+            {
+              color: "#151515",
+              content: { type: "bullets", items: [
+                { text: "Shadow AI : le plus grand risque vient des employés utilisant des outils GenAI non approuvés avec des données sensibles", source: "HBR" },
+              ]},
             },
             {
               color: "#FFA7DC",
-              content: { type: "quote", text: "AI systems used for security must be transparent, auditable, and their usage communicated to all staff. There is no hidden AI in defense.", source: "EC DG DIGIT, 2025" },
-            },
-            {
-              color: "#2B2B2B",
               content: { type: "bullets", items: [
-                { text: "Classification des systèmes IA par niveau de risque", source: "AI Act" },
-                { text: "Documentation obligatoire des modèles utilisés en sensibilisation", source: "Conformité UE" },
-                { text: "Traçabilité des décisions IA : qui décide, pourquoi et comment", source: "CNIL" },
+                { text: "L'AI Act impose transparence et formation pour les systèmes IA à haut risque (recrutement, surveillance, décision)", source: "AI Act" },
               ]},
             },
           ],

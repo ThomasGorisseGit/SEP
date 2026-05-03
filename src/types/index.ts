@@ -17,12 +17,18 @@ export type BarChartContent = {
   data: Array<{ label: string; value: number }>
 }
 
+export type PercentageChartContent = {
+  type: "percentage-chart"
+  value: number
+  label: string
+}
+
 export type BulletsContent = {
   type: "bullets"
   items: Array<{ text: string; source: string }>
 }
 
-export type CardContent = StatContent | QuoteContent | BarChartContent | BulletsContent
+export type CardContent = StatContent | QuoteContent | BarChartContent | PercentageChartContent | BulletsContent
 
 // Layout: grille de 4 cartes + carte droite
 export type StatsGridCard = {

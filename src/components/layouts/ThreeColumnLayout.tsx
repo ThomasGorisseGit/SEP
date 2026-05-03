@@ -21,6 +21,48 @@ function CardView({ content, accent, dark }: { content: CardContent; accent?: st
       </div>
     )
   }
+
+  if (content.type === "percentage-chart") {
+    const radius = 45
+    const circumference = 2 * Math.PI * radius
+    const strokeDashoffset = circumference - (content.value / 100) * circumference
+
+    return (
+      <div className="flex flex-col items-center justify-center text-center gap-4">
+        <svg width="120" height="120" style={{ transform: "rotate(-90deg)" }}>
+          <circle
+            cx="60"
+            cy="60"
+            r={radius}
+            fill="none"
+            stroke="rgba(255,255,255,0.1)"
+            strokeWidth="6"
+          />
+          <circle
+            cx="60"
+            cy="60"
+            r={radius}
+            fill="none"
+            stroke={valueColor}
+            strokeWidth="6"
+            strokeDasharray={circumference}
+            strokeDashoffset={strokeDashoffset}
+            strokeLinecap="round"
+            style={{ transition: "stroke-dashoffset 0.5s ease" }}
+          />
+        </svg>
+        <div>
+          <p className="big-text text-5xl leading-none" style={{ color: valueColor }}>
+            {content.value}%
+          </p>
+          <p className="mt-3 text-sm leading-5" style={{ color: labelColor ?? "rgba(255,255,255,0.7)" }}>
+            {content.label}
+          </p>
+        </div>
+      </div>
+    )
+  }
+
   if (content.type !== "quote") return null
   return (
     <blockquote className="text-base leading-7 italic font-bold text-center px-2 text-white">
