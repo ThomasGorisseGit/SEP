@@ -16,14 +16,15 @@ import ModernStatsLayout from "./layouts/ModernStatsLayout"
 import GradientFlowLayout from "./layouts/GradientFlowLayout"
 
 type Props = {
+  id?: string
   subTendancy: SubTendancy
   accent: string
   background: string
 }
 
-export default function SubTendancyPage({ subTendancy, accent, background }: Props) {
+export default function SubTendancyPage({ id, subTendancy, accent, background }: Props) {
   return (
-    <section className=" min-h-view relative overflow-hidden" style={{ backgroundColor: background }}>
+    <section id={id} className=" min-h-view relative overflow-hidden" style={{ backgroundColor: background }}>
       <div className="pointer-events-none absolute inset-0">
         <div
           className="absolute -top-16 right-0 h-50 w-50 rounded-full blur-[140px]"

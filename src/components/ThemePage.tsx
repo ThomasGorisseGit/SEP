@@ -1,6 +1,7 @@
 
 import image from '../assets/characters/1.svg'
 type ThemePageProps = {
+  id?: string
   index: string
   title: string
   subtitle: string
@@ -9,6 +10,7 @@ type ThemePageProps = {
   illustrationSide?: "left" | "right"
 }
 export default function ThemePage({
+  id,
   index,
   title,
   subtitle,
@@ -36,7 +38,7 @@ export default function ThemePage({
   )
 
   return (
-    <section className="relative min-h-screen overflow-hidden" style={{ backgroundColor: background }}>
+    <section id={id} className="relative min-h-screen overflow-hidden" style={{ backgroundColor: background }}>
       <div className="pointer-events-none absolute inset-0 opacity-70">
         <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full blur-[110px]" style={{ backgroundColor: accent, opacity: 0.16 }} />
         <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full blur-[120px]" style={{ backgroundColor: "#ffffff", opacity: 0.04 }} />
