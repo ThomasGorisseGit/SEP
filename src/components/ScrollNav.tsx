@@ -176,8 +176,8 @@ export default function ScrollNav() {
                                         >
                                             <motion.span
                                                 animate={{
-                                                    opacity: tendActive ? 0.75 : 0.32,
-                                                    scale: tendActive ? 1 : 0.82,
+                                                    opacity: tendActive ? 0 : 0.32,
+                                                    scale: tendActive ? 0.6 : 0.82,
                                                 }}
                                                 transition={{ duration: 0.3, ease: "easeOut" }}
                                                 style={{
@@ -192,12 +192,11 @@ export default function ScrollNav() {
                                             <motion.span
                                                 animate={{
                                                     opacity: tendActive ? 1 : 0.38,
-                                                    scale: tendActive ? 1 : 0.65,
+                                                    width: tendActive ? 16 : 9,
+                                                    height: tendActive ? 16 : 9,
                                                 }}
                                                 transition={{ duration: 0.3, ease: "easeOut" }}
                                                 style={{
-                                                    width: 9,
-                                                    height: 9,
                                                     borderRadius: "50%",
                                                     backgroundColor: t.accent,
                                                     pointerEvents: "none",
