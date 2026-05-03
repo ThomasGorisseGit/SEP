@@ -160,7 +160,93 @@ export const tendencies: Tendency[] = [
     accent: "#DDB7F0",
     background: "#2B2B2B",
     illustrationSide: "left",
-    subTendancies: [],
+    subTendancies: [
+      {
+        index: "2.1",
+        title: "Des programmes encore peu matures, mais un impact prouvé",
+        description: "La majorité des programmes de sensibilisation restent au stade basique. Pourtant, ceux qui atteignent l'optimisation produisent des résultats mesurables — réduction d'incidents, changement de comportement réel.",
+        layout: {
+          type: "three-cards",
+          cards: [
+            {
+              color: "#7774FF",
+              content: { type: "stat", value: "325", label: "programmes sur 2 700 au stade \"optimisation\"", source: "SANS" },
+              summary: "Des programmes d'excellence encore rares",
+            },
+            {
+              color: "#FFA7DC",
+              content: {
+                type: "bar-chart",
+                title: "Average Program Maturity Levels",
+                data: [
+                  { label: "Non-existant", value: 95 },
+                  { label: "Compliance", value: 602 },
+                  { label: "Behavior", value: 1075 },
+                  { label: "Culture", value: 666 },
+                  { label: "Optimization", value: 325 },
+                ],
+              },
+              summary: "Niveau de maturité des programmes",
+            },
+            {
+              color: "#E2F163",
+              content: { type: "stat", value: "67%", label: "des organisations voient une réduction d'incidents après formation", source: "Fortinet" },
+              summary: "La formation réduit les incidents mesurés",
+            },
+            {
+              color: "#AA96F8",
+              content: { type: "quote", text: "Completion is not an outcome; changed behaviour is.", source: "CyberDexterity / itweb, avril 2026" },
+              summary: "L'enjeu est le comportement, pas la complétion",
+            },
+            {
+              color: "#DDB7F0",
+              content: {
+                type: "bullets",
+                items: [
+                  { text: "Le SBCP (Security Behavior & Culture Program) remplace le SAT : motivation avant information", source: "Beauceron" },
+                  { text: "Modèle B.J. Fogg : Motivation + Capacité + Déclencheur = comportement réel", source: "Beauceron" },
+                  { text: "70% des leaders : la cyber est une responsabilité partagée, mais 26% n'agissent pas en conséquence", source: "Fortinet" },
+                ],
+              },
+              summary: "Ce que ça change en pratique",
+            },
+          ],
+        },
+      },
+      {
+        index: "2.2",
+        title: "La mesure comportementale comme moteur d'amélioration continue",
+        description: "Les nudges en temps réel et le phishing adaptatif transforment la sensibilisation. La donnée comportementale pilote les contenus et révèle l'état réel de la culture — le taux de signalement en est le baromètre.",
+        layout: {
+          type: "stats-grid-inverted",
+          leftCard: {
+            title: "Ce que la donnée comportementale révèle",
+            paragraphs: [
+              "La donnée comportementale pilote l'amélioration des contenus et la cadence — pas la surveillance individuelle.",
+              "Cycle continu : Identifier les lacunes → Adapter les contenus → Mesurer les comportements → Améliorer (GovInsider)",
+            ],
+          },
+          cards: [
+            {
+              color: "white",
+              content: { type: "stat", value: "−38%", label: "de taux de clic grâce aux nudges en temps réel", source: "Beauceron" },
+            },
+            {
+              color: "blue",
+              content: { type: "stat", value: "+30%", label: "de taux de signalement avec le phishing adaptatif", source: "Beauceron" },
+            },
+            {
+              color: "blue",
+              content: { type: "quote", text: "La culture de sécurité se mesure à ce que les gens font quand personne ne regarde — pas à ce qu'ils ont coché dans un LMS.", source: "SANS Security Awareness Report 2025" },
+            },
+            {
+              color: "white",
+              content: { type: "quote", text: "Taux de signalement = baromètre de la confiance : plus les collaborateurs signalent, plus la culture est ancrée.", source: "SANS" },
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     index: "03",

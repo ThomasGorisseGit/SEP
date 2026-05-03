@@ -11,11 +11,22 @@ export type QuoteContent = {
   source: string
 }
 
-export type CardContent = StatContent | QuoteContent
+export type BarChartContent = {
+  type: "bar-chart"
+  title: string
+  data: Array<{ label: string; value: number }>
+}
+
+export type BulletsContent = {
+  type: "bullets"
+  items: Array<{ text: string; source: string }>
+}
+
+export type CardContent = StatContent | QuoteContent | BarChartContent | BulletsContent
 
 // Layout: grille de 4 cartes + carte droite
 export type StatsGridCard = {
-  color: "white" | "purple"
+  color: "white" | "purple" | "blue"
   content: CardContent
 }
 
@@ -56,7 +67,43 @@ export type ThreeColumnLayout = {
   rightCards: ThreeColumnCard[]
 }
 
-export type SubTendancyLayout = StatsGridLayout | VerticalBandsLayout | ThreeColumnLayout
+// Layout: 3 grandes cartes bipartites (haut coloré + bas résumé)
+export type ThreeCardsCard = {
+  color: string
+  content: CardContent
+  summary: string
+}
+
+export type ThreeCardsLayout = {
+  type: "three-cards"
+  cards: ThreeCardsCard[]
+  bullets?: Array<{ text: string; source: string }>
+}
+
+// Layout: grande carte gauche + grille 2×2 droite (miroir de stats-grid)
+export type StatsGridInvertedLayout = {
+  type: "stats-grid-inverted"
+  cards: StatsGridCard[]
+  leftCard: {
+    title: string
+    paragraphs: string[]
+  }
+}
+
+// Layout : petites cartes inclinées qui se chevauchent
+export type TiltedCard = {
+  title: string
+  content: string
+  source?: string
+  icon?: string
+}
+
+export type TiltedCardsLayout = {
+  type: "tilted-cards"
+  cards: TiltedCard[]
+}
+
+export type SubTendancyLayout = StatsGridLayout | StatsGridInvertedLayout | VerticalBandsLayout | ThreeColumnLayout | ThreeCardsLayout | TiltedCardsLayout
 
 export type SubTendancy = {
   index: string

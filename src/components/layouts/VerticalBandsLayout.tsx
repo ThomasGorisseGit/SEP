@@ -12,6 +12,7 @@ function BandContent({ content }: { content: CardContent }) {
       </div>
     )
   }
+  if (content.type !== "quote") return null
   return (
     <blockquote className="text-base leading-7 italic font-bold text-center px-2" style={{ color: "#151515" }}>
       "{content.text}"

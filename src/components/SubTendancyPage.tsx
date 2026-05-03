@@ -1,8 +1,11 @@
 import type { SubTendancy } from "@/types"
 import Tendancy from "./Tendancy"
 import StatsGridLayout from "./layouts/StatsGridLayout"
+import StatsGridInvertedLayout from "./layouts/StatsGridInvertedLayout"
 import VerticalBandsLayout from "./layouts/VerticalBandsLayout"
 import ThreeColumnLayout from "./layouts/ThreeColumnLayout"
+import SliderCards from "./layouts/SliderCards"
+import TiltedCardsLayout from "./layouts/TiltedCardsLayout"
 
 type Props = {
   subTendancy: SubTendancy
@@ -52,6 +55,18 @@ export default function SubTendancyPage({ subTendancy, accent, background }: Pro
           index={subTendancy.index}
           title={subTendancy.title}
         />
+      )}
+
+      {subTendancy.layout.type === "stats-grid-inverted" && (
+        <StatsGridInvertedLayout layout={subTendancy.layout} accent={accent} />
+      )}
+
+      {subTendancy.layout.type === "three-cards" && (
+        <SliderCards layout={subTendancy.layout} accent={accent} />
+      )}
+
+      {subTendancy.layout.type === "tilted-cards" && (
+        <TiltedCardsLayout layout={subTendancy.layout} accent={accent} />
       )}
     </section>
   )
