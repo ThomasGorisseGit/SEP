@@ -44,9 +44,9 @@ type Props = {
 
 export default function VerticalBandsInvertedLayout({ index, layout, accent, title, description }: Props) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr]">
+    <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] md:min-h-screen">
       {/* Partie gauche — titre + bullets */}
-      <div className="flex flex-col justify-center gap-8 px-4 py-8 sm:px-8 md:gap-10 md:px-16 md:py-16">
+      <div className="flex flex-col justify-center gap-8 px-4 py-8 sm:px-8 md:gap-10 md:px-16 md:py-0">
         <div>
           <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: accent }}>
             Sous-tendance {index}
@@ -75,7 +75,7 @@ export default function VerticalBandsInvertedLayout({ index, layout, accent, tit
       </div>
 
       {/* Bandes verticales à droite */}
-      <div className="flex flex-row" style={{ minHeight: "40vh" }}>
+      <div className="flex flex-row md:h-full" style={{ minHeight: "40vh" }}>
         {layout.bands.map((band, i) => (
           <div
             key={i}
