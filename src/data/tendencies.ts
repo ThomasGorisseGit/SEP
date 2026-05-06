@@ -619,27 +619,53 @@ export const tendencies: Tendency[] = [
       },
       {
         index: "4.3",
-        title: "CRA : vers une chaîne de responsabilité totale",
-        description: "Le Cyber Resilience Act élargit la responsabilité au-delà de l'organisation. La sensibilisation devient un élément du cycle de responsabilité de la chaîne logicielle.",
+        title: "Souveraineté numérique et conflits législatifs : les angles morts de NIS2",
+        description: "Entre l'Art.16bis qui bloque la transposition NIS2 en France et le Cloud Act américain, les équipes cyber naviguent dans un flou législatif que l'ANSSI tente de cartographier avec ses outils opérationnels.",
         layout: {
-          type: "modern-stats",
-          kicker: "Sous-tendance 4.3",
-          headline: "Cyber Resilience Act : responsabilité étendue",
-          stat1: { type: "stat", value: "2027", label: "Date de pleine application du CRA en UE", source: "European Commission" },
-          stat2: { type: "stat", value: "100%", label: "des fournisseurs logiciels devront justifier leurs mesures de sensibilisation", source: "NIS2 / CRA" },
-          quote: {
-            type: "quote",
-            text: "CRA rewrites the rules: you're liable not just for your security, but for your supply chain's security—and for how well you've made them aware of their role.",
-            source: "Forrester, 2025",
-          },
-          bullets: {
-            type: "bullets",
-            items: [
-              { text: "Obligation de documenter la sensibilisation dans toute la supply chain", source: "CRA Directive" },
-              { text: "Incident suite à manque de sensibilisation = responsabilité accrue du fournisseur", source: "Legal Analysis" },
-              { text: "Audit annuel des mesures de formation : preuve de diligence requise", source: "CRA Requirements" },
-            ],
-          },
+          type: "vertical-bands",
+          bands: [
+            {
+              color: "#FFA7DC",
+              position: "top",
+              content: {
+                type: "stat",
+                value: "Art.16bis",
+                label: "bloque la transposition NIS2 en France : chiffrement vs accès étatique",
+              },
+            },
+            {
+              color: "#E2F163",
+              position: "bottom",
+              content: {
+                type: "stat",
+                value: "EUCS",
+                label: "Relance du label High+ pour protéger des lois extraterritoriales",
+              },
+            },
+            {
+              color: "#DDB7F0",
+              position: "center",
+              content: {
+                type: "quote",
+                text: "Cette inertie affaiblit la position de la France au moment même où se redessine l'architecture européenne de la cybersécurité.",
+                source: "Next.ink, mars 2026",
+              },
+            },
+          ],
+          bullets: [
+            {
+              text: "ANSSI : distinction claire risques techniques (CSA2) vs risques de souveraineté (ICT Supply Chain Toolbox)",
+              source: "ANSSI",
+            },
+            {
+              text: "Cloud Act américain : les données hébergées chez des fournisseurs US peuvent être accessibles aux autorités américaines",
+              source: "Cloud Act 2018",
+            },
+            {
+              text: "ReCyF : guide opérationnel d'anticipation de l'ANSSI en attendant la stabilisation législative",
+              source: "ANSSI",
+            },
+          ],
         },
       },
       {
@@ -676,6 +702,206 @@ export const tendencies: Tendency[] = [
     accent: "#DDB7F0",
     background: "#151515",
     illustrationSide: "right",
-    subTendancies: [],
+    subTendancies: [
+      {
+        index: "5.1",
+        title: "La sphère privée comme nouvelle surface d'attaque",
+        description: "Les cybercriminels ont quitté le périmètre de l'entreprise. Numéros personnels, réseaux sociaux privés, appareils hybrides : les attaques se déplacent là où les protections corporate n'existent plus.",
+        layout: {
+          type: "cards-flow",
+          kicker: "Sous-tendance 5.1",
+          headline: "Quand l'attaque déborde dans la vie privée",
+          cards: [
+            {
+              color: "#7774FF",
+              content: {
+                type: "stat",
+                value: "73%",
+                label: "des citoyens wallons préoccupés par leur sécurité en ligne",
+                source: "Proximus",
+              },
+            },
+            {
+              color: "#2C1F4A",
+              content: {
+                type: "stat",
+                value: "BYOD",
+                label: "les appareils hybrides travail/perso multiplient les vecteurs d'entrée",
+              },
+            },
+            {
+              color: "#1F1826",
+              content: {
+                type: "quote",
+                text: "Simulation ends where real-world emotional pressure begins.",
+                source: "Technadu, avril 2026",
+              },
+            },
+            {
+              color: "#3D2B6B",
+              content: {
+                type: "bullets",
+                items: [
+                  {
+                    text: "Des groupes ransomware exploitent les numéros personnels des enfants de dirigeants pour exercer une pression",
+                    source: "SoSafe",
+                  },
+                  {
+                    text: "Les attaques se déplacent vers WhatsApp, LinkedIn, SMS : là où les protections entreprise ne s'appliquent pas",
+                    source: "SoSafe",
+                  },
+                  {
+                    text: "CNIL Réseau Fantôme : fingerprinting, CNAME cloaking, pixels invisibles IA ciblent les données personnelles",
+                    source: "CNIL",
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
+      {
+        index: "5.2",
+        title: "Désinformation et manipulation algorithmique : une menace systémique",
+        description: "La désinformation n'est plus un phénomène marginal — elle est industrialisée, packagée et vendue. L'IA la rend indétectable à l'œil nu et capable d'affecter des marchés financiers en quelques minutes.",
+        layout: {
+          type: "four-plus-two",
+          topCards: [
+            {
+              color: "#DDB7F0",
+              content: {
+                type: "stat",
+                value: "63%",
+                label: "des jeunes Européens voient régulièrement de fausses informations en ligne",
+                source: "SoSafe",
+              },
+            },
+            {
+              color: "#DDB7F0",
+              content: {
+                type: "stat",
+                value: "DaaS",
+                label: "Disinformation-as-a-Service : campagnes packagées vendues sur le dark web",
+                source: "SoSafe",
+              },
+            },
+            {
+              color: "#DDB7F0",
+              content: {
+                type: "quote",
+                text: "The line between observing society and engineering it may be thinner than anyone imagined.",
+                source: "National Law Review, mars 2026",
+              },
+            },
+            {
+              label: "WEF 2024",
+              color: "#DDB7F0",
+              content: {
+                type: "bullets",
+                items: [
+                  {
+                    text: "L'IA générant désinformation et cyberattaques figure parmi les principaux risques globaux",
+                    source: "WEF",
+                  },
+                ],
+              },
+            },
+          ],
+          bottomCards: [
+            {
+              label: "Élections slovaques",
+              color: "#DDB7F0",
+              content: {
+                type: "bullets",
+                items: [
+                  {
+                    text: "Deepfakes lors d'élections slovaques : manipulation de l'opinion publique documentée",
+                    source: "SoSafe",
+                  },
+                ],
+              },
+            },
+            {
+              label: "Marché US",
+              color: "#DDB7F0",
+              content: {
+                type: "bullets",
+                items: [
+                  {
+                    text: "Fausse image d'explosion au Pentagone ayant brièvement affecté les marchés US",
+                    source: "SoSafe",
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
+      {
+        index: "5.3",
+        title: "La cyber grand public : former les citoyens, pas seulement les employés",
+        description: "L'Opération Cactus et les campagnes comme #CyberEnClair montrent que la sensibilisation doit désormais toucher les citoyens, les lycéens, les parents — là où ils sont, avec les codes qui leur parlent.",
+        layout: {
+          type: "bento",
+          cards: [
+            {
+              color: "#151515",
+              content: {
+                type: "stat",
+                value: "10M",
+                label: "personnes touchées par l'Opération Cactus 2026 — 1 Français sur 6",
+                source: "CNIL",
+              },
+            },
+            {
+              color: "#E2F163",
+              content: {
+                type: "stat",
+                value: "+2700%",
+                label: "d'infractions aux ENT entre 2017 et 2025",
+                source: "Opération Cactus",
+              },
+            },
+            {
+              color: "#DDB7F0",
+              content: {
+                type: "quote",
+                text: "Être né avec un smartphone dans la main ne protège pas des cyberattaques.",
+                source: "Campagne #CyberEnClair, Cybermalveillance, mars 2026",
+              },
+            },
+            {
+              color: "#F0E6FF",
+              content: {
+                type: "bullets",
+                items: [
+                  {
+                    text: "Opération Cactus : leurres personnalisés par public — faux matériel sport pour les parents, plateformes d'orientation pour lycéens",
+                    source: "CNIL",
+                  },
+                  {
+                    text: "#CyberEnClair : TikTok + Instagram, ton non moralisateur, ambassadeurs communautaires",
+                    source: "Cybermalveillance",
+                  },
+                  {
+                    text: "Wallonie & Proximus : modèle en cascade — former les formateurs, puis les citoyens",
+                    source: "Proximus",
+                  },
+                ],
+              },
+            },
+            {
+              color: "#AA96F8",
+              content: {
+                type: "stat",
+                value: "211",
+                label: "Espaces Publics Numériques mobilisés en Wallonie pour former les citoyens en cascade",
+                source: "Proximus",
+              },
+            },
+          ],
+        },
+      },
+    ],
   },
 ]

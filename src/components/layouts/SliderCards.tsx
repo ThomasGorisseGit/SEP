@@ -64,14 +64,25 @@ function MainContent({ content, accent }: { content: CardContent; accent: string
       </div>
     )
   }
-  return (
-    <blockquote className="text-xl leading-8 italic font-bold text-center px-4" style={{ color: "rgba(21,21,21,0.85)" }}>
-      {content.text}
-      <p className="mt-4 text-xs not-italic font-semibold uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.45)" }}>
-        {content.source}
-      </p>
-    </blockquote>
-  )
+  if (content.type === "quote") {
+    return (
+      <blockquote className="text-xl leading-8 italic font-bold text-center px-4" style={{ color: "rgba(21,21,21,0.85)" }}>
+        {content.text}
+        <p className="mt-4 text-xs not-italic font-semibold uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.45)" }}>
+          {content.source}
+        </p>
+      </blockquote>
+    )
+  }
+  if (content.type === "percentage-chart") {
+    return (
+      <div className="flex flex-col items-center text-center gap-4">
+        <span className="big-text text-8xl leading-none" style={{ color: "rgba(21,21,21,0.85)" }}>{content.value}%</span>
+        <p className="text-base leading-6" style={{ color: "rgba(21,21,21,0.6)" }}>{content.label}</p>
+      </div>
+    )
+  }
+  return null
 }
 
 type Props = {
