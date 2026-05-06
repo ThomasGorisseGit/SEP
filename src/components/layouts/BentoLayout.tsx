@@ -1,6 +1,7 @@
 import type { BentoLayout as BentoLayoutType, BentoCard, CardContent } from "@/types"
 
 // Grille 3×3 : [2×2][1×1] / [_][1×1] / [2×1][1×1]
+// Sur mobile, toutes les cartes sont en 1 colonne (pas de span)
 const CARD_SPANS = [
   { col: 2, row: 2 },
   { col: 1, row: 1 },
@@ -33,37 +34,30 @@ function StatCard({ content, wide }: { content: Extract<CardContent, { type: "st
     <>
       <div className="pointer-events-none absolute font-black leading-none select-none"
         style={{
-          fontSize: wide ? "clamp(7rem, 15vw, 12rem)" : "clamp(6rem, 12vw, 10rem)",
+          fontSize: wide ? "clamp(5rem, 15vw, 12rem)" : "clamp(4rem, 12vw, 10rem)",
           color: "rgba(21,21,21,0.04)",
-          top: "50%",
-          left: wide ? "auto" : "50%",
+          top: "50%", left: wide ? "auto" : "50%",
           right: wide ? "-2%" : "auto",
           transform: wide ? "translateY(-50%)" : "translate(-46%, -50%)",
           whiteSpace: "nowrap",
         }}>
         {content.value}
       </div>
-      <div className="absolute inset-0 flex flex-col justify-end p-7">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>
-          Chiffre clé
-        </p>
+      <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-7">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>Chiffre clé</p>
         <span className="font-black leading-none"
           style={{
-            fontSize: wide ? "clamp(3rem, 6vw, 5rem)" : "clamp(2.5rem, 5vw, 4rem)",
+            fontSize: wide ? "clamp(2rem, 6vw, 5rem)" : "clamp(1.75rem, 5vw, 4rem)",
             background: "linear-gradient(140deg, rgba(21,21,21,0.92) 0%, rgba(21,21,21,0.45) 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
+            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
           }}>
           {content.value}
         </span>
-        <p className="mt-4 text-base leading-5" style={{ color: "rgba(21,21,21,0.8)", maxWidth: wide ? "55%" : "90%" }}>
+        <p className="mt-3 text-sm leading-5 md:text-base md:leading-5" style={{ color: "rgba(21,21,21,0.8)", maxWidth: wide ? "55%" : "90%" }}>
           {content.label}
         </p>
         {content.source && (
-          <p className="mt-2 text-xs uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.32)" }}>
-            {content.source}
-          </p>
+          <p className="mt-2 text-xs uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.32)" }}>{content.source}</p>
         )}
       </div>
     </>
@@ -74,15 +68,13 @@ function QuoteCard({ content }: { content: Extract<CardContent, { type: "quote" 
   return (
     <>
       <div className="pointer-events-none absolute font-black select-none"
-        style={{ fontSize: "clamp(10rem, 20vw, 16rem)", color: "rgba(21,21,21,0.05)", top: "-8%", left: "-2%", lineHeight: 1 }}>
+        style={{ fontSize: "clamp(7rem, 20vw, 16rem)", color: "rgba(21,21,21,0.05)", top: "-8%", left: "-2%", lineHeight: 1 }}>
         "
       </div>
-      <div className="absolute inset-0 flex flex-col justify-center p-7">
-        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>
-          Citation
-        </p>
-        <blockquote className="flex flex-col gap-3">
-          <p className="text-sm italic font-semibold leading-6" style={{ color: "rgba(21,21,21,0.85)" }}>
+      <div className="absolute inset-0 flex flex-col justify-center p-5 md:p-7">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>Citation</p>
+        <blockquote className="flex flex-col gap-2 md:gap-3">
+          <p className="text-xs italic font-semibold leading-5 md:text-sm md:leading-6" style={{ color: "rgba(21,21,21,0.85)" }}>
             "{content.text}"
           </p>
           <cite className="text-xs not-italic uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.38)" }}>
@@ -96,15 +88,13 @@ function QuoteCard({ content }: { content: Extract<CardContent, { type: "quote" 
 
 function BulletsCard({ content }: { content: Extract<CardContent, { type: "bullets" }> }) {
   return (
-    <div className="absolute inset-0 flex flex-col justify-center p-7">
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>
-        Points clés
-      </p>
-      <ul className="flex flex-col gap-4">
+    <div className="absolute inset-0 flex flex-col justify-center p-5 md:p-7">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>Points clés</p>
+      <ul className="flex flex-col gap-3 md:gap-4">
         {content.items.map((b, i) => (
-          <li key={i} className="flex items-start gap-3">
+          <li key={i} className="flex items-start gap-2 md:gap-3">
             <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: "rgba(21,21,21,0.45)" }} />
-            <p className="text-base leading-5" style={{ color: "rgba(21,21,21,0.7)" }}>
+            <p className="text-xs leading-5 md:text-base md:leading-5" style={{ color: "rgba(21,21,21,0.7)" }}>
               {b.text}
               {b.source && <span className="ml-1 text-xs uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.35)" }}>({b.source})</span>}
             </p>
@@ -119,11 +109,13 @@ function Card({ card, index }: { card: BentoCard; index: number }) {
   const span = CARD_SPANS[index] ?? { col: 1, row: 1 }
   const isWide = span.col === 2 && span.row === 1
   const content = card.content
+  const colSpanClass = span.col === 2 ? "md:col-span-2" : ""
+  const rowSpanClass = span.row === 2 ? "md:row-span-2" : ""
 
   return (
     <div
-      className="relative overflow-hidden rounded-3xl"
-      style={{ backgroundColor: card.color, gridColumn: `span ${span.col}`, gridRow: `span ${span.row}` }}
+      className={`relative overflow-hidden rounded-2xl md:rounded-3xl ${colSpanClass} ${rowSpanClass}`}
+      style={{ backgroundColor: card.color, minHeight: "160px" }}
     >
       <Decor wide={isWide} />
       {content.type === "stat" && <StatCard content={content} wide={isWide} />}
@@ -139,8 +131,8 @@ function LargeCard({ card, accent }: { card: BentoCard; accent: string }) {
 
   return (
     <div
-      className="relative overflow-hidden rounded-3xl"
-      style={{ backgroundColor: "#151515", gridColumn: "span 2", gridRow: "span 2" }}
+      className="relative overflow-hidden rounded-2xl md:rounded-3xl md:col-span-2 md:row-span-2"
+      style={{ backgroundColor: "#151515", minHeight: "220px" }}
     >
       <div className="pointer-events-none absolute inset-0"
         style={{ background: `radial-gradient(ellipse at 35% 55%, ${accent}22 0%, transparent 60%)` }} />
@@ -149,43 +141,32 @@ function LargeCard({ card, accent }: { card: BentoCard; accent: string }) {
       <div className="pointer-events-none absolute rounded-full"
         style={{ width: "48%", aspectRatio: "1", top: "18%", right: "-10%", border: `1px solid ${accent}12` }} />
       <div className="pointer-events-none absolute"
-        style={{
-          top: 0, right: 0, width: "45%", height: "45%", opacity: 0.06,
-          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "18px 18px",
-        }} />
+        style={{ top: 0, right: 0, width: "45%", height: "45%", opacity: 0.06, backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
       {isStat && (
         <div className="pointer-events-none absolute font-black leading-none select-none"
           style={{
-            fontSize: "clamp(11rem, 24vw, 20rem)",
-            color: accent, opacity: 0.07,
-            top: "50%", left: "50%",
-            transform: "translate(-48%, -48%)",
-            whiteSpace: "nowrap",
+            fontSize: "clamp(7rem, 24vw, 20rem)", color: accent, opacity: 0.07,
+            top: "50%", left: "50%", transform: "translate(-48%, -48%)", whiteSpace: "nowrap",
           }}>
           {content.value}
         </div>
       )}
-      <div className="absolute inset-0 flex flex-col justify-end p-10">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: `${accent}99` }}>
-          Chiffre clé
-        </p>
+      <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: `${accent}99` }}>Chiffre clé</p>
         {isStat && (
           <>
             <span className="font-black leading-none"
               style={{
-                fontSize: "clamp(4.5rem, 10vw, 8rem)",
+                fontSize: "clamp(3rem, 10vw, 8rem)",
                 background: `linear-gradient(140deg, ${accent} 30%, #ffffff 100%)`,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
               }}>
               {content.value}
             </span>
-            <div className="my-6 h-px w-12" style={{ backgroundColor: accent, opacity: 0.35 }} />
-            <p className="max-w-xs text-base leading-7 text-white/65">{content.label}</p>
+            <div className="my-4 h-px w-10 md:my-6 md:w-12" style={{ backgroundColor: accent, opacity: 0.35 }} />
+            <p className="max-w-xs text-sm leading-6 text-white/65 md:text-base md:leading-7">{content.label}</p>
             {content.source && (
-              <p className="mt-3 text-xs uppercase tracking-widest text-white/30">{content.source}</p>
+              <p className="mt-2 text-xs uppercase tracking-widest text-white/30">{content.source}</p>
             )}
           </>
         )}
@@ -201,17 +182,13 @@ type Props = {
 
 export default function BentoLayout({ layout, accent }: Props) {
   return (
-    <div className="mx-auto max-w-[88%] py-14">
-      <h2 className="big-text mb-6 text-4xl leading-tight text-white" style={{ maxWidth: "66%" }}>
+    <div className="mx-auto w-full px-4 py-8 sm:max-w-[88%] md:py-14">
+      <h2 className="big-text mb-6 text-2xl leading-tight text-white md:text-4xl" style={{ maxWidth: "66%" }}>
         Ce que l'on observe
       </h2>
       <div
-        className="grid gap-4"
-        style={{
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gridTemplateRows: "repeat(3, 1fr)",
-          minHeight: "78vh",
-        }}
+        className="grid grid-cols-1 gap-4 md:grid-cols-3 md:min-h-[78vh]"
+        style={{ gridAutoRows: "minmax(160px, auto)" }}
       >
         {layout.cards.slice(0, 5).map((card, i) =>
           i === 0

@@ -19,7 +19,7 @@ export default function ThemePage({
   illustrationSide = "right",
 }: ThemePageProps) {
   const illustration = (
-    <img src={image} alt="" />
+    <img src={image} alt="" className="hidden w-full max-w-[18rem] sm:max-w-sm lg:max-w-lg lg:block" />
   )
 
   const content = (

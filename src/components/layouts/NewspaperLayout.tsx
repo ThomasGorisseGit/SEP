@@ -46,31 +46,27 @@ function RadialFormatsChart({ items, accent, title }: { items: NewspaperColumnIt
   return (
     <div className="flex flex-col gap-4">
       <p
-        className="text-xl font-black leading-none tracking-tight"
+        className="text-lg font-black leading-none tracking-tight md:text-xl"
         style={{
           background: `linear-gradient(to right, ${accent}, #7774FF)`,
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          color: "transparent",
+          WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", color: "transparent",
         }}
       >
         {title}
       </p>
-      <ChartContainer config={{ value: { label: "Taux" } }} className="h-44 w-full">
+      <ChartContainer config={{ value: { label: "Taux" } }} className="h-40 w-full md:h-44">
         <RadialBarChart data={chartData} innerRadius="30%" outerRadius="100%" startAngle={90} endAngle={-270}>
           <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
           <RadialBar dataKey="value" background={{ fill: "rgba(255,255,255,0.06)" }} cornerRadius={4} />
           <ChartTooltip content={<RadialTooltip />} />
         </RadialBarChart>
       </ChartContainer>
-
       <div className="flex flex-col gap-2">
         {items.map((item, i) => (
           <div key={i} className="flex items-center gap-2">
             <div className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: colors[i] }} />
-            <span className="text-base text-white/50 flex-1">{item.text}</span>
-            <span className="text-base font-bold" style={{ color: colors[i] }}>{item.label}</span>
+            <span className="text-sm text-white/50 flex-1 md:text-base">{item.text}</span>
+            <span className="text-sm font-bold md:text-base" style={{ color: colors[i] }}>{item.label}</span>
           </div>
         ))}
       </div>
@@ -80,88 +76,68 @@ function RadialFormatsChart({ items, accent, title }: { items: NewspaperColumnIt
 
 export default function NewspaperLayout({ layout, accent }: Props) {
   return (
-    <div className="min-h-screen py-20">
-      <div className="mx-auto max-w-[82%]">
+    <div className="py-12 md:py-20">
+      <div className="mx-auto w-full px-4 sm:max-w-[90%] md:max-w-[82%]">
 
-        {/* Kicker */}
         <p className="text-xs font-semibold uppercase tracking-[0.5em]" style={{ color: accent }}>
           {layout.kicker}
         </p>
 
-        {/* Headline */}
-        <h2 className="big-text mt-5  leading-[1.05] text-white md:text-5xl">
+        <h2 className="big-text mt-4 text-2xl leading-tight text-white sm:text-3xl md:mt-5 md:text-5xl">
           {layout.headline}
         </h2>
-        <h2 className="big-text mt-5  leading-[1.05] text-white md:text-5xl">
+        <h2 className="big-text mt-2 text-2xl leading-tight text-white sm:text-3xl md:mt-5 md:text-5xl">
           {layout.subheadline}
         </h2>
 
-        {/* Pull quote — bande pleine largeur colorée */}
         {layout.pullQuote && (
-          <div className="relative my-12 overflow-hidden rounded-2xl px-10 py-8  w-4/5">
+          <div className="relative my-8 overflow-hidden rounded-2xl px-6 py-6 w-full md:my-12 md:px-10 md:py-8 md:w-4/5">
             <div className="pointer-events-none absolute inset-0" style={{ backgroundColor: accent, opacity: 0.13 }} />
-            <div
-              className="pointer-events-none absolute bottom-0 left-0 top-0 w-1 rounded-full"
-              style={{ backgroundColor: accent }}
-            />
+            <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-1 rounded-full" style={{ backgroundColor: accent }} />
             <blockquote className="relative">
-              <p className=" text-2xl leading-snug text-white md:text-xl italic">
+              <p className="text-lg leading-snug text-white italic md:text-xl">
                 "{layout.pullQuote.text}"
               </p>
-              <cite className="mt-4 block text-xs not-italic font-semibold uppercase tracking-[0.4em]" style={{ color: accent }}>
+              <cite className="mt-3 block text-xs not-italic font-semibold uppercase tracking-[0.4em] md:mt-4" style={{ color: accent }}>
                 — {layout.pullQuote.source}
               </cite>
             </blockquote>
           </div>
         )}
 
-        {/* Colonnes */}
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
           {layout.columns.map((col, i) => (
-            <div key={i} className="flex flex-col gap-5">
-              {/* Indicateur coloré */}
+            <div key={i} className="flex flex-col gap-4 md:gap-5">
               <div className="flex items-center gap-3">
                 <span
                   className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold"
-                  style={{
-                    backgroundColor: "rgba(255,255,255,0.07)",
-                    color: "rgba(255,255,255,0.5)",
-                  }}
+                  style={{ backgroundColor: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.5)" }}
                 >
                   {COLUMN_LABELS[i]}
                 </span>
                 <div className="h-px flex-1" style={{ backgroundColor: "rgba(255,255,255,0.08)" }} />
               </div>
 
-              {/* Grand chiffre mis en avant */}
               {col.stat && (
                 <p
-                  className="text-7xl font-black leading-none tracking-tight"
+                  className="text-5xl font-black leading-none tracking-tight md:text-7xl"
                   style={{
                     background: `linear-gradient(to bottom, ${accent}, #7774FF)`,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "transparent",
+                    WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", color: "transparent",
                   }}
                 >
                   {col.stat}
                 </p>
               )}
 
-              {/* Diagramme radial ou texte */}
               {col.items ? (
                 <RadialFormatsChart items={col.items} accent={accent} title={col.content} />
               ) : (
-                <p className="text-base leading-8 text-white/65">
-                  {col.content}
-                </p>
+                <p className="text-sm leading-7 text-white/65 md:text-base md:leading-8">{col.content}</p>
               )}
 
               {col.source && (
-                <p className="text-xs font-semibold uppercase tracking-widest text-white/25">
-                  {col.source}
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-white/25">{col.source}</p>
               )}
             </div>
           ))}

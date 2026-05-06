@@ -20,22 +20,22 @@ export default function Tendancy({
 
   return (
     <div className="flex flex-col items-center gap-8">
-      <div className="w-full px-16 py-10 text-white" style={{ backgroundColor: bandeauBg }}>
-        <div className="flex items-center gap-8 max-w-6xl mx-auto">
-          <span className="text-6xl big-text leading-none shrink-0" style={{ color: accent }}>
+      <div className="w-full px-4 py-6 text-white sm:px-8 md:px-16 md:py-10" style={{ backgroundColor: bandeauBg }}>
+        <div className="flex flex-col gap-4 max-w-6xl mx-auto sm:flex-row sm:items-center sm:gap-6 md:gap-8">
+          <span className="text-3xl big-text leading-none shrink-0 sm:text-4xl md:text-6xl" style={{ color: accent }}>
             {index}
           </span>
-          <span className="w-px h-12 bg-white opacity-20 shrink-0" />
-          <div className="flex flex-col gap-2">
-            <span className="uppercase tracking-widest text-sm font-bold opacity-90">
+          <span className="hidden sm:block w-px h-12 bg-white opacity-20 shrink-0" />
+          <div className="flex flex-col gap-1">
+            <span className="uppercase tracking-widest text-xs font-bold opacity-90 sm:text-sm">
               Sous-tendance
             </span>
-            <h2 className="text-3xl big-text" style={{ color: accent }}>
+            <h2 className="text-xl big-text sm:text-2xl md:text-3xl" style={{ color: accent }}>
               {title}
             </h2>
           </div>
-          <span className="w-px h-12 bg-white opacity-20 shrink-0" />
-          <p className="text-sm leading-relaxed opacity-70 max-w-xl">
+          <span className="hidden md:block w-px h-12 bg-white opacity-20 shrink-0" />
+          <p className="hidden md:block text-sm leading-relaxed opacity-70 max-w-xl">
             {description}
           </p>
         </div>

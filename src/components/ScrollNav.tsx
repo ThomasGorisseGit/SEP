@@ -128,8 +128,8 @@ export default function ScrollNav() {
                 )}
             </AnimatePresence>
 
-            {/* Rail */}
-            <div style={{ position: "fixed", right: 20, top: "50%", transform: "translateY(-50%)", zIndex: 50, width: 44 }}>
+            {/* Rail — masqué sur mobile */}
+            <div className="hidden md:block" style={{ position: "fixed", right: 20, top: "50%", transform: "translateY(-50%)", zIndex: 50, width: 44 }}>
                 <AnimatePresence>
                     {visible && (
                         <motion.nav
