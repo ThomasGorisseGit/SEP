@@ -16,7 +16,7 @@ function CardView({ content, accent, dark, textColor }: { content: CardContent; 
 
   if (content.type === "stat") {
     return (
-      <div className="flex flex-col items-center justify-center text-center gap-2">
+      <div className="flex flex-col items-center justify-center text-center gap-2 py-6">
         <span className="big-text text-3xl leading-none md:text-6xl" style={{ color: valueColor }}>
           {content.value}
         </span>
@@ -40,10 +40,10 @@ function CardView({ content, accent, dark, textColor }: { content: CardContent; 
     return (
       <div className="flex flex-col items-center justify-center text-center gap-3">
         <svg width="100" height="100" className="md:w-30 md:h-30" style={{ transform: "rotate(-90deg)" }}>
-          <circle cx="50" cy="50" r={radius * (100/120)} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="6" />
-          <circle cx="50" cy="50" r={radius * (100/120)} fill="none" stroke={valueColor} strokeWidth="6"
-            strokeDasharray={circumference * (100/120) / circumference * circumference}
-            strokeDashoffset={strokeDashoffset * (100/120)}
+          <circle cx="50" cy="50" r={radius * (100 / 120)} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="6" />
+          <circle cx="50" cy="50" r={radius * (100 / 120)} fill="none" stroke={valueColor} strokeWidth="6"
+            strokeDasharray={circumference * (100 / 120) / circumference * circumference}
+            strokeDashoffset={strokeDashoffset * (100 / 120)}
             strokeLinecap="round" style={{ transition: "stroke-dashoffset 0.5s ease" }} />
         </svg>
         <div>
@@ -101,69 +101,71 @@ type Props = {
 
 export default function ThreeColumnLayout({ layout, accent, index, title }: Props) {
   return (
-    <div className="mx-auto grid w-full grid-cols-1 gap-5 py-8 px-4 sm:max-w-[90%] md:grid-cols-3 md:py-14 md:max-w-[75%]">
-      {/* Colonne gauche */}
-      <div className="flex flex-col gap-5">
-        <div className="flex flex-col justify-center px-2 py-4 md:flex-1">
-          {index && title && (
-            <>
-              <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: accent }}>
-                Sous-tendance {index}
-              </span>
-              <h3 className="big-text mt-3 text-2xl leading-tight text-white md:text-3xl">
-                {title}
-              </h3>
-            </>
+    <div className="flex min-h-screen items-center justify-center px-4 py-8 md:py-14">
+      <div className="mx-auto grid w-full grid-cols-1 gap-5 sm:max-w-[90%] md:grid-cols-3 md:max-w-[85%] h-[80vh]">
+        {/* Colonne gauche */}
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-col justify-center px-2 py-4 md:flex-1">
+            {index && title && (
+              <>
+                <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: accent }}>
+                  Sous-tendance {index}
+                </span>
+                <h3 className="big-text mt-3 text-2xl leading-tight text-white md:text-3xl">
+                  {title}
+                </h3>
+              </>
+            )}
+          </div>
+          <div
+            className="flex flex-col items-center justify-center rounded-2xl p-6 md:rounded-3xl md:p-8"
+            style={{ backgroundColor: layout.leftCard.color, minHeight: "160px" }}
+          >
+            <CardView content={layout.leftCard.content} accent={accent} dark textColor={layout.leftCard.textColor} />
+          </div>
+        </div>
+
+        {/* Colonne milieu */}
+        <div className="flex flex-col gap-5">
+          {layout.middleBullets ? (
+            <div className="flex flex-1 flex-col justify-center gap-5 rounded-2xl px-6 py-8 md:rounded-3xl md:px-8 md:py-10" style={{ backgroundColor: "rgba(255,255,255,0.04)" }}>
+              <ul className="flex flex-col gap-5">
+                {layout.middleBullets.map((b, i) => (
+                  <li key={i} className="flex items-start gap-3 md:gap-4">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: accent }} />
+                    <p className="text-sm leading-6 text-white/80 md:text-base md:leading-7">
+                      {b.text}{" "}
+                      <span className="text-xs uppercase tracking-widest text-white/35">({b.source})</span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            layout.middleCards?.map((card, i) => (
+              <div
+                key={i}
+                className="flex flex-1 flex-col items-center justify-center rounded-2xl p-5 md:rounded-3xl md:p-6"
+                style={{ backgroundColor: card.color, minHeight: "120px" }}
+              >
+                <CardView content={card.content} accent={accent} textColor={card.textColor} dark={isDarkHexColor(card.color)} />
+              </div>
+            ))
           )}
         </div>
-        <div
-          className="flex flex-col items-center justify-center rounded-2xl p-6 md:rounded-3xl md:p-8"
-          style={{ backgroundColor: layout.leftCard.color, minHeight: "160px" }}
-        >
-          <CardView content={layout.leftCard.content} accent={accent} dark textColor={layout.leftCard.textColor} />
-        </div>
-      </div>
 
-      {/* Colonne milieu */}
-      <div className="flex flex-col gap-5">
-        {layout.middleBullets ? (
-          <div className="flex flex-1 flex-col justify-center gap-5 rounded-2xl px-6 py-8 md:rounded-3xl md:px-8 md:py-10" style={{ backgroundColor: "rgba(255,255,255,0.04)" }}>
-            <ul className="flex flex-col gap-5">
-              {layout.middleBullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-3 md:gap-4">
-                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: accent }} />
-                  <p className="text-sm leading-6 text-white/80 md:text-base md:leading-7">
-                    {b.text}{" "}
-                    <span className="text-xs uppercase tracking-widest text-white/35">({b.source})</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : (
-          layout.middleCards?.map((card, i) => (
+        {/* Colonne droite */}
+        <div className="flex flex-col gap-5">
+          {layout.rightCards.map((card, i) => (
             <div
               key={i}
-              className="flex flex-1 flex-col items-center justify-center rounded-2xl p-5 md:rounded-3xl md:p-6"
-              style={{ backgroundColor: card.color, minHeight: "120px" }}
+              className="flex flex-col items-center justify-center rounded-2xl p-5 md:rounded-3xl md:p-7"
+              style={{ backgroundColor: card.color, flex: card.grow ?? 1, minHeight: "120px" }}
             >
-              <CardView content={card.content} accent={accent} textColor={card.textColor} dark={isDarkHexColor(card.color)} />
+              <CardView content={card.content} accent={accent} dark={isDarkHexColor(card.color)} textColor={card.textColor} />
             </div>
-          ))
-        )}
-      </div>
-
-      {/* Colonne droite */}
-      <div className="flex flex-col gap-5">
-        {layout.rightCards.map((card, i) => (
-          <div
-            key={i}
-            className="flex flex-col items-center justify-center rounded-2xl p-5 md:rounded-3xl md:p-7"
-            style={{ backgroundColor: card.color, flex: card.grow ?? 1, minHeight: "120px" }}
-          >
-            <CardView content={card.content} accent={accent} dark={isDarkHexColor(card.color)} textColor={card.textColor} />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )

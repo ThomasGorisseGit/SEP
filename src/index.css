@@ -111,5 +111,35 @@ body {
 
 .big-text{
   font-family: "Dela Gothic One", sans-serif;
-
 }
+
+/* ─── Ambient Float Animations ───────────────────────────────── */
+@keyframes float-a {
+  0%, 100% { transform: translate(0px, 0px); }
+  33%       { transform: translate(20px, -28px); }
+  66%       { transform: translate(-16px, 14px); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translate(0px, 0px); }
+  30%       { transform: translate(-24px, -20px); }
+  70%       { transform: translate(18px, -30px); }
+}
+@keyframes float-c {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50%       { transform: translate(14px, 22px) scale(1.07); }
+}
+@keyframes float-img {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes particle-drift {
+  0%, 100% { transform: translate(0px, 0px); }
+  25%       { transform: translate(7px, -13px); }
+  50%       { transform: translate(-5px, -8px); }
+  75%       { transform: translate(-10px, 5px); }
+}
+
+.float-a   { animation: float-a   11s ease-in-out infinite; }
+.float-b   { animation: float-b   15s ease-in-out infinite; }
+.float-c   { animation: float-c   19s ease-in-out infinite; }
+.float-img { animation: float-img  6s ease-in-out infinite; }

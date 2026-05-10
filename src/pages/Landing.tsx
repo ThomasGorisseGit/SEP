@@ -1,3 +1,4 @@
+import { motion } from 'motion/react'
 import AnimatedLogo from "@/components/AnimatedLogo"
 import ThemePage from "@/components/ThemePage"
 import SubTendancyPage from "@/components/SubTendancyPage"
@@ -5,6 +6,9 @@ import ScrollNav from "@/components/ScrollNav"
 import { tendencies, overviewCards } from "@/data/tendencies"
 import { usePageScroll } from "@/hooks/usePageScroll"
 import image from '../assets/characters/2.svg'
+
+const ease = [0.22, 1, 0.36, 1] as const
+
 export default function Landing() {
     usePageScroll()
     return (
@@ -13,35 +17,71 @@ export default function Landing() {
             {/* Hero */}
             <section id="hero-section" data-snap className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#151515" }}>
                 <div className="pointer-events-none absolute inset-0">
-                    <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-blue opacity-20 blur-[120px]" />
-                    <div className="absolute top-1/3 -right-28 h-80 w-80 rounded-full bg-mauve opacity-20 blur-[140px]" />
-                    <div className="absolute bottom-10 left-1/3 h-64 w-64 rounded-full bg-lemon opacity-10 blur-[110px]" />
+                    <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-blue opacity-20 blur-[120px] float-a" />
+                    <div className="absolute top-1/3 -right-28 h-80 w-80 rounded-full bg-mauve opacity-20 blur-[140px] float-b" style={{ animationDelay: '3s' }} />
+                    <div className="absolute bottom-10 left-1/3 h-64 w-64 rounded-full bg-lemon opacity-10 blur-[110px] float-c" style={{ animationDelay: '6s' }} />
                 </div>
 
                 <div className="relative mx-auto flex min-h-screen w-full flex-col justify-center gap-10 px-4 py-16 sm:max-w-[90%] sm:px-6 md:gap-24 md:px-12 lg:px-20">
                     <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-16">
-                        <div className="flex items-start gap-6 flex-1">
+                        <motion.div
+                            className="flex items-start gap-6 flex-1"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease }}
+                        >
                             <AnimatedLogo />
                             <div>
-                                <p className="w-full mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-white/45">Léa jiner</p>
-                                <h1 className="text-4xl leading-tight text-white sm:text-5xl md:text-7xl big-text">
+                                <motion.p
+                                    className="w-full mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-white/45"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.4, duration: 0.5 }}
+                                >
+                                    Léa jiner
+                                </motion.p>
+                                <motion.h1
+                                    className="text-4xl leading-tight text-white sm:text-5xl md:text-7xl big-text"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.15, duration: 0.7, ease }}
+                                >
                                     Cahier de tendances
-                                </h1>
-                                <p className="mt-5 max-w-2xl text-base leading-7 text-white/65 sm:text-lg md:text-2xl md:leading-8">
+                                </motion.h1>
+                                <motion.p
+                                    className="mt-5 max-w-2xl text-base leading-7 text-white/65 sm:text-lg md:text-2xl md:leading-8"
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3, duration: 0.6, ease }}
+                                >
                                     Ce cahier tire des tendances d'une synthèse de veille comprenant environ 70 articles/site web et 5 rapports sectoriels
-                                </p>
+                                </motion.p>
                             </div>
-                        </div>
-                        <div className="hidden shrink-0 xl:block">
-                            <img src={image} className="relative mx-auto max-w-sm lg:max-w-lg" />
-                        </div>
+                        </motion.div>
+                        <motion.div
+                            className="hidden shrink-0 xl:block"
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.5, duration: 0.9, ease }}
+                        >
+                            <img src={image} className="relative mx-auto max-w-sm lg:max-w-lg float-img" />
+                        </motion.div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-4 text-sm text-white/45 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                    <motion.div
+                        className="grid grid-cols-1 gap-4 text-sm text-white/45 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+                        initial="hidden"
+                        animate="visible"
+                        variants={{ visible: { transition: { staggerChildren: 0.08, delayChildren: 0.5 } } }}
+                    >
                         {overviewCards.map((card) => (
-                            <div
+                            <motion.div
                                 key={card.index}
-                                className="flex min-h-50 flex-col justify-between rounded-2xl border px-4 py-4 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5 lg:min-h-60"
+                                variants={{
+                                    hidden: { opacity: 0, y: 24 },
+                                    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease } }
+                                }}
+                                className="flex min-h-50 flex-col justify-between rounded-2xl border px-4 py-4 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5 lg:min-h-75"
                                 style={{ backgroundColor: card.accent, borderColor: card.accent, color: "#151515" }}
                             >
                                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: "rgba(21,21,21,0.7)" }}>
@@ -54,9 +94,9 @@ export default function Landing() {
                                 <div className="mt-3 flex items-center w-full justify-center text-sm font-semibold uppercase tracking-normal" style={{ color: "rgba(21,21,21,0.78)" }}>
                                     Découvrir {card.count}
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 

@@ -3,7 +3,7 @@ import type { Tendency } from "@/types"
 export const overviewCards = [
   {
     index: "01",
-    title: 'L\'ère du phishing "invisible" ',
+    title: 'L\'ère du phishing "invisible"',
     subtitle: "Quand l'IA efface les signaux d'alerte",
     desc: "L'IA a supprimé tous les indices classiques de détection. Le phishing est désormais parfait, personnalisé, multicanal. On ne forme plus à repérer — on forme à douter.",
     count: "3 sous-tendances",
@@ -19,8 +19,8 @@ export const overviewCards = [
   },
   {
     index: "03",
-    title: "AI for Cyber, Cyber for AI",
-    subtitle: "L'IA, menace et accélérateur pour toutes les équipes cyber",
+    title: "L'IA est à double tranchant",
+    subtitle: "Une arme offensive et un bouclier défensif",
     desc: "L'IA est à la fois l'arme la plus puissante des attaquants et le multiplicateur de force le plus décisif pour les défenseurs. Les deux faces sont indissociables — Mythos en est l'illustration la plus récente et la plus saisissante.",
     count: "3 sous-tendances",
     accent: "#ddb7f0",
@@ -28,7 +28,7 @@ export const overviewCards = [
   {
     index: "04",
     title: "Quand la réglementation",
-    subtitle: "Devient le moteur de transformation des programmes",
+    subtitle: "Devient le moteur de transformation des programmes de sensibilisation",
     desc: "NIS2, AI Act, CRA : pour la première fois, la sensibilisation est une obligation légale avec responsabilité personnelle des dirigeants. Un levier d'émancipation inédit.",
     count: "4 sous-tendances",
     accent: "#ffa7dc",
@@ -36,7 +36,7 @@ export const overviewCards = [
   {
     index: "05",
     title: "La cyber sort de l'entreprise",
-    subtitle: "L'individu comme nouvelle surface d'attaque",
+    subtitle: "la vie personnelle d'un individu devient une nouvelle surface d'attaque",
     desc: "Les frontières pro/perso ont disparu. Désinformation, manipulation algorithmique, canaux privés : la cyber devient une compétence de vie, pas seulement professionnelle.",
     count: "3 sous-tendances",
     accent: "#e2f163",
