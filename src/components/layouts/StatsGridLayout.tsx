@@ -26,7 +26,7 @@ function CardContentView({ content }: { content: CardContent }) {
   if (content.type !== "quote") return null
   return (
     <blockquote className="text-sm leading-6 italic font-bold text-center md:text-xl md:leading-8" style={{ color: darkTextStrong }}>
-      "{content.text}"
+      {content.text}
       <p className="mt-3 text-xs not-italic" style={{ color: darkText }}>
         {content.source}
       </p>

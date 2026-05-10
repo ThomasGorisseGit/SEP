@@ -65,7 +65,7 @@ export default function GradientFlowLayoutComponent({ layout, accent }: Props) {
                         "
                     </div>
                     <blockquote className="relative z-10 flex flex-col gap-3 md:gap-4">
-                        <p className="text-base italic font-semibold leading-7 text-white md:text-lg">{`"${layout.quote.text}"`}</p>
+                        <p className="text-base italic font-semibold leading-7 text-white md:text-lg">{`${layout.quote.text}`}</p>
                         <cite className="text-xs not-italic uppercase tracking-widest" style={{ color: `${accent}88` }}>
                             — {layout.quote.source}
                         </cite>

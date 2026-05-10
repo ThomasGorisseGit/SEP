@@ -44,7 +44,6 @@ function StatCard({ content, wide }: { content: Extract<CardContent, { type: "st
         {content.value}
       </div>
       <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-7">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>Chiffre clé</p>
         <span className="font-black leading-none"
           style={{
             fontSize: wide ? "clamp(2rem, 6vw, 5rem)" : "clamp(1.75rem, 5vw, 4rem)",
@@ -75,7 +74,7 @@ function QuoteCard({ content }: { content: Extract<CardContent, { type: "quote" 
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>Citation</p>
         <blockquote className="flex flex-col gap-2 md:gap-3">
           <p className="text-xs italic font-semibold leading-5 md:text-sm md:leading-6" style={{ color: "rgba(21,21,21,0.85)" }}>
-            "{content.text}"
+            {content.text}
           </p>
           <cite className="text-xs not-italic uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.38)" }}>
             — {content.source}

@@ -26,7 +26,7 @@ function BandContent({ content, dark }: { content: CardContent; dark?: boolean }
   if (content.type !== "quote") return null
   return (
     <blockquote className="text-sm leading-6 italic font-bold text-center px-2 md:text-base md:leading-7" style={{ color: primary }}>
-      "{content.text}"
+      {content.text}
       <p className="mt-3 text-xs not-italic font-semibold uppercase tracking-widest" style={{ color: secondary }}>
         {content.source}
       </p>

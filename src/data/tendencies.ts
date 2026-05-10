@@ -73,7 +73,7 @@ export const tendencies: Tendency[] = [
             },
             {
               color: "white",
-              content: { type: "quote", text: "AI is not just accelerating cyberattacks, it's upgrading them", source: "Microsoft Security Blog, avril 2026" },
+              content: { type: "quote", text: "« AI is not just accelerating cyberattacks, it's upgrading them »", source: "Microsoft Security Blog, avril 2026" },
             },
           ],
           rightCard: {
@@ -105,7 +105,7 @@ export const tendencies: Tendency[] = [
             {
               color: "#E2F163",
               position: "top",
-              content: { type: "quote", text: "Traditional red flags are disappearing in an era of pixel-perfect deception.", source: "Technology.org, mars 2026" },
+              content: { type: "quote", text: "« Traditional red flags are disappearing in an era of pixel-perfect deception. »", source: "Technology.org, mars 2026" },
             },
           ],
           bullets: [
@@ -130,16 +130,16 @@ export const tendencies: Tendency[] = [
             {
               color: "#7774FF",
               textColor:"white",
-              content: { type: "quote", text: "Le signal d'alerte n'est plus la faute de syntaxe : c'est l'anomalie contextuelle", source: "SoSafe" },
+              content: { type: "quote", text: "« Le signal d'alerte n'est plus la faute de syntaxe : c'est l'anomalie contextuelle »", source: "SoSafe" },
             },
             {
               color: "#232323",
               textColor:"white",
-              content: { type: "quote", text: "Les simulations classiques ne préparent plus aux attaques ultra-personnalisées sur des canaux privés comme LinkedIn ou WhatsApp", source: "Technadu" },
+              content: { type: "quote", text: "« Les simulations classiques ne préparent plus aux attaques ultra-personnalisées sur des canaux privés comme LinkedIn ou WhatsApp »", source: "Technadu" },
             },
             {
               color: "#AA96F8",
-              content: { type: "quote", text: "Former à la \"pause cognitive\" avant toute action sensible devient la priorité", source: "Technadu, SANS" },
+              content: { type: "quote", text: "« Former à la « pause cognitive » avant toute action sensible devient la priorité »", source: "Technadu, SANS" },
             },
           ],
           rightCards: [
@@ -151,7 +151,7 @@ export const tendencies: Tendency[] = [
             {
               color: "#7774FF",              
               textColor:"white",
-              content: { type: "quote", text: "Attackers are no longer testing if employees can spot a fake email; they are testing if they can manipulate how they think.", source: "Technadu, avril 2026" },
+              content: { type: "quote", text: "« Attackers are no longer testing if employees can spot a fake email; they are testing if they can manipulate how they think. »", source: "Technadu, avril 2026" },
             },
           ],
         },
@@ -175,7 +175,7 @@ export const tendencies: Tendency[] = [
           cards: [
             {
               color: "#7774FF",
-              content: { type: "stat", value: "325", label: "programmes sur 2 700 sont au stade de l'\"optimisation\" de leurs programmes de senibilisation. C'est-à-dire qu'ils ont atteint le stade de la vraie culture cyber", source: "SANS" },
+              content: { type: "stat", value: "325", label: "programmes sur 2 700 sont au stade de l'« optimisation » de leurs programmes de senibilisation. C'est-à-dire qu'ils ont atteint le stade de la vraie culture cyber", source: "SANS" },
               summary: "Des programmes d'excellence encore rares",
             },
             {
@@ -200,7 +200,7 @@ export const tendencies: Tendency[] = [
             },
             {
               color: "#E2F163",
-              content: { type: "quote", text: "Completion is not an outcome; changed behaviour is.", source: "CyberDexterity / itweb, avril 2026" },
+              content: { type: "quote", text: "« Completion is not an outcome; changed behaviour is. »", source: "CyberDexterity / itweb, avril 2026" },
               summary: "L'enjeu est le comportement, pas la complétion",
             },
             {
@@ -208,7 +208,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "bullets",
                 items: [
-                  { text: "Le Security Behavior & Culture Program (SBCP) marque une rupture avec le Security Awareness Training classique. Là où le SAT transmet une information (\"voilà le risque, voilà ce qu'il faut faire\"), le SBCP reconnaît que la connaissance ne suffit pas à déclencher l'action. L'enjeu n'est plus d'informer, mais de motiver pour rendre la sécurité désirable et naturelle dans le quotidien des collaborateurs.", source: "Beauceron" },
+                  { text: "Le Security Behavior & Culture Program (SBCP) marque une rupture avec le Security Awareness Training classique. Là où le SAT transmet une information (« voilà le risque, voilà ce qu'il faut faire »), le SBCP reconnaît que la connaissance ne suffit pas à déclencher l'action. L'enjeu n'est plus d'informer, mais de motiver pour rendre la sécurité désirable et naturelle dans le quotidien des collaborateurs.", source: "Beauceron" },
                 ],
               },
               summary: "Ce que ça change en pratique",
@@ -244,7 +244,7 @@ export const tendencies: Tendency[] = [
 
             {
               title: "Citation",
-              content: "\"La culture de sécurité se mesure à ce que les gens font quand personne ne regarde — pas à ce qu'ils ont coché dans un LMS.\"",
+              content: "« La culture de sécurité se mesure à ce que les gens font quand personne ne regarde — pas à ce qu'ils ont coché dans un LMS. »",
               source: "SANS Security Awareness Report 2025",
               icon: "book",
             },
@@ -300,7 +300,7 @@ export const tendencies: Tendency[] = [
             },
           ],
           pullQuote: {
-            text: "People who took more than 1 hour of training in a given year saw weaker results than people whose training time fell between 30-35 minutes.",
+            text: "« People who took more than 1 hour of training in a given year saw weaker results than people whose training time fell between 30-35 minutes. »",
             source: "Beauceron Security Report 2025",
           },
         },
@@ -344,7 +344,7 @@ export const tendencies: Tendency[] = [
               color: "#E2F163",
               content: {
                 type: "quote",
-                text: "The lead hacker is no longer a person in a hoodie; it's a script that thinks.",
+                text: "« The lead hacker is no longer a person in a hoodie; it's a script that thinks. »",
                 source: "Smart Brief, avril 2026",
               },
             },
@@ -354,7 +354,7 @@ export const tendencies: Tendency[] = [
                 type: "bullets",
                 items: [
                   {
-                    text: "Le \"Cyborg Hacking\" (un humain assisté par l'IA) a déjà cédé la place à l'\"Autonomous Hacking\" où l'agent IA identifie les cibles, adapte ses exploits et se propage seul, sans supervision humaine",
+                    text: "Le « Cyborg Hacking » (un humain assisté par l'IA) a déjà cédé la place à l'« Autonomous Hacking » où l'agent IA identifie les cibles, adapte ses exploits et se propage seul, sans supervision humaine",
                     source: "Smart Brief",
                   },
                 ],
@@ -369,7 +369,7 @@ export const tendencies: Tendency[] = [
                 type: "bullets",
                 items: [
                   {
-                    text: "La technique \"misoperation\" pousse cette logique à l'extrême. Elle manipule des systèmes industriels sans déployer le moindre fichier et sans laisser de trace attribuable",
+                    text: "La technique « misoperation » pousse cette logique à l'extrême. Elle manipule des systèmes industriels sans déployer le moindre fichier et sans laisser de trace attribuable",
                     source: "RSAC 2026",
                   },
                 ],
@@ -422,7 +422,7 @@ export const tendencies: Tendency[] = [
               position: "center",
               content: {
                 type: "quote",
-                text: "AI models have reached a level where they can surpass all but the most skilled humans at finding and exploiting software vulnerabilities.",
+                text: "« AI models have reached a level where they can surpass all but the most skilled humans at finding and exploiting software vulnerabilities. »",
                 source: "Anthropic / ArmorCode, avril 2026",
               },
             },
@@ -497,7 +497,7 @@ export const tendencies: Tendency[] = [
               color: "#DDB7F0",
               content: {
                 type: "quote",
-                text: "AI-powered vulnerability discovery at this scale makes the operational discipline of prioritizing, triaging, and remediating vulnerabilities more important than ever before. Not less.",
+                text: "« AI-powered vulnerability discovery at this scale makes the operational discipline of prioritizing, triaging, and remediating vulnerabilities more important than ever before. Not less. »",
                 source: "ArmorCode, avril 2026",
               },
             },
@@ -526,7 +526,7 @@ export const tendencies: Tendency[] = [
           ],
           quote: {
             type: "quote",
-            text: "Avec NIS2, la cybersécurité monte au conseil d'administration : ce n'est plus un sujet IT, c'est un sujet de gouvernance.",
+            text: "« Avec NIS2, la cybersécurité monte au conseil d'administration : ce n'est plus un sujet IT, c'est un sujet de gouvernance. »",
             source: "SoSafe, avril 2026",
           },
           bullets: {
@@ -547,7 +547,7 @@ export const tendencies: Tendency[] = [
           leftCard: {
             color: "#E2F163",
             textColor:"#151515",
-            content: { type: "quote", text: "Agentic AI represents a shift from models that suggest to models that act — organizations must define the legal agency of these systems before full-scale deployment.", source: "Reuters, avril 2026" },
+            content: { type: "quote", text: "« Agentic AI represents a shift from models that suggest to models that act — organizations must define the legal agency of these systems before full-scale deployment. »", source: "Reuters, avril 2026" },
           },
           middleCards: [
             {
@@ -566,7 +566,7 @@ export const tendencies: Tendency[] = [
               color: "#DDB7F0",
               textColor:"#FFFFFF",
               content: { type: "bullets", items: [
-                { text: "Risque de \"hallucination d'action\" : un agent IA exécute des commandes incorrectes de manière irréversible", source: "Reuters" },
+                { text: "Risque d'« hallucination d'action » : un agent IA exécute des commandes incorrectes de manière irréversible", source: "Reuters" },
               ]},
             },
             {
@@ -617,7 +617,7 @@ export const tendencies: Tendency[] = [
               position: "center",
               content: {
                 type: "quote",
-                text: "Cette inertie affaiblit la position de la France au moment même où se redessine l'architecture européenne de la cybersécurité.",
+                text: "« Cette inertie affaiblit la position de la France au moment même où se redessine l'architecture européenne de la cybersécurité. »",
                 source: "Next.ink, mars 2026",
               },
             },
@@ -646,7 +646,7 @@ export const tendencies: Tendency[] = [
           stat2: { type: "stat", value: "53%", label: "mesurent l'efficacité par la réduction du nombre d'incidents", source: "Fortinet" },
           quote: {
             type: "quote",
-            text: "Le COMEX ne veut pas savoir combien de personnes ont été formées, il veut savoir si l'entreprise est mieux protégée.",
+            text: "« Le COMEX ne veut pas savoir combien de personnes ont été formées, il veut savoir si l'entreprise est mieux protégée. »",
             source: "SANS Security Awareness Report 2025",
           },
           bullets: {
@@ -691,14 +691,14 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "BYOD",
-                label: "un collaborateur qui consulte ses emails pro sur son téléphone personnel, c'est du \"Bring Your Own Device\". Ces appareils échappent au contrôle de l'entreprise (pas de mises à jour forcées, pas de segmentation réseau, etc).",
+                label: "un collaborateur qui consulte ses emails pro sur son téléphone personnel, c'est du « Bring Your Own Device ». Ces appareils échappent au contrôle de l'entreprise (pas de mises à jour forcées, pas de segmentation réseau, etc).",
               },
             },
             {
               color: "#1F1826",
               content: {
                 type: "quote",
-                text: "Simulation ends where real-world emotional pressure begins.",
+                text: "« Simulation ends where real-world emotional pressure begins. »",
                 source: "Technadu, avril 2026",
               },
             },
@@ -724,7 +724,7 @@ export const tendencies: Tendency[] = [
       {
         index: "5.2",
         title: "La désinformation comme nouvelle dimension du risque humain",
-        description: "La manipulation des comportements sociaux à grande échelle via l'IA comme le tribalisme algorithmique, les deepfakes politiques, la \"Disinformation-as-a-Service\",  élargit le champ de la résilience cognitive.",
+        description: "La manipulation des comportements sociaux à grande échelle via l'IA comme le tribalisme algorithmique, les deepfakes politiques, la « Disinformation-as-a-Service », élargit le champ de la résilience cognitive.",
         layout: {
           type: "four-plus-two",
           topCards: [
@@ -742,7 +742,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "DaaS",
-                label: "Disinformation-as-a-Service : des campagnes de désinformation sont vendues sous forme de \"pack\" sur le dark web",
+                label: "Disinformation-as-a-Service : des campagnes de désinformation sont vendues sous forme de « pack » sur le dark web",
                 source: "SoSafe",
               },
             },
@@ -750,7 +750,7 @@ export const tendencies: Tendency[] = [
               color: "#DDB7F0",
               content: {
                 type: "quote",
-                text: "The line between observing society and engineering it may be thinner than anyone imagined.",
+                text: "« The line between observing society and engineering it may be thinner than anyone imagined. »",
                 source: "National Law Review, mars 2026",
               },
             },
@@ -801,7 +801,7 @@ export const tendencies: Tendency[] = [
       {
         index: "5.3",
         title: "La cyber comme compétence de vie des citoyens français",
-        description: "Les campagnes publiques montrent que la sensibilisation à grande échelle est possible hors de l'entreprise, avec des formats accessibles et non techniques. La cyber devient une \"life skill\" au même titre que la sécurité routière.",
+        description: "Les campagnes publiques montrent que la sensibilisation à grande échelle est possible hors de l'entreprise, avec des formats accessibles et non techniques. La cyber devient une « life skill » au même titre que la sécurité routière.",
         layout: {
           type: "bento",
           cards: [
@@ -827,7 +827,7 @@ export const tendencies: Tendency[] = [
               color: "#DDB7F0",
               content: {
                 type: "quote",
-                text: "Être né avec un smartphone dans la main ne protège pas des cyberattaques.",
+                text: "« Être né avec un smartphone dans la main ne protège pas des cyberattaques.  »",
                 source: "Campagne #CyberEnClair, Cybermalveillance, mars 2026",
               },
             },

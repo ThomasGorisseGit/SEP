@@ -77,7 +77,7 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
                 </div>
                 <blockquote className="relative z-10 flex flex-col gap-3 md:gap-4 max-w-3xl">
                     <p className="text-base italic font-semibold leading-7 md:text-lg md:leading-8" style={{ color: quoteTextColor }}>
-                        "{layout.quote.text}"
+                        {layout.quote.text}
                     </p>
                     <cite className="text-xs not-italic uppercase tracking-widest md:text-sm" style={{ color: quoteSourceColor }}>
                         — {layout.quote.source}

@@ -27,7 +27,7 @@ function GlassCardContent({ content, accent }: { content: CardContent; accent: s
     return (
       <blockquote className="flex justify-center flex-col gap-2 md:gap-3">
         <p className="text-xs leading-5 italic font-semibold text-white/85 md:text-sm md:leading-6">
-          "{content.text}"
+          {content.text}
         </p>
         <cite className="text-xs not-italic uppercase tracking-widest text-white/35">
           — {content.source}

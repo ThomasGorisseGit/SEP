@@ -72,7 +72,7 @@ export default function CardsFlowLayoutComponent({ layout, accent }: Props) {
                                     </div>
                                     <blockquote className="flex flex-col gap-3">
                                         <p className="text-lg italic font-semibold leading-7 text-white">
-                                            "{(card.content as any).text}"
+                                            {(card.content as any).text}
                                         </p>
                                         <cite className="text-xs not-italic uppercase tracking-widest text-white/60">
                                             — {(card.content as any).source}

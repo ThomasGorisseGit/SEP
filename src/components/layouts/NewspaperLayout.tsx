@@ -96,7 +96,7 @@ export default function NewspaperLayout({ layout, accent }: Props) {
             <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-1 rounded-full" style={{ backgroundColor: accent }} />
             <blockquote className="relative">
               <p className="text-lg leading-snug text-white italic md:text-xl">
-                "{layout.pullQuote.text}"
+                {layout.pullQuote.text}
               </p>
               <cite className="mt-3 block text-xs not-italic font-semibold uppercase tracking-[0.4em] md:mt-4" style={{ color: accent }}>
                 — {layout.pullQuote.source}
