@@ -9,11 +9,14 @@
     --color-mauve: #DDB7F0;
     --color-lemon: #E2F163;
 }
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-
 }
 .animated-logo {
 	position: relative;

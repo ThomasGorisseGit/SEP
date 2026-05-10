@@ -3,13 +3,15 @@ import ThemePage from "@/components/ThemePage"
 import SubTendancyPage from "@/components/SubTendancyPage"
 import ScrollNav from "@/components/ScrollNav"
 import { tendencies, overviewCards } from "@/data/tendencies"
+import { usePageScroll } from "@/hooks/usePageScroll"
 import image from '../assets/characters/2.svg'
 export default function Landing() {
+    usePageScroll()
     return (
         <main>
             <ScrollNav />
             {/* Hero */}
-            <section id="hero-section" className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#151515" }}>
+            <section id="hero-section" data-snap className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#151515" }}>
                 <div className="pointer-events-none absolute inset-0">
                     <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-blue opacity-20 blur-[120px]" />
                     <div className="absolute top-1/3 -right-28 h-80 w-80 rounded-full bg-mauve opacity-20 blur-[140px]" />
@@ -77,6 +79,8 @@ export default function Landing() {
                             subTendancy={sub}
                             accent={tendency.accent}
                             background={tendency.background}
+                            tendencyTitle={tendency.title}
+                            tendencyIndex={tendency.index}
                         />
                     ))}
                 </div>
