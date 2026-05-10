@@ -1,5 +1,4 @@
 import type { SubTendancy } from "@/types"
-import Tendancy from "./Tendancy"
 import StatsGridLayout from "./layouts/StatsGridLayout"
 import StatsGridInvertedLayout from "./layouts/StatsGridInvertedLayout"
 import VerticalBandsLayout from "./layouts/VerticalBandsLayout"
@@ -20,27 +19,62 @@ type Props = {
   subTendancy: SubTendancy
   accent: string
   background: string
+  tendencyTitle: string
+  tendencyIndex: string
 }
 
-export default function SubTendancyPage({ id, subTendancy, accent, background }: Props) {
+export default function SubTendancyPage({ id, subTendancy, accent, background, tendencyTitle, tendencyIndex }: Props) {
   return (
     <>
-      {/* Slide intro — bandeau centré plein écran */}
-      <section id={id} data-snap className="min-h-screen relative overflow-hidden flex items-center" style={{ backgroundColor: background }}>
+      {/* Slide intro — split layout */}
+      <section id={id} data-snap className="min-h-screen relative overflow-hidden flex" style={{ backgroundColor: background }}>
         <div className="pointer-events-none absolute inset-0">
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-125 w-125 rounded-full blur-[160px]"
-            style={{ backgroundColor: accent, opacity: 0.1 }}
+            className="absolute top-1/2 right-1/3 -translate-y-1/2 h-96 w-96 rounded-full blur-[140px]"
+            style={{ backgroundColor: accent, opacity: 0.07 }}
           />
         </div>
-        <div className="relative w-full">
-          <Tendancy
-            index={subTendancy.index}
-            title={subTendancy.title}
-            description={subTendancy.description}
-            accent={accent}
-            background={background}
-          />
+
+        {/* Gauche — tendance parente en filigrane */}
+        <div
+          className="hidden lg:flex w-2/5 flex-col justify-center px-12 xl:px-20 py-16 relative overflow-hidden border-r"
+          style={{ borderColor: "rgba(255,255,255,0.07)" }}
+        >
+          <span
+            className="text-xs font-semibold uppercase tracking-[0.35em] mb-6"
+            style={{ color: accent, opacity: 0.45 }}
+          >
+            Tendance {tendencyIndex}
+          </span>
+          <h2
+            className="text-3xl xl:text-4xl big-text leading-tight"
+            style={{ color: "rgba(255,255,255,0.11)" }}
+          >
+            {tendencyTitle}
+          </h2>
+        </div>
+
+        {/* Droite — sous-tendance en pleine lumière */}
+        <div className="flex flex-1 flex-col justify-center px-8 py-16 lg:px-14 xl:px-20">
+          <span
+            className="text-xs font-semibold uppercase tracking-[0.35em] mb-2 lg:hidden"
+            style={{ color: accent, opacity: 0.5 }}
+          >
+            Tendance {tendencyIndex}
+          </span>
+          <span
+            className="text-xs font-semibold uppercase tracking-[0.35em] mb-5"
+            style={{ color: accent }}
+          >
+            Sous-tendance {subTendancy.index}
+          </span>
+          <h3 className="text-4xl md:text-5xl xl:text-6xl big-text leading-tight text-white mb-5">
+            {subTendancy.title}
+          </h3>
+          <div className="h-px w-14 mb-6" style={{ backgroundColor: accent, opacity: 0.55 }} />
+          <p className="text-base md:text-lg leading-8 text-white/55 max-w-xl">
+            {subTendancy.description}
+          </p>
         </div>
       </section>
 

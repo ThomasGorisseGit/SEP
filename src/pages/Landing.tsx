@@ -79,6 +79,8 @@ export default function Landing() {
                             subTendancy={sub}
                             accent={tendency.accent}
                             background={tendency.background}
+                            tendencyTitle={tendency.title}
+                            tendencyIndex={tendency.index}
                         />
                     ))}
                 </div>
