@@ -47,7 +47,7 @@ export const tendencies: Tendency[] = [
   {
     index: "01",
     title: 'L\'ère du phishing "invisible" : quand l\'IA efface les signaux d\'alerte',
-    subtitle: "L'IA a supprimé tous les indices classiques de détection. Le phishing est désormais parfait, personnalisé, multicanal.",
+    subtitle: "L'IA générative a supprimé tous les indices visuels et linguistiques que les formations traditionnelles apprenaient à repérer. Le phishing n'est plus une suite de fautes d'orthographes dans un email, c'est désormais un message parfait, personnalisé pour la cible et qui arrive via n'importe quel canal de communication. Le point de rupture est que l'on ne forme plus à la détection du phishing, on forme à prendre une pause à la réception d'un message trop parfait et au doute systématique.",
     accent: "#7774FF",
     background: "#151515",
     illustrationSide: "right",
@@ -55,17 +55,17 @@ export const tendencies: Tendency[] = [
       {
         index: "1.1",
         title: "La personnalisation de masse comme nouvelle arme",
-        description: "L'IA permet de générer des milliers de messages uniques, parfaitement rédigés, adaptés au destinataire, à son contexte et à son canal. Le spearphishing, autrefois réservé aux cibles à haute valeur, est désormais accessible à tous les attaquants.",
+        description: "On observe que l'IA permet de générer des milliers de messages uniques, parfaitement rédigés, adaptés au destinataire, à son contexte et à son canal. Le spearphishing (attaque qui cible un individu en particulier en utilisant des messages ultra-personnalisés), autrefois réservé aux cibles à haute valeur comme les PDG d'entreprise, est désormais accessible à tous les attaquants.",
         layout: {
           type: "stats-grid",
           cards: [
             {
               color: "white",
-              content: { type: "stat", value: "54 %", label: "taux de clic avec du phishing IA", source: "versus 12% sans IA" },
+              content: { type: "stat", value: "54 %", label: "taux de clic d'un individu sur un email de phishing boosté avec l'IA", source: "contre 12% sans IA" },
             },
             {
               color: "purple",
-              content: { type: "stat", value: "× 4.5", label: "la multiplication de l'efficacité des phishing grâce à l'IA" },
+              content: { type: "stat", value: "× 4.5", label: "multiplication de l'efficacité des messages grâce à l'IA" },
             },
             {
               color: "purple",
@@ -79,8 +79,8 @@ export const tendencies: Tendency[] = [
           rightCard: {
             title: "Ce que l'on comprend",
             paragraphs: [
-              "L'IA réduit la préparation d'une attaque de plusieurs jours à quelques minutes (ESET).",
-              "Les modèles LLM commerciaux et des modèles détournés (WormGPT, FraudGPT) automatisent l'ingénierie sociale (ENISA).",
+              "L'IA réduit la préparation d'une cyberattaque de plusieurs jours à quelques minutes (ESET).",
+              "Les modèles LLM commerciaux et des modèles détournés comme WormGPT ou FraudGPT automatisent l'ingénierie sociale (ENISA).",
             ],
           },
         },
@@ -88,19 +88,19 @@ export const tendencies: Tendency[] = [
       {
         index: "1.2",
         title: "La diversification des canaux email, SMS, voix, image",
-        description: "Le phishing ne passe plus uniquement par l'email. Smishing, vishing, quishing (QR codes), injections de calendrier, deepfakes audio/vidéo : chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants.",
+        description: "Le phishing ne passe plus uniquement par l'email. On parle désormais de smishing (hameçonnage par SMS), vishing (hameçonnage vocal), quishing (via les QR codes), injections dans les calendriers, deepfakes audio ou vidéo, où chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants.",
         layout: {
           type: "vertical-bands",
           bands: [
             {
               color: "#7774FF",
               position: "top",
-              content: { type: "stat", value: "25M$", label: "transfert frauduleux via deepfake vocal d'un dirigeant", source: "WEF" },
+              content: { type: "stat", value: "25M$", label: "de dollars transférés frauduleusement à cause d'un deepfake vocal de la part d'un dirigeant d'entreprise", source: "WEF" },
             },
             {
               color: "#AA96F8",
               position: "bottom",
-              content: { type: "stat", value: "42,4%", label: "des menaces suivies ciblent le mobile", source: "ENISA" },
+              content: { type: "stat", value: "42,4%", label: "des cybermenaces suivies par l'ENISA ciblent le téléphone mobile", source: "ENISA" },
             },
             {
               color: "#E2F163",
@@ -109,16 +109,16 @@ export const tendencies: Tendency[] = [
             },
           ],
           bullets: [
-            { text: "Cas Retool : SMS + deepfake vocal combinés pour contourner la MFA", source: "SoSafe" },
-            { text: "Quishing : QR codes malveillants dans des PDF contournent les filtres classiques", source: "ESET" },
-            { text: "Volume d'attaques email de masse en baisse, mais SMS et vishing en forte progression", source: "SoSafe" },
+            { text: "Cas Retool : des SMS et un deepfake vocal ont été combinés pour contourner le MFA (Multi-Factor Authentication)", source: "SoSafe" },
+            { text: "Quishing : des QR codes malveillants ont été découvert dans des PDF et contournaient les filtres classiques", source: "ESET" },
+            { text: "Le volume d'attaques utilisant des emails de masse est en baisse, mais le smishing et vishing sont en forte progression", source: "SoSafe" },
           ],
         },
       },
       {
         index: "1.3",
-        title: "Quand les filtres échouent : l'anomalie contextuelle comme nouveau signal",
-        description: "20 % des emails malveillants franchissent les filtres techniques. Le signal d'alerte n'est plus la faute de syntaxe — c'est l'anomalie contextuelle. Les équipes doivent apprendre à détecter l'incohérence, pas l'imperfection.",
+        title: "La mort des indices classiques de détection du phishing",
+        description: "Les fautes d'orthographe, les expéditeurs inconnus et les liens suspects ont disparu. Les sessions de sensibilisation doivent opérer un virage complet pour former les collaborateurs. Il n'est plus nécessaire d'apprendre à repérer une anomalie technique, mais bien de développer un réflexe de pause et de vérification systématique face à toute sollicitation urgente.",
         layout: {
           type: "three-column",
           leftCard: {
@@ -135,18 +135,18 @@ export const tendencies: Tendency[] = [
             {
               color: "#232323",
               textColor:"white",
-              content: { type: "quote", text: "Les simulations classiques ne préparent plus aux attaques ultra-personnalisées sur canaux privés", source: "Technadu" },
+              content: { type: "quote", text: "Les simulations classiques ne préparent plus aux attaques ultra-personnalisées sur des canaux privés comme LinkedIn ou WhatsApp", source: "Technadu" },
             },
             {
               color: "#AA96F8",
-              content: { type: "quote", text: "Former à la \"pause cognitive\" avant toute action sensible devient la priorité pédagogique", source: "Technadu, SANS" },
+              content: { type: "quote", text: "Former à la \"pause cognitive\" avant toute action sensible devient la priorité", source: "Technadu, SANS" },
             },
           ],
           rightCards: [
             {
               textColor:"white",
               color: "#AA96F8",
-              content: { type: "stat", value: "4,6h", label: "temps médian pour cliquer sur un phishing après réception" },
+              content: { type: "stat", value: "4,6h", label: "temps médian pour cliquer sur un phishing après sa réception par email" },
             },
             {
               color: "#7774FF",              
@@ -161,21 +161,21 @@ export const tendencies: Tendency[] = [
   {
     index: "02",
     title: "De la conformité à la culture cyber : vers une sensibilisation qui change vraiment les comportements",
-    subtitle: "Passer de la case à cocher à une culture durable, avec des réflexes ancrés et une meilleure adoption collective.",
+    subtitle: "La sensibilisation à la cybersécurité a longtemps été pilotée par la conformité. Résultat : des taux de complétion à 100 % et des comportements inchangés. La culture cyber, c'est autre chose. On parle ici de réflexes ancrés, de comportements positifs valorisés et d'une prise de conscience collective. Là où les équipes d'audit identifient les risques humains, les équipes de sensibilisation construisent la réponse culturelle par la psychologie positive, la gamification, le micro-learning et la donnée comportementale.",
     accent: "#DDB7F0",
     background: "#2B2B2B",
     illustrationSide: "left",
     subTendancies: [
       {
         index: "2.1",
-        title: "Des programmes encore peu matures, mais un impact prouvé",
-        description: "La majorité des programmes de sensibilisation restent au stade basique. Pourtant, ceux qui atteignent l'optimisation produisent des résultats mesurables — réduction d'incidents, changement de comportement réel.",
+        title: "De la conformité à la culture : un changement de paradigme complet",
+        description: "Pendant des années, la sensibilisation à la cybersécurité a été pilotée par un impératif de conformité : former pour cocher une case, démontrer aux auditeurs que le sujet est adressé et produire des taux de complétion présentables au management. La transition qui est à opérer n'est pas un changement de format mais un changement de logique. On passe de la conformité règlementaire à la culture du collaborateur, de la descente d'information à la motivation, et de la campagne de sensibilisation ponctuelle à la sensibilisation en continue.",
         layout: {
           type: "three-cards",
           cards: [
             {
               color: "#7774FF",
-              content: { type: "stat", value: "325", label: "programmes sur 2 700 au stade \"optimisation\"", source: "SANS" },
+              content: { type: "stat", value: "325", label: "programmes sur 2 700 sont au stade de l'\"optimisation\" de leurs programmes de senibilisation. C'est-à-dire qu'ils ont atteint le stade de la vraie culture cyber", source: "SANS" },
               summary: "Des programmes d'excellence encore rares",
             },
             {
@@ -194,12 +194,12 @@ export const tendencies: Tendency[] = [
               summary: "Niveau de maturité des programmes",
             },
             {
-              color: "#E2F163",
-              content: { type: "stat", value: "67%", label: "des organisations voient une réduction d'incidents après formation", source: "Fortinet" },
+              color: "#AA96F8",
+              content: { type: "stat", value: "67%", label: "des organisations voient une réduction d'incidents après la formation des collaborateurs", source: "Fortinet" },
               summary: "La formation réduit les incidents mesurés",
             },
             {
-              color: "#AA96F8",
+              color: "#E2F163",
               content: { type: "quote", text: "Completion is not an outcome; changed behaviour is.", source: "CyberDexterity / itweb, avril 2026" },
               summary: "L'enjeu est le comportement, pas la complétion",
             },
@@ -208,9 +208,17 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "bullets",
                 items: [
-                  { text: "Le SBCP (Security Behavior & Culture Program) remplace le SAT : motivation avant information", source: "Beauceron" },
-                  { text: "Modèle B.J. Fogg : Motivation + Capacité + Déclencheur = comportement réel", source: "Beauceron" },
-                  { text: "70% des leaders : la cyber est une responsabilité partagée, mais 26% n'agissent pas en conséquence", source: "Fortinet" },
+                  { text: "Le Security Behavior & Culture Program (SBCP) marque une rupture avec le Security Awareness Training classique. Là où le SAT transmet une information (\"voilà le risque, voilà ce qu'il faut faire\"), le SBCP reconnaît que la connaissance ne suffit pas à déclencher l'action. L'enjeu n'est plus d'informer, mais de motiver pour rendre la sécurité désirable et naturelle dans le quotidien des collaborateurs.", source: "Beauceron" },
+                ],
+              },
+              summary: "Ce que ça change en pratique",
+            },{
+              color: "#AA96F8",
+              content: {
+                type: "bullets",
+                items: [
+                  { text: "Selon le psychologue B.J. Fogg, un comportement ne se produit que lorsque trois conditions sont réunies : la motivation d'agir, la capacité de le faire, et un déclencheur au bon moment. Si l'un manque, le comportement n'a pas lieu.", source: "Beauceron" },
+                  { text: "70 % des leaders pensent que la cyber est une responsabilité partagée, mais seuls 26 % admettent que ça ne se traduit pas en action. Ce chiffre illustre le fossé persistant entre l'intention et le comportement. La prise de conscience est là, mais elle ne change pas les réflexes.", source: "Fortinet 2025" },
                 ],
               },
               summary: "Ce que ça change en pratique",
@@ -220,89 +228,51 @@ export const tendencies: Tendency[] = [
       },
       {
         index: "2.2",
-        title: "La mesure comportementale comme moteur d'amélioration continue",
-        description: "Les nudges en temps réel et le phishing adaptatif transforment la sensibilisation. La donnée comportementale pilote les contenus et révèle l'état réel de la culture — le taux de signalement en est le baromètre.",
-        layout: {
-          type: "stats-grid-inverted",
-          leftCard: {
-            title: "Ce que la donnée comportementale révèle",
-            paragraphs: [
-              "La donnée comportementale pilote l'amélioration des contenus et la cadence — pas la surveillance individuelle.",
-              "Cycle continu : Identifier les lacunes → Adapter les contenus → Mesurer les comportements → Améliorer (GovInsider)",
-            ],
-          },
-          cards: [
-            {
-              color: "white",
-              content: { type: "stat", value: "−38%", label: "de taux de clic grâce aux nudges en temps réel", source: "Beauceron" },
-            },
-            {
-              color: "blue",
-              content: { type: "stat", value: "+30%", label: "de taux de signalement avec le phishing adaptatif", source: "Beauceron" },
-            },
-            {
-              color: "blue",
-              content: { type: "quote", text: "La culture de sécurité se mesure à ce que les gens font quand personne ne regarde — pas à ce qu'ils ont coché dans un LMS.", source: "SANS Security Awareness Report 2025" },
-            },
-            {
-              color: "white",
-              content: { type: "quote", text: "Taux de signalement = baromètre de la confiance : plus les collaborateurs signalent, plus la culture est ancrée.", source: "SANS" },
-            },
-          ],
-        },
-      },
-      {
-        index: "2.3",
-        title: "Le micro-learning et la fréquence comme leviers d'ancrage",
-        description: "La durée et la cadence des formations comptent autant que le contenu. Au-delà de 60 min/an, l'engagement chute. Le micro-learning espacé de 90 jours ancre durablement les comportements.",
+        title: "La donnée comportementale au service de la culture, pas du scoring individuel",
+        description: "Le taux de complétion cède la place aux indicateurs culturels réels comme la fréquence des signalements, l'adoption des outils ou l'évolution des réflexes dans le temps. Ces données pilotent l'amélioration continue des programmes mais ne devraient pas servir à surveiller ou donner un score aux individus.",
         layout: {
           type: "tilted-cards",
-          kicker:"Sous-tendance 2.3",
+          kicker:"Sous-tendance 2.2",
           headline:"La donnée comportementale",    
           cards: [
             {
-              title: "3,5 min",
-              content: "Durée idéale par module, espacé de 90 jours",
+              title: "−38%",
+              content: "de taux de clic grâce aux nudges en temps réel",
               source: "Beauceron",
               icon: "timer",
             },
+
             {
-              title: "46%",
-              content: "Des organisations forment désormais trimestriellement",
-              source: "Fortinet",
-              icon: "calendar",
-            },
-            {
-              title: "Durée optimale",
-              content: "People who took more than 1 hour of training in a given year saw weaker results than people whose training time fell between 30–35 minutes.",
-              source: "Beauceron Security Report 2025",
+              title: "Citation",
+              content: "\"La culture de sécurité se mesure à ce que les gens font quand personne ne regarde — pas à ce qu'ils ont coché dans un LMS.\"",
+              source: "SANS Security Awareness Report 2025",
               icon: "book",
             },
             {
-              title: "Seuil de saturation",
-              content: "Au-delà de 60 min/an, l'engagement chute et le risque augmente",
-              source: "Beauceron",
-              icon: "warning",
-            },
-            {
-              title: "93%",
-              content: "Des employés ne terminent pas l'intégralité de leur parcours de formation",
-              source: "Fortinet",
+              title: "Cycle continu",
+              content: "Identifier les lacunes, adapter les contenus, mesurer les comportements et améliorer : ce processus distingue les programmes qui changent une culture de ceux qui remplissent une obligation",
+              source: "GovInsider",
               icon: "chart",
             },
             {
-              title: "Formats efficaces",
-              content: "Présentiel (53%), e-learning (52%), phishing simulé (45%)",
-              source: "Fortinet",
-              icon: "graduation",
+              title: "Taux de signalement",
+              content: "Il pourrait correspondre au baromètre de la confiance : plus les collaborateurs signalent, plus la culture est ancrée",
+              source: "SANS",
+              icon: "warning",
+            },
+                        {
+              title: "+30%",
+              content: "de taux de signalement avec le phishing adaptatif",
+              source: "Beauceron",
+              icon: "calendar",
             },
           ],
         },
       },
       {
         index: "2.4",
-        title: "La bonne fréquence et les bons formats changent tout",
-        description: "Le micro-learning espacé, la durée courte et les formats hybrides maximisent l'engagement et limitent la saturation.",
+        title: "Le micro-learning et la fréquence comme facteurs clés d'ancrage",
+        description: "Moins, mais plus souvent. C'est le principe contre-intuitif que documente Beauceron 2025 : un module de 3,5 minutes espacé de 90 jours est plus efficace qu'une session annuelle. Au-delà d'un certain seuil, la formation sature et produit l'effet inverse. La fréquence devient alors aussi importante que le contenu.",
         layout: {
           type: "newspaper",
           kicker: "Sous-tendance 2.4",
@@ -311,7 +281,7 @@ export const tendencies: Tendency[] = [
           columns: [
             {
               stat: "3,5 min",
-              content: "Par module, espacés de 90 jours : la durée idéale pour ancrer les réflexes et maintenir l'attention. 46% des organisations forment leurs équipes de manière trimestrielle.",
+              content: "Par module, espacés de 90 jours : la durée idéale pour ancrer les réflexes et maintenir l'attention. 46% des organisations forment désormais de façon trimestrielle",
               source: "Beauceron / Fortinet",
             },
             {
@@ -339,16 +309,16 @@ export const tendencies: Tendency[] = [
   },
   {
     index: "03",
-    title: "AI for Cyber, Cyber for AI : l'IA, menace et accélérateur pour toutes les équipes cyber",
-    subtitle: "Une même technologie qui renforce la défense et augmente la puissance des attaques.",
+    title: "L'IA est à double tranchant : arme offensive et bouclier défensif",
+    subtitle: "L'IA ne se contente plus d'accélérer les attaques, elle innove en créant de nouvelles catégories d'attaque. Agents autonomes, détection de vulnérabilités à grande échelle, exploitation sans intervention humaine : les capacités offensives de l'IA dépassent désormais celles des experts humains. Mais à l'inverse, l'IA devient le multiplicateur de force pour toutes les équipes cyber.",
     accent: "#E2F163",
     background: "#151515",
     illustrationSide: "right",
     subTendancies: [
       {
         index: "3.1",
-        title: "L'IA transforme les attaquants en machines autonomes",
-        description: "Les agents IA prennent désormais des décisions tactiques sans supervision humaine, accélérant la vitesse et la furtivité des intrusions.",
+        title: "Les agents IA autonomes comme nouvelle catégorie de menace",
+        description: "Les agents IA peuvent désormais prendre des décisions tactiques de manière autonome telles qu'identifier des vulnérabilités, adapter des attaques en temps réel, ou encore naviguer dans les réseaux sans intervention humaine. Il devient donc de plus en plus difficile pour les défenseurs de réagir aussi rapidement que l'attaque.",
         layout: {
           type: "four-plus-two",
           topCards: [
@@ -357,7 +327,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "29 min",
-                label: "Temps de breakout moyen — record absolu à 27 secondes",
+                label: "temps moyen dont dispose les équipes cyber pour détecter et contenir une intrusion avant qu'elle ne se propage, avec un record documenté à 27 secondes",
                 source: "CrowdStrike",
               },
             },
@@ -384,7 +354,7 @@ export const tendencies: Tendency[] = [
                 type: "bullets",
                 items: [
                   {
-                    text: "Passage du « Cyborg Hacking » à l'« Autonomous Hacking » : l'agent IA prend les décisions tactiques sans supervision humaine",
+                    text: "Le \"Cyborg Hacking\" (un humain assisté par l'IA) a déjà cédé la place à l'\"Autonomous Hacking\" où l'agent IA identifie les cibles, adapte ses exploits et se propage seul, sans supervision humaine",
                     source: "Smart Brief",
                   },
                 ],
@@ -399,21 +369,21 @@ export const tendencies: Tendency[] = [
                 type: "bullets",
                 items: [
                   {
-                    text: "Technique « misoperation » : manipulation des logiques industrielles sans déployer de fichier malveillant — attribution quasi impossible",
+                    text: "La technique \"misoperation\" pousse cette logique à l'extrême. Elle manipule des systèmes industriels sans déployer le moindre fichier et sans laisser de trace attribuable",
                     source: "RSAC 2026",
                   },
                 ],
               },
             },
             {
-              label: "Chiffres 2025",
+              label: "Résultat",
               color: "#E8ECDF",
               content: {
                 type: "bullets",
                 items: [
-                  { text: "+89% d'attaques utilisant l'IA", source: "CrowdStrike" },
-                  { text: "+38% d'intrusions Chine-nexus", source: "CrowdStrike" },
-                  { text: "+130% d'attaques Corée du Nord", source: "CrowdStrike" },
+                  { text: "+89% d'attaques IA", source: "CrowdStrike" },
+                  { text: "+38% Chine-nexus", source: "CrowdStrike" },
+                  { text: "+130% Corée du Nord en un an", source: "CrowdStrike" },
                 ],
               },
             },
@@ -422,8 +392,8 @@ export const tendencies: Tendency[] = [
       },
       {
         index: "3.2",
-        title: "Mythos et la découverte autonome de vulnérabilités : l'IA dépasse les meilleurs experts",
-        description: "Les modèles IA franchissent le seuil critique : ils trouvent et exploitent des zero-days de manière autonome, surpassant les ingénieurs les plus qualifiés.",
+        title: "Mythos : quand l'outil IA a le potentiel de devenir une arme offensive de grande ampleur",
+        description: "Claude Mythos Preview (Anthropic, avril 2026) illustre de façon saisissante le dilemme central de l'IA en cybersécurité. C'est un modèle de LLM conçu pour détecter des vulnérabilités mais il peut devenir l'outil d'exploitation le plus puissant jamais créé, s'il est entre de mauvaises mains. L'IA est désormais à la fois la meilleure défense et la pire des menaces.",
         layout: {
           type: "vertical-bands-inverted",
           bands: [
@@ -443,7 +413,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "83%",
-                label: "Des vulnérabilités exploitées avec succès dès le premier essai",
+                label: "Des vulnérabilités exploitées avec succès dès le premier essai (des performances opérationnelles accessibles sur simple prompt)",
                 source: "ArmorCode",
               },
             },
@@ -475,8 +445,8 @@ export const tendencies: Tendency[] = [
       },
       {
         index: "3.3",
-        title: "L'IA au service de la défense : accélérateur humain, pas remplaçant",
-        description: "L'IA redéfinit les métiers cyber en augmentant les capacités défensives — détection, triage, CTI, sensibilisation — tout en révélant de nouveaux risques internes.",
+        title: "L'IA comme multiplicateur de force pour toutes les équipes cyber",
+        description: "Face à la pénurie de talents et à la vitesse d'évolution des menaces, l'IA générative devient le multiplicateur de force indispensable pour l'ensemble des équipes cyber.",
         layout: {
           type: "bento",
           cards: [
@@ -485,7 +455,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "−40%",
-                label: "De taux de clic avec analyse automatisée et feedback comportemental en temps réel",
+                label: "de taux de clic sur les simulations de phishing dans les entreprises qui s'appuient sur l'analyse automatisée des comportements et le feedback en temps réel. Moins de formation, plus d'intelligence et des résultats mesurables",
                 source: "Beauceron",
               },
             },
@@ -494,7 +464,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "946",
-                label: "Praticiens citent le manque de personnel comme frein n°1",
+                label: "professionnels de la cybersécurité citent le manque de personnel comme frein n°1",
                 source: "SANS 2025",
               },
             },
@@ -503,7 +473,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "88%",
-                label: "Des organisations : l'usage de l'IA par les attaquants a aidé les employés à mieux comprendre l'importance de la sensibilisation",
+                label: " des organisations constatent que l'usage de l'IA par les attaquants a eu un effet inattendu : il a rendu les collaborateurs plus réceptifs à la sensibilisation. La menace, rendue visible et concrète, devient le meilleur argument pédagogique",
                 source: "Fortinet",
               },
             },
@@ -513,11 +483,11 @@ export const tendencies: Tendency[] = [
                 type: "bullets",
                 items: [
                   {
-                    text: "L'IA accélère la détection, le triage des alertes, l'analyse CTI, la réponse à incident et la génération de contenus de sensibilisation",
+                    text: "L'IA accélère la détection, le triage des alertes, l'analyse CTI, la réponse à incident et la génération de contenus de sensibilisation. Toutes les équipes cyber sont concernées ",
                     source: "SANS, Beauceron",
                   },
                   {
-                    text: "Shadow AI : des collaborateurs utilisent des outils GenAI non approuvés avec des données sensibles — un risque interne que l'IA peut aussi aider à détecter",
+                    text: "Shadow AI : des collaborateurs utilisent des outils GenAI non approuvés avec des données sensibles comportent un risque interne que l'IA peut aussi aider à détecter",
                     source: "HBR",
                   },
                 ],
@@ -538,41 +508,40 @@ export const tendencies: Tendency[] = [
   },
   {
     index: "04",
-    title: "La réglementation: le moteur de transformation des programmes",
-    subtitle: "Quand NIS2, AI Act et CRA deviennent des leviers de changement et structurent les pratiques.",
+    title: "La réglementation devient le moteur de transformation des programmes de sensibilisation",
+    subtitle: "NIS2 transforme la sensibilisation d'une bonne pratique optionnelle en obligation légale avec la responsabilité personnelle des dirigeants. Pour la première fois, les équipes de sensibilisation ont un levier réglementaire pour obtenir des ressources, structurer leurs programmes et les ancrer dans la stratégie globale.",
     accent: "#FFA7DC",
     background: "#2B2B2B",
     illustrationSide: "left",
     subTendancies: [
       {
         index: "4.1",
-        title: "NIS2 : l'obligation légale de sensibiliser",
-        description: "Pour la première fois, la sensibilisation n'est plus facultative. NIS2 en fait une obligation légale avec responsabilité personnelle des dirigeants.",
+        title: "NIS2 : de l'obligation à la responsabilité personnelle",
+        description: "NIS2 impose une formation continue en tenant responsable les dirigeants. Des milliers de PME/ETI entrent dans son périmètre et la réglementation devient paradoxalement un moyen d'émanciper les petites équipes, déjà en manque de ressources.",
         layout: {
           type: "dual-stats",
           stats: [
-            { type: "stat", value: "100%", label: "des organisations de 250+ salariés concernées par NIS2", source: "ENISA" },
-            { type: "stat", value: "2024", label: "année d'entrée en vigueur de NIS2", source: "UE" },
+            { type: "stat", value: "600", label: "types d'entités françaises concernées par NIS2 se trouvent encore en zone grise juridique", source: "" },
+            { type: "stat", value: "170 pages", label: "C'est la taille du guide technique publié par l'ENISA sur l'Article 21 de NIS2", source: "" },
           ],
           quote: {
             type: "quote",
-            text: "NIS2 transforms security awareness from a compliance checkbox into a legal mandate with executive accountability. It's the beginning of the end for theater.",
-            source: "Cybersecurity & Infrastructure Security Agency, 2025",
+            text: "Avec NIS2, la cybersécurité monte au conseil d'administration : ce n'est plus un sujet IT, c'est un sujet de gouvernance.",
+            source: "SoSafe, avril 2026",
           },
           bullets: {
             type: "bullets",
             items: [
-              { text: "Responsabilité personnelle des COMEX : une première en réglementation cyber", source: "NIS2 Directive" },
-              { text: "Sensibilisation doit être documentée, mesurée et adaptée aux rôles", source: "ANSSI" },
-              { text: "Audits réguliers et preuves de conformité : plus de 'déclaratif'", source: "Deloitte" },
+              { text: "NIS2 valorise la culture du signalement des incidents comme élément central de la cybersécurité", source: "" },
+              { text: "Mapping ECSF : chaque tâche NIS2 est liée à un profil de compétence précis, avec un délais de notification entre 24h et 72h", source: "ENISA" },
             ],
           },
         },
       },
       {
         index: "4.2",
-        title: "AI Act : cadre de conformité pour les systèmes IA en cybersécurité",
-        description: "L'AI Act crée un cadre pour les systèmes IA utilisés en défense comme en attaque. La sensibilisation doit intégrer la culture du risque IA.",
+        title: "L'AI Act et le CRA imposent de nouveaux sujets de sensibilisation",
+        description: "L'AI Act impose des obligations de transparence et de formation pour les systèmes IA à haut risque. Le CRA impose la sécurité by design pour les produits connectés. Ces textes créent des sujets de formation obligatoires tels que l'usage responsable des outils IA, la gestion des agents autonomes, ou encore les droits et responsabilités.",
         layout: {
           type: "three-column",
           leftCard: {
@@ -584,7 +553,7 @@ export const tendencies: Tendency[] = [
             {
               color: "#FFA7DC",
               textColor: "#FFFFFF",
-              content: { type: "percentage-chart", value: 96, label: "des orgs préparent des politiques d'usage IA" },
+              content: { type: "percentage-chart", value: 96, label: "des organisations préparent des politiques d'usage IA" },
             },
             {
               color: "#AA96F8",
@@ -619,8 +588,8 @@ export const tendencies: Tendency[] = [
       },
       {
         index: "4.3",
-        title: "Souveraineté numérique et conflits législatifs : les angles morts de NIS2",
-        description: "Entre l'Art.16bis qui bloque la transposition NIS2 en France et le Cloud Act américain, les équipes cyber naviguent dans un flou législatif que l'ANSSI tente de cartographier avec ses outils opérationnels.",
+        title: "La souveraineté numérique comme enjeu de gouvernance",
+        description: "Le débat NIS2 en France, le Cloud Act, l'initiative SecNumCloud européen portée par l'ANSSI : la souveraineté s'impose comme dimension incontournable de la gouvernance cyber. Pour les groupes internationaux, des questions concrètes émergent sur les outils utilisés et les juridictions concernées.",
         layout: {
           type: "vertical-bands",
           bands: [
@@ -630,7 +599,8 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "Art.16bis",
-                label: "bloque la transposition NIS2 en France : chiffrement vs accès étatique",
+                source:"Next.ink",
+                label: "bloque la transposition de NIS2 en France : faut-il autoriser l'État à accéder aux données chiffrées au nom de la sécurité nationale ?",
               },
             },
             {
@@ -638,8 +608,8 @@ export const tendencies: Tendency[] = [
               position: "bottom",
               content: {
                 type: "stat",
-                value: "EUCS",
-                label: "Relance du label High+ pour protéger des lois extraterritoriales",
+                value: "EUCS High+",
+                label: "un label européen pour certifier les services cloud qui résistent aux lois étrangères comme le Cloud Act américain",
               },
             },
             {
@@ -654,41 +624,36 @@ export const tendencies: Tendency[] = [
           ],
           bullets: [
             {
-              text: "ANSSI : distinction claire risques techniques (CSA2) vs risques de souveraineté (ICT Supply Chain Toolbox)",
+              text: "ANSSI : distinction claire risques techniques vs risques de souveraineté",
               source: "ANSSI",
             },
             {
               text: "Cloud Act américain : les données hébergées chez des fournisseurs US peuvent être accessibles aux autorités américaines",
               source: "Cloud Act 2018",
             },
-            {
-              text: "ReCyF : guide opérationnel d'anticipation de l'ANSSI en attendant la stabilisation législative",
-              source: "ANSSI",
-            },
           ],
         },
       },
       {
         index: "4.4",
-        title: "L'effet cascadant : la réglementation transforme la sensibilisation",
-        description: "NIS2, AI Act et CRA ne sont que le début. Ensemble, ils restructurent les budgets, les rôles et les mesures de succès de la sensibilisation.",
+        title: "La preuve d'un changement de comportement comme nouvelle exigence réglementaire",
+        description: "Avec NIS2, les organisations ne peuvent plus se contenter de cocher la case \"sensibilisation effectuée\". Elles doivent prouver que leurs programmes ont un effet réel sur les comportements. Concrètement, cela signifie mesurer : est-ce que les collaborateurs signalent davantage d'incidents ? Est-ce qu'ils adoptent les bons outils ? Ces indicateurs remplacent progressivement les taux de complétion dans les reportings adressés à la direction.",
         layout: {
           type: "gradient-flow",
           kicker: "Sous-tendance 4.4",
-          headline: "Réglementation : la transformation en cascade",
-          stat1: { type: "stat", value: "+60%", label: "d'augmentation budgétaire moyenne en sensibilisation depuis l'annonce de NIS2", source: "Forrester" },
-          stat2: { type: "stat", value: "3,2M€", label: "coût moyen d'une amende NIS2 pour une PME de 250 salariés", source: "ANSSI" },
+          headline: "",
+          stat1: { type: "stat", value: "99.62%", label: "des environnements certifiés HITRUST n'ont eu aucune violation en 2025", source: "HITRUST" },
+          stat2: { type: "stat", value: "53%", label: "mesurent l'efficacité par la réduction du nombre d'incidents", source: "Fortinet" },
           quote: {
             type: "quote",
-            text: "Regulation is the only thing that moves markets. We're entering the era where compliance driving transformation, not resisting it.",
-            source: "Gartner Security Summit, 2025",
+            text: "Le COMEX ne veut pas savoir combien de personnes ont été formées, il veut savoir si l'entreprise est mieux protégée.",
+            source: "SANS Security Awareness Report 2025",
           },
           bullets: {
             type: "bullets",
             items: [
-              { text: "Budget de sensibilisation : nouveau poste critique au bilan des risques", source: "Fortinet Risk Report" },
-              { text: "Mesure de ROI obligatoire : réduction d'incidents, taux de signalement, taux de clic", source: "NIS2 Compliance Framework" },
-              { text: "Gouvernance nouvelle : sensibilisation relève du CISO et du COMEX, pas du RH", source: "Security Culture Report 2025" },
+              { text: "Les questionnaires d'auto-évaluation de la maturité cyber ne garantissent pas la sécurité réelle des prestataires", source: "HITRUST" },
+              { text: "32% adoptent la formation additionnelle comme première mesure préventive après un incident", source: "UK Gov" },
             ],
           },
         },
@@ -697,20 +662,20 @@ export const tendencies: Tendency[] = [
   },
   {
     index: "05",
-    title: "La cyber sort de l'entreprise : l'individu comme nouvelle surface d'attaque",
-    subtitle: "La cybersécurité dépasse le cadre de l'entreprise et devient une compétence du quotidien.",
+    title: "La cyber sort de l'entreprise : la vie personnelle d'un individu devient une nouvelle surface d'attaque",
+    subtitle: "Les frontières entre vie personnelle et professionnelle ont disparu du point de vue des attaquants. Désinformation, manipulation algorithmique et canaux privés ciblés : la cyber devient une compétence de vie (life skill).",
     accent: "#DDB7F0",
     background: "#151515",
     illustrationSide: "right",
     subTendancies: [
       {
         index: "5.1",
-        title: "La sphère privée comme nouvelle surface d'attaque",
-        description: "Les cybercriminels ont quitté le périmètre de l'entreprise. Numéros personnels, réseaux sociaux privés, appareils hybrides : les attaques se déplacent là où les protections corporate n'existent plus.",
+        title: "Quand la vie privée devient un vecteur d'attaque professionnel",
+        description: "Les attaquants ciblent les canaux personnels comme WhatsApp, LinkedIn, ou les SMS et ciblent aussi les proches des collaborateurs pour atteindre les systèmes d'information de l'entreprise. La frontière entre surface d'attaque personnelle et professionnelle a disparu.",
         layout: {
           type: "cards-flow",
           kicker: "Sous-tendance 5.1",
-          headline: "Quand l'attaque déborde dans la vie privée",
+          headline: "",
           cards: [
             {
               color: "#7774FF",
@@ -726,7 +691,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "BYOD",
-                label: "les appareils hybrides travail/perso multiplient les vecteurs d'entrée",
+                label: "un collaborateur qui consulte ses emails pro sur son téléphone personnel, c'est du \"Bring Your Own Device\". Ces appareils échappent au contrôle de l'entreprise (pas de mises à jour forcées, pas de segmentation réseau, etc).",
               },
             },
             {
@@ -743,16 +708,12 @@ export const tendencies: Tendency[] = [
                 type: "bullets",
                 items: [
                   {
-                    text: "Des groupes ransomware exploitent les numéros personnels des enfants de dirigeants pour exercer une pression",
+                    text: "Des groupes de ransomware exploitent les numéros personnels des enfants de dirigeants pour exercer une pression sur eux",
                     source: "SoSafe",
                   },
                   {
                     text: "Les attaques se déplacent vers WhatsApp, LinkedIn, SMS : là où les protections entreprise ne s'appliquent pas",
                     source: "SoSafe",
-                  },
-                  {
-                    text: "CNIL Réseau Fantôme : fingerprinting, CNAME cloaking, pixels invisibles IA ciblent les données personnelles",
-                    source: "CNIL",
                   },
                 ],
               },
@@ -762,8 +723,8 @@ export const tendencies: Tendency[] = [
       },
       {
         index: "5.2",
-        title: "Désinformation et manipulation algorithmique : une menace systémique",
-        description: "La désinformation n'est plus un phénomène marginal — elle est industrialisée, packagée et vendue. L'IA la rend indétectable à l'œil nu et capable d'affecter des marchés financiers en quelques minutes.",
+        title: "La désinformation comme nouvelle dimension du risque humain",
+        description: "La manipulation des comportements sociaux à grande échelle via l'IA comme le tribalisme algorithmique, les deepfakes politiques, la \"Disinformation-as-a-Service\",  élargit le champ de la résilience cognitive.",
         layout: {
           type: "four-plus-two",
           topCards: [
@@ -781,7 +742,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "DaaS",
-                label: "Disinformation-as-a-Service : campagnes packagées vendues sur le dark web",
+                label: "Disinformation-as-a-Service : des campagnes de désinformation sont vendues sous forme de \"pack\" sur le dark web",
                 source: "SoSafe",
               },
             },
@@ -800,8 +761,8 @@ export const tendencies: Tendency[] = [
                 type: "bullets",
                 items: [
                   {
-                    text: "L'IA générant désinformation et cyberattaques figure parmi les principaux risques globaux",
-                    source: "WEF",
+                    text: "l'IA générant de la désinformation et des cyberattaques figure parmi les principaux risques globaux",
+                    source: "WEF (SoSafe)",
                   },
                 ],
               },
@@ -839,8 +800,8 @@ export const tendencies: Tendency[] = [
       },
       {
         index: "5.3",
-        title: "La cyber grand public : former les citoyens, pas seulement les employés",
-        description: "L'Opération Cactus et les campagnes comme #CyberEnClair montrent que la sensibilisation doit désormais toucher les citoyens, les lycéens, les parents — là où ils sont, avec les codes qui leur parlent.",
+        title: "La cyber comme compétence de vie des citoyens français",
+        description: "Les campagnes publiques montrent que la sensibilisation à grande échelle est possible hors de l'entreprise, avec des formats accessibles et non techniques. La cyber devient une \"life skill\" au même titre que la sécurité routière.",
         layout: {
           type: "bento",
           cards: [
@@ -849,7 +810,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "stat",
                 value: "10M",
-                label: "personnes touchées par l'Opération Cactus 2026 — 1 Français sur 6",
+                label: "personnes touchées par l'Opération Cactus 2026 (1 Français sur 6)",
                 source: "CNIL",
               },
             },
@@ -876,16 +837,8 @@ export const tendencies: Tendency[] = [
                 type: "bullets",
                 items: [
                   {
-                    text: "Opération Cactus : leurres personnalisés par public — faux matériel sport pour les parents, plateformes d'orientation pour lycéens",
-                    source: "CNIL",
-                  },
-                  {
-                    text: "#CyberEnClair : TikTok + Instagram, ton non moralisateur, ambassadeurs communautaires",
+                    text: "#CyberEnClair : campagne de sensibilisation sur TikTok et Instagram avec un ton non moralisateur et des ambassadeurs communautaires",
                     source: "Cybermalveillance",
-                  },
-                  {
-                    text: "Wallonie & Proximus : modèle en cascade — former les formateurs, puis les citoyens",
-                    source: "Proximus",
                   },
                 ],
               },
