@@ -55,7 +55,7 @@ export default function SubTendancyPage({ id, subTendancy, accent, background, t
         </div>
 
         {/* Droite — sous-tendance en pleine lumière */}
-        <div className="flex flex-1 flex-col justify-center px-8 py-16 lg:px-14 xl:px-20">
+        <div className="flex flex-1 flex-col justify-center px-8 py-16 lg:px-14 xl:px-20 bg-graphite">
           <span
             className="text-xs font-semibold uppercase tracking-[0.35em] mb-2 lg:hidden"
             style={{ color: accent, opacity: 0.5 }}
@@ -63,16 +63,23 @@ export default function SubTendancyPage({ id, subTendancy, accent, background, t
             Tendance {tendencyIndex}
           </span>
           <span
-            className="text-xs font-semibold uppercase tracking-[0.35em] mb-5"
+            className="text-xl font-semibold uppercase tracking-[0.35em] mb-5 text-white"
+          >
+            Sous-tendance
+          </span>
+          <span
+            className="text-3xl big-text leading-none shrink-0 sm:text-4xl md:text-6xl mb-6"
             style={{ color: accent }}
           >
-            Sous-tendance {subTendancy.index}
+            {subTendancy.index}
           </span>
+          <div className="h-px w-14 mb-6" style={{ backgroundColor: accent, opacity: 0.55 }} />
+
           <h3 className="text-4xl md:text-5xl xl:text-6xl big-text leading-tight text-white mb-5">
             {subTendancy.title}
           </h3>
           <div className="h-px w-14 mb-6" style={{ backgroundColor: accent, opacity: 0.55 }} />
-          <p className="text-base md:text-lg leading-8 text-white/55 max-w-xl">
+          <p className="text-base md:text-lg leading-8 text-white/55 max-w-3xl">
             {subTendancy.description}
           </p>
         </div>
