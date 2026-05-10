@@ -24,98 +24,99 @@ type Props = {
 
 export default function SubTendancyPage({ id, subTendancy, accent, background }: Props) {
   return (
-    <section id={id} className=" min-h-view relative overflow-hidden" style={{ backgroundColor: background }}>
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          className="absolute -top-16 right-0 h-50 w-50 rounded-full blur-[140px]"
-          style={{ backgroundColor: accent, opacity: 0.09 }}
-        />
-        <div
-          className="absolute bottom-0 left-1/4 h-64 w-64 rounded-full blur-[110px]"
-          style={{ backgroundColor: accent, opacity: 0.06 }}
-        />
-      </div>
+    <>
+      {/* Slide intro — bandeau centré plein écran */}
+      <section id={id} data-snap className="min-h-screen relative overflow-hidden flex items-center" style={{ backgroundColor: background }}>
+        <div className="pointer-events-none absolute inset-0">
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-125 w-125 rounded-full blur-[160px]"
+            style={{ backgroundColor: accent, opacity: 0.1 }}
+          />
+        </div>
+        <div className="relative w-full">
+          <Tendancy
+            index={subTendancy.index}
+            title={subTendancy.title}
+            description={subTendancy.description}
+            accent={accent}
+            background={background}
+          />
+        </div>
+      </section>
 
-      <Tendancy
-        index={subTendancy.index}
-        title={subTendancy.title}
-        description={subTendancy.description}
-        accent={accent}
-        background={background}
-      />
+      {/* Slide contenu — layout complet */}
+      <section id={`${id}-content`} data-snap className="min-h-screen relative overflow-hidden" style={{ backgroundColor: background }}>
+        <div className="pointer-events-none absolute inset-0">
+          <div
+            className="absolute -top-16 right-0 h-50 w-50 rounded-full blur-[140px]"
+            style={{ backgroundColor: accent, opacity: 0.09 }}
+          />
+          <div
+            className="absolute bottom-0 left-1/4 h-64 w-64 rounded-full blur-[110px]"
+            style={{ backgroundColor: accent, opacity: 0.06 }}
+          />
+        </div>
 
-      {subTendancy.layout.type === "stats-grid" && (
-        <StatsGridLayout layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "vertical-bands" && (
-        <VerticalBandsLayout
-          index={subTendancy.index}
-          layout={subTendancy.layout}
-          accent={accent}
-          title={subTendancy.title}
-          description={subTendancy.description}
-        />
-      )}
-
-      {subTendancy.layout.type === "three-column" && (
-        <ThreeColumnLayout
-          layout={subTendancy.layout}
-          accent={accent}
-          index={subTendancy.index}
-          title={subTendancy.title}
-        />
-      )}
-
-      {subTendancy.layout.type === "vertical-bands-inverted" && (
-        <VerticalBandsInvertedLayout
-          layout={subTendancy.layout}
-          accent={accent}
-          index={subTendancy.index}
-          title={subTendancy.title}
-          description={subTendancy.description}
-        />
-      )}
-
-      {subTendancy.layout.type === "stats-grid-inverted" && (
-        <StatsGridInvertedLayout layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "three-cards" && (
-        <SliderCards layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "tilted-cards" && (
-        <TiltedCardsLayout layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "newspaper" && (
-        <NewspaperLayout layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "four-plus-two" && (
-        <FourPlusTwoLayout layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "bento" && (
-        <BentoLayout layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "dual-stats" && (
-        <DualStatsLayout layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "cards-flow" && (
-        <CardsFlowLayout layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "modern-stats" && (
-        <ModernStatsLayout layout={subTendancy.layout} accent={accent} />
-      )}
-
-      {subTendancy.layout.type === "gradient-flow" && (
-        <GradientFlowLayout layout={subTendancy.layout} accent={accent} />
-      )}
-    </section>
+        {subTendancy.layout.type === "stats-grid" && (
+          <StatsGridLayout layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "vertical-bands" && (
+          <VerticalBandsLayout
+            index={subTendancy.index}
+            layout={subTendancy.layout}
+            accent={accent}
+            title={subTendancy.title}
+            description={subTendancy.description}
+          />
+        )}
+        {subTendancy.layout.type === "three-column" && (
+          <ThreeColumnLayout
+            layout={subTendancy.layout}
+            accent={accent}
+            index={subTendancy.index}
+            title={subTendancy.title}
+          />
+        )}
+        {subTendancy.layout.type === "vertical-bands-inverted" && (
+          <VerticalBandsInvertedLayout
+            layout={subTendancy.layout}
+            accent={accent}
+            index={subTendancy.index}
+            title={subTendancy.title}
+            description={subTendancy.description}
+          />
+        )}
+        {subTendancy.layout.type === "stats-grid-inverted" && (
+          <StatsGridInvertedLayout layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "three-cards" && (
+          <SliderCards layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "tilted-cards" && (
+          <TiltedCardsLayout layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "newspaper" && (
+          <NewspaperLayout layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "four-plus-two" && (
+          <FourPlusTwoLayout layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "bento" && (
+          <BentoLayout layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "dual-stats" && (
+          <DualStatsLayout layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "cards-flow" && (
+          <CardsFlowLayout layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "modern-stats" && (
+          <ModernStatsLayout layout={subTendancy.layout} accent={accent} />
+        )}
+        {subTendancy.layout.type === "gradient-flow" && (
+          <GradientFlowLayout layout={subTendancy.layout} accent={accent} />
+        )}
+      </section>
+    </>
   )
 }
