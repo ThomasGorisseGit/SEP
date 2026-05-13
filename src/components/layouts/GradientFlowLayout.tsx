@@ -7,12 +7,12 @@ type Props = {
 
 export default function GradientFlowLayoutComponent({ layout, accent }: Props) {
     return (
-        <div className="mx-auto w-full px-4 py-10 min-h-screen flex flex-col justify-center sm:max-w-[88%] md:py-14">
+        <div className="mx-auto w-full px-4 py-4 min-h-screen flex flex-col justify-center sm:max-w-[88%] md:py-8">
             <div className="mb-8 md:mb-12">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: `${accent}99` }}>
                     {layout.kicker}
                 </p>
-                <h2 className="big-text text-2xl leading-tight text-white sm:text-3xl md:text-4xl">
+                <h2 className="big-text text-2xl leading-tight text-white sm:text-3xl md:text-4xl xl:text-3xl 2xl:text-4xl">
                     {layout.headline}
                 </h2>
             </div>
@@ -32,11 +32,11 @@ export default function GradientFlowLayoutComponent({ layout, accent }: Props) {
                         style={{ background: `radial-gradient(circle at 100% 0%, ${accent}30 0%, transparent 60%)` }} />
                     <div className="relative z-10">
                         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: `${accent}99` }}>Stat 1</p>
-                        <p className="text-4xl font-black leading-none md:text-7xl" style={{ color: accent, marginBottom: 8 }}>
+                        <p className="text-4xl font-black leading-none md:text-5xl xl:text-4xl 2xl:text-7xl" style={{ color: accent, marginBottom: 8 }}>
                             {layout.stat1.value}
                         </p>
                         <div className="mb-4 h-1 w-10 md:mb-6 md:w-12" style={{ backgroundColor: accent, opacity: 0.5 }} />
-                        <p className="text-sm leading-6 text-white/85 md:text-base">{layout.stat1.label}</p>
+                        <p className="text-sm leading-6 text-white/85 md:text-sm xl:text-xs 2xl:text-base">{layout.stat1.label}</p>
                         {layout.stat1.source && (
                             <p className="mt-2 text-xs uppercase tracking-widest text-white/40">{layout.stat1.source}</p>
                         )}
@@ -50,8 +50,8 @@ export default function GradientFlowLayoutComponent({ layout, accent }: Props) {
                 >
                     <div className="relative z-10">
                         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.6)" }}>Stat 2</p>
-                        <p className="text-3xl font-black leading-none text-white mb-3 md:text-6xl md:mb-4">{layout.stat2.value}</p>
-                        <p className="text-sm leading-6 md:text-base" style={{ color: "rgba(21,21,21,0.9)" }}>{layout.stat2.label}</p>
+                        <p className="text-3xl font-black leading-none text-white mb-3 md:text-4xl xl:text-3xl 2xl:text-6xl md:mb-4">{layout.stat2.value}</p>
+                        <p className="text-sm leading-6 md:text-sm xl:text-xs 2xl:text-base" style={{ color: "rgba(21,21,21,0.9)" }}>{layout.stat2.label}</p>
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@ export default function GradientFlowLayoutComponent({ layout, accent }: Props) {
                         "
                     </div>
                     <blockquote className="relative z-10 flex flex-col gap-3 md:gap-4">
-                        <p className="text-base italic font-semibold leading-7 text-white md:text-lg">{`${layout.quote.text}`}</p>
+                        <p className="text-base italic font-semibold leading-7 text-white md:text-base xl:text-sm 2xl:text-lg">{`${layout.quote.text}`}</p>
                         <cite className="text-xs not-italic uppercase tracking-widest" style={{ color: `${accent}88` }}>
                             — {layout.quote.source}
                         </cite>
@@ -85,7 +85,7 @@ export default function GradientFlowLayoutComponent({ layout, accent }: Props) {
                             <div className="flex items-start gap-3 md:gap-4 flex-1">
                                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full transition-transform duration-300 group-hover:scale-150" style={{ backgroundColor: accent }} />
                                 <div>
-                                    <p className="text-sm leading-6 text-white/85 md:text-base">{bullet.text}</p>
+                                    <p className="text-sm leading-6 text-white/85 md:text-sm xl:text-xs 2xl:text-base">{bullet.text}</p>
                                     {bullet.source && (
                                         <p className="mt-1 text-xs uppercase tracking-widest text-white/35">{bullet.source}</p>
                                     )}

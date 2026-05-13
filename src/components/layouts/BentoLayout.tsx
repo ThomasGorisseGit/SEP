@@ -34,7 +34,7 @@ function StatCard({ content, wide }: { content: Extract<CardContent, { type: "st
     <>
       <div className="pointer-events-none absolute font-black leading-none select-none"
         style={{
-          fontSize: wide ? "clamp(5rem, 15vw, 12rem)" : "clamp(4rem, 12vw, 10rem)",
+          fontSize: wide ? "clamp(3rem, 8vw, 10rem)" : "clamp(2.5rem, 6vw, 8rem)",
           color: "rgba(21,21,21,0.04)",
           top: "50%", left: wide ? "auto" : "50%",
           right: wide ? "-2%" : "auto",
@@ -43,16 +43,16 @@ function StatCard({ content, wide }: { content: Extract<CardContent, { type: "st
         }}>
         {content.value}
       </div>
-      <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-7">
+      <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-5 2xl:p-7">
         <span className="font-black leading-none"
           style={{
-            fontSize: wide ? "clamp(2rem, 6vw, 5rem)" : "clamp(1.75rem, 5vw, 4rem)",
+            fontSize: wide ? "clamp(1.5rem, 3vw, 4rem)" : "clamp(1.25rem, 2.5vw, 3.5rem)",
             background: "linear-gradient(140deg, rgba(21,21,21,0.92) 0%, rgba(21,21,21,0.45) 100%)",
             WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
           }}>
           {content.value}
         </span>
-        <p className="mt-3 text-sm leading-5 md:text-base md:leading-5" style={{ color: "rgba(21,21,21,0.8)", maxWidth: wide ? "55%" : "90%" }}>
+        <p className="mt-3 text-sm leading-5 md:text-sm xl:text-xs 2xl:text-base md:leading-5" style={{ color: "rgba(21,21,21,0.8)", maxWidth: wide ? "55%" : "90%" }}>
           {content.label}
         </p>
         {content.source && (
@@ -70,10 +70,10 @@ function QuoteCard({ content }: { content: Extract<CardContent, { type: "quote" 
         style={{ fontSize: "clamp(7rem, 20vw, 16rem)", color: "rgba(21,21,21,0.05)", top: "-8%", left: "-2%", lineHeight: 1 }}>
         "
       </div>
-      <div className="absolute inset-0 flex flex-col justify-center p-5 md:p-7">
+      <div className="absolute inset-0 flex flex-col justify-center p-4 md:p-5 2xl:p-7">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>Citation</p>
         <blockquote className="flex flex-col gap-2 md:gap-3">
-          <p className="text-xs italic font-semibold leading-5 md:text-sm md:leading-6" style={{ color: "rgba(21,21,21,0.85)" }}>
+          <p className="text-xs italic font-semibold leading-5 md:text-xs xl:text-xs 2xl:text-sm md:leading-6" style={{ color: "rgba(21,21,21,0.85)" }}>
             {content.text}
           </p>
           <cite className="text-xs not-italic uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.38)" }}>
@@ -87,13 +87,13 @@ function QuoteCard({ content }: { content: Extract<CardContent, { type: "quote" 
 
 function BulletsCard({ content }: { content: Extract<CardContent, { type: "bullets" }> }) {
   return (
-    <div className="absolute inset-0 flex flex-col justify-center p-5 md:p-7">
+    <div className="absolute inset-0 flex flex-col justify-center p-4 md:p-5 2xl:p-7">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(21,21,21,0.35)" }}>Points clés</p>
       <ul className="flex flex-col gap-3 md:gap-4">
         {content.items.map((b, i) => (
           <li key={i} className="flex items-start gap-2 md:gap-3">
             <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: "rgba(21,21,21,0.45)" }} />
-            <p className="text-xs leading-5 md:text-base md:leading-5" style={{ color: "rgba(21,21,21,0.7)" }}>
+            <p className="text-xs leading-5 md:text-xs xl:text-xs 2xl:text-base md:leading-5" style={{ color: "rgba(21,21,21,0.7)" }}>
               {b.text}
               {b.source && <span className="ml-1 text-xs uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.35)" }}>({b.source})</span>}
             </p>
@@ -144,26 +144,26 @@ function LargeCard({ card, accent }: { card: BentoCard; accent: string }) {
       {isStat && (
         <div className="pointer-events-none absolute font-black leading-none select-none"
           style={{
-            fontSize: "clamp(7rem, 24vw, 20rem)", color: accent, opacity: 0.07,
+            fontSize: "clamp(4rem, 10vw, 14rem)", color: accent, opacity: 0.07,
             top: "50%", left: "50%", transform: "translate(-48%, -48%)", whiteSpace: "nowrap",
           }}>
           {content.value}
         </div>
       )}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
+      <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-7 2xl:p-10">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: `${accent}99` }}>Chiffre clé</p>
         {isStat && (
           <>
             <span className="font-black leading-none"
               style={{
-                fontSize: "clamp(3rem, 10vw, 8rem)",
+                fontSize: "clamp(2rem, 4vw, 6rem)",
                 background: `linear-gradient(140deg, ${accent} 30%, #ffffff 100%)`,
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
               }}>
               {content.value}
             </span>
             <div className="my-4 h-px w-10 md:my-6 md:w-12" style={{ backgroundColor: accent, opacity: 0.35 }} />
-            <p className="max-w-xs text-sm leading-6 text-white/65 md:text-base md:leading-7">{content.label}</p>
+            <p className="max-w-xs text-sm leading-6 text-white/65 md:text-sm xl:text-xs 2xl:text-base md:leading-7">{content.label}</p>
             {content.source && (
               <p className="mt-2 text-xs uppercase tracking-widest text-white/30">{content.source}</p>
             )}
@@ -182,11 +182,11 @@ type Props = {
 export default function BentoLayout({ layout, accent }: Props) {
   return (
     <div className="mx-auto w-full px-4 py-8 sm:max-w-[88%] md:py-14">
-      <h2 className="big-text mb-6 text-2xl leading-tight text-white md:text-4xl" style={{ maxWidth: "66%" }}>
+      <h2 className="big-text mb-6 text-2xl leading-tight text-white md:text-3xl xl:text-2xl 2xl:text-4xl" style={{ maxWidth: "66%" }}>
         Ce que l'on observe
       </h2>
       <div
-        className="grid grid-cols-1 gap-4 md:grid-cols-3 md:min-h-[78vh]"
+        className="grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-[1fr_1fr_2fr] 2xl:grid-cols-3 md:min-h-[78vh]"
         style={{ gridAutoRows: "minmax(160px, auto)" }}
       >
         {layout.cards.slice(0, 5).map((card, i) =>

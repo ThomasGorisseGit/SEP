@@ -7,18 +7,18 @@ type Props = {
 
 export default function CardsFlowLayoutComponent({ layout, accent }: Props) {
     return (
-        <div className="mx-auto max-w-[88%] py-14">
-            <div className="mb-12">
+        <div className="mx-auto max-w-[88%] py-14 xl:py-8 2xl:py-14">
+            <div className="mb-12 xl:mb-6 2xl:mb-12">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: `${accent}99` }}>
                     {layout.kicker}
                 </p>
-                <h2 className="big-text text-4xl leading-tight text-white" style={{ maxWidth: "70%" }}>
+                <h2 className="big-text text-4xl leading-tight text-white xl:text-3xl 2xl:text-4xl" style={{ maxWidth: "70%" }}>
                     {layout.headline}
                 </h2>
             </div>
 
             {/* Cards Flow */}
-            <div className="space-y-6">
+            <div className="space-y-6 xl:space-y-3 2xl:space-y-6">
                 {layout.cards.map((card, i) => {
                     const isStat = card.content.type === "stat"
                     const isQuote = card.content.type === "quote"
@@ -27,7 +27,7 @@ export default function CardsFlowLayoutComponent({ layout, accent }: Props) {
                     return (
                         <div
                             key={i}
-                            className="relative overflow-hidden rounded-2xl p-8 transition-all duration-300 hover:shadow-lg"
+                            className="relative overflow-hidden rounded-2xl p-8 xl:p-5 2xl:p-8 transition-all duration-300 hover:shadow-lg"
                             style={{
                                 backgroundColor: card.color,
                                 transform: `translateX(${i % 2 === 0 ? 0 : 20}px)`,
@@ -45,10 +45,10 @@ export default function CardsFlowLayoutComponent({ layout, accent }: Props) {
                                     <p className="mb-2 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: `${accent}88` }}>
                                         Chiffre clé
                                     </p>
-                                    <p className="text-5xl font-black leading-tight text-white mb-2">
+                                    <p className="text-5xl font-black leading-tight text-white mb-2 xl:text-3xl 2xl:text-5xl">
                                         {(card.content as any).value}
                                     </p>
-                                    <p className="text-base leading-6 text-white/80">
+                                    <p className="text-base leading-6 text-white/80 xl:text-sm 2xl:text-base">
                                         {(card.content as any).label}
                                     </p>
                                     {(card.content as any).source && (
@@ -71,7 +71,7 @@ export default function CardsFlowLayoutComponent({ layout, accent }: Props) {
                                         "
                                     </div>
                                     <blockquote className="flex flex-col gap-3">
-                                        <p className="text-lg italic font-semibold leading-7 text-white">
+                                        <p className="text-lg italic font-semibold leading-7 text-white xl:text-base 2xl:text-lg">
                                             {(card.content as any).text}
                                         </p>
                                         <cite className="text-xs not-italic uppercase tracking-widest text-white/60">
@@ -90,7 +90,7 @@ export default function CardsFlowLayoutComponent({ layout, accent }: Props) {
                                         {(card.content as any).items.map((bullet: any, idx: number) => (
                                             <li key={idx} className="flex items-start gap-3">
                                                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: accent }} />
-                                                <p className="text-base leading-5 text-white/85">
+                                                <p className="text-base leading-5 text-white/85 xl:text-sm 2xl:text-base">
                                                     {bullet.text}
                                                     {bullet.source && <span className="ml-1 text-xs uppercase tracking-widest text-white/50">({bullet.source})</span>}
                                                 </p>
