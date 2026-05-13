@@ -46,7 +46,7 @@ function RadialFormatsChart({ items, accent, title }: { items: NewspaperColumnIt
   return (
     <div className="flex flex-col gap-4">
       <p
-        className="text-lg font-black leading-none tracking-tight md:text-xl"
+        className="text-base font-black leading-none tracking-tight md:text-lg xl:text-base 2xl:text-xl"
         style={{
           background: `linear-gradient(to right, ${accent}, #7774FF)`,
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", color: "transparent",
@@ -54,7 +54,7 @@ function RadialFormatsChart({ items, accent, title }: { items: NewspaperColumnIt
       >
         {title}
       </p>
-      <ChartContainer config={{ value: { label: "Taux" } }} className="h-40 w-full md:h-44">
+      <ChartContainer config={{ value: { label: "Taux" } }} className="h-40 w-full md:h-32">
         <RadialBarChart data={chartData} innerRadius="30%" outerRadius="100%" startAngle={90} endAngle={-270}>
           <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
           <RadialBar dataKey="value" background={{ fill: "rgba(255,255,255,0.06)" }} cornerRadius={4} />
@@ -65,8 +65,8 @@ function RadialFormatsChart({ items, accent, title }: { items: NewspaperColumnIt
         {items.map((item, i) => (
           <div key={i} className="flex items-center gap-2">
             <div className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: colors[i] }} />
-            <span className="text-sm text-white/50 flex-1 md:text-base">{item.text}</span>
-            <span className="text-sm font-bold md:text-base" style={{ color: colors[i] }}>{item.label}</span>
+            <span className="text-sm text-white/50 flex-1 md:text-sm xl:text-xs 2xl:text-base">{item.text}</span>
+            <span className="text-sm font-bold md:text-sm xl:text-xs 2xl:text-base" style={{ color: colors[i] }}>{item.label}</span>
           </div>
         ))}
       </div>
@@ -76,17 +76,17 @@ function RadialFormatsChart({ items, accent, title }: { items: NewspaperColumnIt
 
 export default function NewspaperLayout({ layout, accent }: Props) {
   return (
-    <div className="py-12 md:py-20">
+    <div className="py-12 md:py-20 xl:py-14 2xl:py-20">
       <div className="mx-auto w-full px-4 sm:max-w-[90%] md:max-w-[82%]">
 
         <p className="text-xs font-semibold uppercase tracking-[0.5em]" style={{ color: accent }}>
           {layout.kicker}
         </p>
 
-        <h2 className="big-text mt-4 text-2xl leading-tight text-white sm:text-3xl md:mt-5 md:text-5xl">
+        <h2 className="big-text mt-4 text-2xl leading-tight text-white sm:text-3xl md:mt-5 md:text-4xl xl:text-3xl 2xl:text-5xl">
           {layout.headline}
         </h2>
-        <h2 className="big-text mt-2 text-2xl leading-tight text-white sm:text-3xl md:mt-5 md:text-5xl">
+        <h2 className="big-text mt-2 text-2xl leading-tight text-white sm:text-3xl md:mt-5 md:text-4xl xl:text-3xl 2xl:text-5xl">
           {layout.subheadline}
         </h2>
 
@@ -95,7 +95,7 @@ export default function NewspaperLayout({ layout, accent }: Props) {
             <div className="pointer-events-none absolute inset-0" style={{ backgroundColor: accent, opacity: 0.13 }} />
             <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-1 rounded-full" style={{ backgroundColor: accent }} />
             <blockquote className="relative">
-              <p className="text-lg leading-snug text-white italic md:text-xl">
+              <p className="text-base leading-snug text-white italic md:text-lg xl:text-base 2xl:text-xl">
                 {layout.pullQuote.text}
               </p>
               <cite className="mt-3 block text-xs not-italic font-semibold uppercase tracking-[0.4em] md:mt-4" style={{ color: accent }}>
@@ -120,7 +120,7 @@ export default function NewspaperLayout({ layout, accent }: Props) {
 
               {col.stat && (
                 <p
-                  className="text-5xl font-black leading-none tracking-tight md:text-7xl"
+                  className="text-5xl font-black leading-none tracking-tight md:text-5xl xl:text-4xl 2xl:text-7xl"
                   style={{
                     background: `linear-gradient(to bottom, ${accent}, #7774FF)`,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", color: "transparent",
@@ -133,7 +133,7 @@ export default function NewspaperLayout({ layout, accent }: Props) {
               {col.items ? (
                 <RadialFormatsChart items={col.items} accent={accent} title={col.content} />
               ) : (
-                <p className="text-sm leading-7 text-white/65 md:text-base md:leading-8">{col.content}</p>
+                <p className="text-sm leading-7 text-white/65 md:text-sm xl:text-xs 2xl:text-base md:leading-8">{col.content}</p>
               )}
 
               {col.source && (

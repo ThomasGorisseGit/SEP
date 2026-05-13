@@ -270,12 +270,12 @@ export const tendencies: Tendency[] = [
         },
       },
       {
-        index: "2.4",
+        index: "2.3",
         title: "Le micro-learning et la fréquence comme facteurs clés d'ancrage",
         description: "Moins, mais plus souvent. C'est le principe contre-intuitif que documente Beauceron 2025 : un module de 3,5 minutes espacé de 90 jours est plus efficace qu'une session annuelle. Au-delà d'un certain seuil, la formation sature et produit l'effet inverse. La fréquence devient alors aussi importante que le contenu.",
         layout: {
           type: "newspaper",
-          kicker: "Sous-tendance 2.4",
+          kicker: "Sous-tendance 2.3",
           headline: "Fréquence, durée et formats :",
           subheadline: " les vrais leviers de la sensibilisation",
           columns: [

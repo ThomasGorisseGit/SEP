@@ -48,7 +48,7 @@ export default function TiltedCardsLayout({ layout, accent }: Props) {
               {layout.kicker}
             </p>
 
-            <h2 className="big-text mt-4 text-4xl leading-[1.05] text-white md:text-5xl">
+            <h2 className="big-text mt-4 text-4xl leading-[1.05] text-white md:text-4xl xl:text-4xl 2xl:text-5xl">
               {layout.headline}
             </h2>
           </div>
@@ -104,7 +104,7 @@ export default function TiltedCardsLayout({ layout, accent }: Props) {
                       transition: "background-color 0.35s ease, border-color 0.35s ease",
                     }}
                   >
-                    <h3 className="big-text text-4xl leading-snug text-white">
+                    <h3 className="big-text text-2xl leading-snug text-white xl:text-2xl 2xl:text-4xl">
                       {card.title}
                     </h3>
 
@@ -113,7 +113,7 @@ export default function TiltedCardsLayout({ layout, accent }: Props) {
                       style={{ backgroundColor: isHovered ? accent : "rgba(255,255,255,0.12)" }}
                     />
 
-                    <p className="text-lg leading-6 text-white/65 mb-10">
+                    <p className="text-sm leading-5 text-white/65 mb-10 xl:text-xs 2xl:text-lg 2xl:leading-6">
                       {card.content}
                     </p>
 
