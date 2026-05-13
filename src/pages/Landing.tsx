@@ -41,7 +41,7 @@ export default function Landing() {
                                     Léa jiner
                                 </motion.p>
                                 <motion.h1
-                                    className="text-4xl leading-tight text-white sm:text-5xl md:text-7xl big-text"
+                                    className="text-4xl leading-tight text-white sm:text-5xl md:text-6xl xl:text-5xl 2xl:text-7xl big-text"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.15, duration: 0.7, ease }}
@@ -49,7 +49,7 @@ export default function Landing() {
                                     Cahier de tendances
                                 </motion.h1>
                                 <motion.p
-                                    className="mt-5 max-w-2xl text-base leading-7 text-white/65 sm:text-lg md:text-2xl md:leading-8"
+                                    className="mt-5 max-w-2xl text-base leading-7 text-white/65 sm:text-lg md:text-xl xl:text-lg 2xl:text-2xl md:leading-8"
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3, duration: 0.6, ease }}
@@ -64,7 +64,7 @@ export default function Landing() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.5, duration: 0.9, ease }}
                         >
-                            <img src={image} className="relative mx-auto max-w-sm lg:max-w-lg float-img" />
+                            <img src={image} className="relative mx-auto xl:max-w-xs 2xl:max-w-lg float-img" />
                         </motion.div>
                     </div>
 
@@ -81,15 +81,15 @@ export default function Landing() {
                                     hidden: { opacity: 0, y: 24 },
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease } }
                                 }}
-                                className="flex min-h-50 flex-col justify-between rounded-2xl border px-4 py-4 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5 lg:min-h-75"
+                                className="flex min-h-50 flex-col justify-between rounded-2xl border px-4 py-4 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5 lg:min-h-60 2xl:min-h-75"
                                 style={{ backgroundColor: card.accent, borderColor: card.accent, color: "#151515" }}
                             >
                                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: "rgba(21,21,21,0.7)" }}>
                                     {card.index}
                                 </div>
-                                <div className="flex flex-col gap-6 md:gap-10 flex-1">
-                                    <div className="text-xl font-light leading-snug big-text md:text-2xl">{card.title}</div>
-                                    <div className="text-sm leading-snug md:text-base">{card.subtitle}</div>
+                                <div className="flex flex-col gap-4 md:gap-6 2xl:gap-10 flex-1">
+                                    <div className="text-base font-light leading-snug big-text md:text-lg xl:text-base 2xl:text-2xl">{card.title}</div>
+                                    <div className="text-xs leading-snug md:text-sm xl:text-xs 2xl:text-base">{card.subtitle}</div>
                                 </div>
                                 <div className="mt-3 flex items-center w-full justify-center text-sm font-semibold uppercase tracking-normal" style={{ color: "rgba(21,21,21,0.78)" }}>
                                     Découvrir {card.count}

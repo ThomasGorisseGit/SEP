@@ -35,7 +35,7 @@ export default function ThemePage({
       <img
         src={image}
         alt=""
-        className="hidden w-full max-w-[18rem] sm:max-w-sm lg:max-w-lg lg:block float-img"
+        className="hidden m-auto w-full max-w-[18rem] sm:max-w-sm lg:max-w-sm xl:max-w-xs 2xl:max-w-lg lg:block float-img"
       />
     </motion.div>
   )
@@ -53,7 +53,7 @@ export default function ThemePage({
       </motion.div>
 
       <motion.h2
-        className="text-4xl big-text leading-tight text-white md:text-5xl"
+        className="text-4xl big-text leading-tight text-white md:text-5xl xl:text-4xl 2xl:text-5xl"
         initial={{ opacity: 0, y: 24 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
         transition={{ duration: 0.6, ease, delay: 0.1 }}
@@ -62,7 +62,7 @@ export default function ThemePage({
       </motion.h2>
 
       <motion.p
-        className="text-lg leading-8 text-white/70 md:text-2xl"
+        className="text-lg leading-8 text-white/70 md:text-base xl:text-base 2xl:text-2xl"
         initial={{ opacity: 0, y: 18 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
         transition={{ duration: 0.6, ease, delay: 0.2 }}
