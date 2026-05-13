@@ -61,7 +61,7 @@ export default function SubTendancyPage({ id, subTendancy, accent, background, t
             Tendance {tendencyIndex}
           </motion.span>
           <motion.h2
-            className="text-3xl xl:text-4xl big-text leading-tight"
+            className="text-3xl xl:text-3xl 2xl:text-4xl big-text leading-tight"
             style={{ color: "rgba(255,255,255,0.11)" }}
             initial={{ opacity: 0, y: 20 }}
             animate={isIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -80,7 +80,7 @@ export default function SubTendancyPage({ id, subTendancy, accent, background, t
             Tendance {tendencyIndex}
           </span>
           <motion.span
-            className="text-xl font-semibold uppercase tracking-[0.35em] mb-5 text-white"
+            className="text-base font-semibold uppercase tracking-[0.35em] mb-5 text-white xl:text-sm 2xl:text-xl"
             initial={{ opacity: 0, y: 12 }}
             animate={isIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             transition={{ duration: 0.5, ease }}
@@ -88,7 +88,7 @@ export default function SubTendancyPage({ id, subTendancy, accent, background, t
             Sous-tendance
           </motion.span>
           <motion.span
-            className="text-3xl big-text leading-none shrink-0 sm:text-4xl md:text-6xl mb-6"
+            className="text-3xl big-text leading-none shrink-0 sm:text-4xl md:text-5xl xl:text-4xl 2xl:text-6xl mb-6"
             style={{ color: accent }}
             initial={{ opacity: 0, y: 30 }}
             animate={isIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -108,7 +108,7 @@ export default function SubTendancyPage({ id, subTendancy, accent, background, t
             transition={{ duration: 0.5, ease, delay: 0.2 }}
           />
           <motion.h3
-            className="text-4xl md:text-5xl xl:text-6xl big-text leading-tight text-white mb-5"
+            className="text-4xl md:text-5xl xl:text-4xl 2xl:text-6xl big-text leading-tight text-white mb-5"
             initial={{ opacity: 0, y: 24 }}
             animate={isIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
             transition={{ duration: 0.65, ease, delay: 0.25 }}
@@ -127,7 +127,7 @@ export default function SubTendancyPage({ id, subTendancy, accent, background, t
             transition={{ duration: 0.5, ease, delay: 0.35 }}
           />
           <motion.p
-            className="text-base md:text-lg leading-8 text-white/55 max-w-3xl"
+            className="text-base md:text-base xl:text-sm 2xl:text-lg leading-8 text-white/55 max-w-3xl"
             initial={{ opacity: 0, y: 14 }}
             animate={isIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
             transition={{ duration: 0.6, ease, delay: 0.4 }}
