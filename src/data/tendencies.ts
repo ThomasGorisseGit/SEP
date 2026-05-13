@@ -36,7 +36,7 @@ export const overviewCards = [
   {
     index: "05",
     title: "La cyber sort de l'entreprise",
-    subtitle: "la vie personnelle d'un individu devient une nouvelle surface d'attaque",
+    subtitle: "La vie personnelle d'un individu devient une nouvelle surface d'attaque",
     desc: "Les frontières pro/perso ont disparu. Désinformation, manipulation algorithmique, canaux privés : la cyber devient une compétence de vie, pas seulement professionnelle.",
     count: "3 sous-tendances",
     accent: "#e2f163",
@@ -77,7 +77,7 @@ export const tendencies: Tendency[] = [
             },
           ],
           rightCard: {
-            title: "Ce que l'on comprend",
+            title: "Le saviez-vous ?",
             paragraphs: [
               "L'IA réduit la préparation d'une cyberattaque de plusieurs jours à quelques minutes (ESET).",
               "Les modèles LLM commerciaux et des modèles détournés comme WormGPT ou FraudGPT automatisent l'ingénierie sociale (ENISA).",
@@ -88,14 +88,14 @@ export const tendencies: Tendency[] = [
       {
         index: "1.2",
         title: "La diversification des canaux email, SMS, voix, image",
-        description: "Le phishing ne passe plus uniquement par l'email. On parle désormais de smishing (hameçonnage par SMS), vishing (hameçonnage vocal), quishing (via les QR codes), injections dans les calendriers, deepfakes audio ou vidéo, où chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants.",
+        description: "Le phishing ne passe plus uniquement par l'email. On parle désormais de smishing (hameçonnage par SMS), vishing (hameçonnage vocal), quishing (hameçonnage via les QR codes), injections dans les calendriers, deepfakes audio ou vidéo. Chaque canal devient un vecteur potentiel, y compris ceux où les collaborateurs sont le moins vigilants.",
         layout: {
           type: "vertical-bands",
           bands: [
             {
               color: "#7774FF",
               position: "top",
-              content: { type: "stat", value: "25M$", label: "de dollars transférés frauduleusement à cause d'un deepfake vocal de la part d'un dirigeant d'entreprise", source: "WEF" },
+              content: { type: "stat", value: "25M", label: "de dollars transférés frauduleusement à cause d'un deepfake vocal de la part d'un dirigeant d'entreprise", source: "WEF" },
             },
             {
               color: "#AA96F8",
@@ -146,7 +146,7 @@ export const tendencies: Tendency[] = [
             {
               textColor:"white",
               color: "#AA96F8",
-              content: { type: "stat", value: "4,6h", label: "temps médian pour cliquer sur un phishing après sa réception par email" },
+              content: { type: "stat", value: "4,6h", label: "le temps médian pour cliquer sur un phishing après sa réception par email" },
             },
             {
               color: "#7774FF",              
@@ -175,7 +175,7 @@ export const tendencies: Tendency[] = [
           cards: [
             {
               color: "#7774FF",
-              content: { type: "stat", value: "325", label: "programmes sur 2 700 sont au stade de l'« optimisation » de leurs programmes de senibilisation. C'est-à-dire qu'ils ont atteint le stade de la vraie culture cyber", source: "SANS" },
+              content: { type: "stat", value: "325", label: "programmes de sensibilisation sur 2 700 sont au stade de l'« optimisation ». C'est-à-dire qu'ils ont atteint le stade de la véritable culture cyber", source: "SANS" },
               summary: "Des programmes d'excellence encore rares",
             },
             {
@@ -208,7 +208,7 @@ export const tendencies: Tendency[] = [
               content: {
                 type: "bullets",
                 items: [
-                  { text: "Le Security Behavior & Culture Program (SBCP) marque une rupture avec le Security Awareness Training classique. Là où le SAT transmet une information (« voilà le risque, voilà ce qu'il faut faire »), le SBCP reconnaît que la connaissance ne suffit pas à déclencher l'action. L'enjeu n'est plus d'informer, mais de motiver pour rendre la sécurité désirable et naturelle dans le quotidien des collaborateurs.", source: "Beauceron" },
+                  { text: "Le Security Behavior & Culture Program (SBCP) marque une rupture avec le Security Awareness Training (SAT) classique. Là où le SAT transmet une information (« voilà le risque, voilà ce qu'il faut faire »), le SBCP reconnaît que la connaissance ne suffit pas à déclencher l'action. L'enjeu n'est plus d'informer, mais de motiver pour rendre la sécurité désirable et naturelle dans le quotidien des collaborateurs.", source: "Beauceron" },
                 ],
               },
               summary: "Ce que ça change en pratique",
@@ -318,7 +318,7 @@ export const tendencies: Tendency[] = [
       {
         index: "3.1",
         title: "Les agents IA autonomes comme nouvelle catégorie de menace",
-        description: "Les agents IA peuvent désormais prendre des décisions tactiques de manière autonome telles qu'identifier des vulnérabilités, adapter des attaques en temps réel, ou encore naviguer dans les réseaux sans intervention humaine. Il devient donc de plus en plus difficile pour les défenseurs de réagir aussi rapidement que l'attaque.",
+        description: "Les agents IA peuvent désormais prendre des décisions tactiques de manière autonome telles qu'identifier des vulnérabilités, adapter des attaques en temps réel, ou encore naviguer dans les réseaux sans intervention humaine. Il devient donc de plus en plus difficile pour les défenseurs de réagir aussi rapidement que les attaques.",
         layout: {
           type: "four-plus-two",
           topCards: [
@@ -393,7 +393,7 @@ export const tendencies: Tendency[] = [
       {
         index: "3.2",
         title: "Mythos : quand l'outil IA a le potentiel de devenir une arme offensive de grande ampleur",
-        description: "Claude Mythos Preview (Anthropic, avril 2026) illustre de façon saisissante le dilemme central de l'IA en cybersécurité. C'est un modèle de LLM conçu pour détecter des vulnérabilités mais il peut devenir l'outil d'exploitation le plus puissant jamais créé, s'il est entre de mauvaises mains. L'IA est désormais à la fois la meilleure défense et la pire des menaces.",
+        description: "Claude Mythos Preview d'Anthropic illustre de façon saisissante le dilemme central de l'IA en cybersécurité. C'est un modèle de LLM conçu pour détecter des vulnérabilités mais il peut devenir l'outil d'exploitation le plus puissant jamais créé, s'il est entre de mauvaises mains. L'IA est désormais à la fois la meilleure défense et la pire des menaces.",
         layout: {
           type: "vertical-bands-inverted",
           bands: [
@@ -429,15 +429,15 @@ export const tendencies: Tendency[] = [
           ],
           bullets: [
             {
-              text: "Mythos a trouvé des zero-days dans tous les OS et navigateurs majeurs, dont un bug vieux de 27 ans dans OpenBSD — de manière totalement autonome, sur simple prompt",
+              text: "Mythos a trouvé des zero-days dans tous les OS et navigateurs majeurs, dont un bug vieux de 27 ans dans OpenBSD, de manière totalement autonome, sur simple prompt",
               source: "red.anthropic.com",
             },
             {
-              text: "99%+ des vulnérabilités découvertes non encore patchées au moment de la découverte — des ingénieurs sans formation sécurité ont pu générer des exploits fonctionnels",
+              text: "+99% des vulnérabilités découvertes non encore patchées au moment de la découverte, des ingénieurs sans formation sécurité ont pu générer des exploits fonctionnels",
               source: "CETaS / Turing",
             },
             {
-              text: "Project Glasswing : AWS, Apple, Google, Microsoft, NVIDIA utilisent Mythos pour sécuriser leurs logiciels — mais le même outil serait une arme redoutable en mains malveillantes",
+              text: "Projet Glasswing : AWS, Apple, Google, Microsoft, NVIDIA utilisent Mythos pour sécuriser leurs logiciels, mais le même outil serait une arme redoutable en mains malveillantes",
               source: "The Hacker News",
             },
           ],
@@ -446,7 +446,7 @@ export const tendencies: Tendency[] = [
       {
         index: "3.3",
         title: "L'IA comme multiplicateur de force pour toutes les équipes cyber",
-        description: "Face à la pénurie de talents et à la vitesse d'évolution des menaces, l'IA générative devient le multiplicateur de force indispensable pour l'ensemble des équipes cyber.",
+        description: "Face à la pénurie de talents et à la vitesse d'évolution des menaces, l'IA générative devient le multiplicateur de force indispensable pour l'ensemble des équipes en cybersécurité.",
         layout: {
           type: "bento",
           cards: [
@@ -483,7 +483,7 @@ export const tendencies: Tendency[] = [
                 type: "bullets",
                 items: [
                   {
-                    text: "L'IA accélère la détection, le triage des alertes, l'analyse CTI, la réponse à incident et la génération de contenus de sensibilisation. Toutes les équipes cyber sont concernées ",
+                    text: "L'IA accélère la détection, le triage des alertes, l'analyse CTI, la réponse à incident et la génération de contenus de sensibilisation. Toutes les équipes sont concernées",
                     source: "SANS, Beauceron",
                   },
                   {
