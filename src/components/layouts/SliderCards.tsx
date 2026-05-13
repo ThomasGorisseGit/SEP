@@ -56,8 +56,8 @@ function MainContent({ content, accent }: { content: CardContent; accent: string
   if (content.type === "stat") {
     return (
       <div className="flex flex-col items-center text-center gap-4">
-        <span className="big-text text-8xl leading-none" style={{ color: "rgba(21,21,21,0.85)" }}>{content.value}</span>
-        <p className="text-base leading-6 py-4" style={{ color: "rgba(21,21,21,0.6)" }}>{content.label}</p>
+        <span className="big-text text-6xl leading-none xl:text-5xl 2xl:text-8xl" style={{ color: "rgba(21,21,21,0.85)" }}>{content.value}</span>
+        <p className="text-sm leading-6 py-4 xl:text-xs 2xl:text-base" style={{ color: "rgba(21,21,21,0.6)" }}>{content.label}</p>
         {content.source && (
           <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.4)" }}>{content.source}</p>
         )}
@@ -66,7 +66,7 @@ function MainContent({ content, accent }: { content: CardContent; accent: string
   }
   if (content.type === "quote") {
     return (
-      <blockquote className="text-xl leading-8 italic font-bold text-center px-4" style={{ color: "rgba(21,21,21,0.85)" }}>
+      <blockquote className="text-base leading-7 italic font-bold text-center px-4 xl:text-sm 2xl:text-xl xl:leading-6 2xl:leading-8" style={{ color: "rgba(21,21,21,0.85)" }}>
         {content.text}
         <p className="mt-4 text-xs not-italic font-semibold uppercase tracking-widest" style={{ color: "rgba(21,21,21,0.45)" }}>
           {content.source}
@@ -77,8 +77,8 @@ function MainContent({ content, accent }: { content: CardContent; accent: string
   if (content.type === "percentage-chart") {
     return (
       <div className="flex flex-col items-center text-center gap-4">
-        <span className="big-text text-8xl leading-none" style={{ color: "rgba(21,21,21,0.85)" }}>{content.value}%</span>
-        <p className="text-base leading-6" style={{ color: "rgba(21,21,21,0.6)" }}>{content.label}</p>
+        <span className="big-text text-6xl leading-none xl:text-5xl 2xl:text-8xl" style={{ color: "rgba(21,21,21,0.85)" }}>{content.value}%</span>
+        <p className="text-sm leading-6 xl:text-xs 2xl:text-base" style={{ color: "rgba(21,21,21,0.6)" }}>{content.label}</p>
       </div>
     )
   }
@@ -168,19 +168,19 @@ export default function SliderCards({ layout, accent }: Props) {
         {extended.map((card, i) => (
           <div
             key={i}
-            className="flex shrink-0 flex-col overflow-hidden rounded-3xl"
-            style={{ width: "32%", scrollSnapAlign: "start", minHeight: "72vh" }}
+            className="flex shrink-0 flex-col overflow-hidden rounded-2xl 2xl:rounded-3xl min-h-[62vh] 2xl:min-h-[72vh]"
+            style={{ width: "32%", scrollSnapAlign: "start" }}
           >
             <div
-              className="px-8 py-6"
+              className="px-5 py-4 2xl:px-8 2xl:py-6"
               style={{ backgroundColor: card.color, borderBottom: "1px solid rgba(21,21,21,0.12)" }}
             >
-              <p className="big-text text-lg leading-snug" style={{ color: "rgba(21,21,21,0.82)" }}>
+              <p className="big-text text-base leading-snug xl:text-sm 2xl:text-lg" style={{ color: "rgba(21,21,21,0.82)" }}>
                 {card.summary}
               </p>
             </div>
             <div
-              className="relative flex flex-1 flex-col items-center justify-center p-8"
+              className="relative flex flex-1 flex-col items-center justify-center p-5 2xl:p-8"
               style={{ backgroundColor: card.color }}
             >
               <div className="pointer-events-none absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.1)" }} />

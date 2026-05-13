@@ -17,7 +17,7 @@ function CardView({ content, accent, dark, textColor }: { content: CardContent; 
   if (content.type === "stat") {
     return (
       <div className="flex flex-col items-center justify-center text-center gap-2 py-6">
-        <span className="big-text text-3xl leading-none md:text-6xl" style={{ color: valueColor }}>
+        <span className="big-text text-3xl leading-none md:text-5xl xl:text-4xl 2xl:text-6xl" style={{ color: valueColor }}>
           {content.value}
         </span>
         <p className="text-xs leading-5 text-red-500 md:text-sm" style={{ color: labelColor ?? "red" }}>
@@ -47,7 +47,7 @@ function CardView({ content, accent, dark, textColor }: { content: CardContent; 
             strokeLinecap="round" style={{ transition: "stroke-dashoffset 0.5s ease" }} />
         </svg>
         <div>
-          <p className="big-text text-3xl leading-none md:text-5xl" style={{ color: valueColor }}>
+          <p className="big-text text-3xl leading-none md:text-4xl xl:text-3xl 2xl:text-5xl" style={{ color: valueColor }}>
             {content.value}%
           </p>
           <p className="mt-2 text-xs leading-5 md:text-sm" style={{ color: labelColor ?? "rgba(255,255,255,0.7)" }}>
@@ -111,7 +111,7 @@ export default function ThreeColumnLayout({ layout, accent, index, title }: Prop
                 <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: accent }}>
                   Sous-tendance {index}
                 </span>
-                <h3 className="big-text mt-3 text-2xl leading-tight text-white md:text-3xl">
+                <h3 className="big-text mt-3 text-2xl leading-tight text-white md:text-3xl xl:text-2xl 2xl:text-3xl">
                   {title}
                 </h3>
               </>
@@ -133,7 +133,7 @@ export default function ThreeColumnLayout({ layout, accent, index, title }: Prop
                 {layout.middleBullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-3 md:gap-4">
                     <span className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: accent }} />
-                    <p className="text-sm leading-6 text-white/80 md:text-base md:leading-7">
+                    <p className="text-sm leading-6 text-white/80 md:text-sm xl:text-xs 2xl:text-base md:leading-7">
                       {b.text}{" "}
                       <span className="text-xs uppercase tracking-widest text-white/35">({b.source})</span>
                     </p>
