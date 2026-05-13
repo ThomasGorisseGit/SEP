@@ -10,7 +10,7 @@ function GlassCardContent({ content, accent }: { content: CardContent; accent: s
   if (content.type === "stat") {
     return (
       <div className="flex flex-row items-center justify-center gap-3 md:gap-4">
-        <span className="text-center text-3xl font-black leading-none sm:text-4xl md:text-5xl" style={{ color: accent }}>
+        <span className="text-center text-3xl font-black leading-none sm:text-4xl md:text-4xl xl:text-3xl 2xl:text-5xl" style={{ color: accent }}>
           {content.value}
         </span>
         <div className="flex flex-col gap-1">
@@ -56,9 +56,9 @@ function SolidCardContent({ content }: { content: CardContent }) {
   if (content.type === "stat") {
     return (
       <div className="flex flex-row items-center gap-3 md:gap-4">
-        <span className="text-4xl font-black leading-none md:text-7xl">{content.value}</span>
+        <span className="text-4xl font-black leading-none md:text-5xl xl:text-4xl 2xl:text-7xl">{content.value}</span>
         <div className="flex flex-col gap-1 md:gap-2">
-          <p className="text-sm leading-5 md:text-base md:leading-6">{content.label}</p>
+          <p className="text-sm leading-5 md:text-sm xl:text-xs 2xl:text-base md:leading-6">{content.label}</p>
           {content.source && (
             <p className="text-xs uppercase tracking-widest">{content.source}</p>
           )}
@@ -70,7 +70,7 @@ function SolidCardContent({ content }: { content: CardContent }) {
   if (content.type === "quote") {
     return (
       <blockquote className="flex flex-col gap-2 md:gap-3">
-        <p className="text-base leading-7 italic font-semibold md:text-xl md:leading-8">
+        <p className="text-base leading-7 italic font-semibold md:text-base xl:text-sm 2xl:text-xl 2xl:leading-8">
           "{content.text}"
         </p>
         <cite className="text-xs not-italic uppercase tracking-widest">— {content.source}</cite>
@@ -125,7 +125,7 @@ function BigCard({ card }: { card: FourPlusTwoCard }) {
       <div className="text-white flex flex-col overflow-hidden rounded-xl md:rounded-2xl">
         {card.label && (
           <div className="px-4 py-3 flex md:px-8 md:py-5" style={{ borderBottom: "1px solid rgba(21,21,21,1)" }}>
-            <p className="text-xl big-text text-graphite leading-none tracking-tight uppercase md:text-3xl">
+            <p className="text-xl big-text text-graphite leading-none tracking-tight uppercase md:text-2xl xl:text-xl 2xl:text-3xl">
               {card.label}
             </p>
           </div>
