@@ -7,7 +7,7 @@ type Props = {
 
 export default function GradientFlowLayoutComponent({ layout, accent }: Props) {
     return (
-        <div className="mx-auto w-full px-4 py-10 sm:max-w-[88%] md:py-14">
+        <div className="mx-auto w-full px-4 py-10 min-h-screen flex flex-col justify-center sm:max-w-[88%] md:py-14">
             <div className="mb-8 md:mb-12">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: `${accent}99` }}>
                     {layout.kicker}

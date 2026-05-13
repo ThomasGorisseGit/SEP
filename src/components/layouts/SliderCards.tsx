@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Bar, BarChart, XAxis, YAxis } from "recharts"
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart"
 import type { ThreeCardsLayout as ThreeCardsLayoutType, CardContent } from "@/types"
@@ -93,36 +93,79 @@ type Props = {
 export default function SliderCards({ layout, accent }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const isJumping = useRef(false)
 
-  const scroll = (dir: "left" | "right") => {
-    if (!scrollRef.current) return
-    const cardW = scrollRef.current.scrollWidth / layout.cards.length
-    const last = layout.cards.length - 1
-    if (dir === "right" && currentIndex === last) {
-      scrollRef.current.scrollTo({ left: 0, behavior: "smooth" })
-    } else if (dir === "left" && currentIndex === 0) {
-      scrollRef.current.scrollTo({ left: cardW * last, behavior: "smooth" })
-    } else {
-      scrollRef.current.scrollBy({ left: dir === "left" ? -cardW : cardW, behavior: "smooth" })
-    }
+  const cards = layout.cards
+  const N = cards.length
+  // Triple the cards: [copy1, copy2, copy3] — start in copy2 (index N)
+  // Teleport silently when entering copy1 or copy3 back to the equivalent position in copy2
+  const extended = [...cards, ...cards, ...cards]
+
+  const getStep = () => {
+    if (!scrollRef.current || scrollRef.current.children.length < 2) return 0
+    const c0 = scrollRef.current.children[0] as HTMLElement
+    const c1 = scrollRef.current.children[1] as HTMLElement
+    return c1.offsetLeft - c0.offsetLeft
   }
 
-  const handleScroll = () => {
+  const getExtIndex = () => {
+    if (!scrollRef.current) return N
+    const step = getStep()
+    if (step === 0) return N
+    return Math.round(scrollRef.current.scrollLeft / step)
+  }
+
+  const scrollToExt = (extIdx: number, smooth: boolean) => {
     if (!scrollRef.current) return
-    const cardW = scrollRef.current.scrollWidth / layout.cards.length
-    setCurrentIndex(Math.round(scrollRef.current.scrollLeft / cardW))
+    const child = scrollRef.current.children[extIdx] as HTMLElement
+    if (!child) return
+    scrollRef.current.scrollTo({ left: child.offsetLeft, behavior: smooth ? "smooth" : "instant" })
+  }
+
+  // Start at first card of copy2 (extIndex N)
+  useEffect(() => {
+    if (!scrollRef.current) return
+    const child = scrollRef.current.children[N] as HTMLElement
+    if (child) scrollRef.current.scrollLeft = child.offsetLeft
+  }, [N])
+
+  const handleScroll = () => {
+    if (!scrollRef.current || isJumping.current) return
+    const extIdx = getExtIndex()
+    setCurrentIndex(extIdx % N)
+
+    if (scrollTimeout.current) clearTimeout(scrollTimeout.current)
+    scrollTimeout.current = setTimeout(() => {
+      if (!scrollRef.current) return
+      const idx = getExtIndex()
+      // If in copy1 (idx < N), teleport to same card in copy2
+      // If in copy3 (idx >= 2N), teleport to same card in copy2
+      if (idx < N) {
+        isJumping.current = true
+        scrollToExt(idx + N, false)
+        setTimeout(() => { isJumping.current = false }, 50)
+      } else if (idx >= 2 * N) {
+        isJumping.current = true
+        scrollToExt(idx - N, false)
+        setTimeout(() => { isJumping.current = false }, 50)
+      }
+    }, 100)
+  }
+
+  const scroll = (dir: "left" | "right") => {
+    scrollToExt(getExtIndex() + (dir === "right" ? 1 : -1), true)
   }
 
   return (
     <div className="mx-auto flex min-h-screen max-w-[90%] flex-col justify-center gap-6 py-14">
-      {/* Cartes scrollables */}
       <div
         ref={scrollRef}
         onScroll={handleScroll}
         className="flex gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden"
         style={{ scrollSnapType: "x mandatory", scrollbarWidth: "none" }}
       >
-        {layout.cards.map((card, i) => (
+        {extended.map((card, i) => (
           <div
             key={i}
             className="flex shrink-0 flex-col overflow-hidden rounded-3xl"
@@ -149,7 +192,6 @@ export default function SliderCards({ layout, accent }: Props) {
         ))}
       </div>
 
-      {/* Barre de navigation bas */}
       <div className="flex items-center gap-4">
         <button
           onClick={() => scroll("left")}
@@ -161,7 +203,7 @@ export default function SliderCards({ layout, accent }: Props) {
           </svg>
         </button>
         <div className="flex flex-1 items-center gap-2">
-          {layout.cards.map((_, i) => (
+          {cards.map((_, i) => (
             <div
               key={i}
               className="h-0.75 flex-1 rounded-full transition-all duration-300"

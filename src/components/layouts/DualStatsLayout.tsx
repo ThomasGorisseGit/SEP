@@ -17,7 +17,7 @@ export default function DualStatsLayoutComponent({ layout, accent }: Props) {
     const bulletSourceColor = layout.bullets.textColor ?? "rgba(255,255,255,0.4)"
 
     return (
-        <div className="mx-auto w-full px-4 py-10 sm:max-w-[88%] md:py-14">
+        <div className="mx-auto w-full flex flex-col min-h-screen justify-center px-4 py-10 sm:max-w-[88%] md:py-14">
             {/* Dual Stats */}
             <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mb-12 md:gap-8">
                 <div
