@@ -54,7 +54,7 @@ export default function Landing() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3, duration: 0.6, ease }}
                                 >
-                                    Ce cahier tire des tendances d'une synthèse de veille comprenant environ 70 articles/site web et 5 rapports sectoriels
+                                    Mon cahier de tendances se présente sous la forme d'un site web destiné à extraire des tendances d'une synthèse de veille intégrant 65 articles, pages internet, ouvrages, ainsi que 5 rapports sectoriels actuels.
                                 </motion.p>
                             </div>
                         </motion.div>
